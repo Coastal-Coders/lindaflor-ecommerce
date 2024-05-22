@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import BaseError from 'errors/BaseError';
+import BaseError from '@/errors/BaseError';
 
 export default function errorHandler(
   error: any, // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -9,7 +9,7 @@ export default function errorHandler(
 ) {
   console.log({
     url: request.url,
-    ...error
+    ...error,
   });
 
   if (error instanceof BaseError) {
@@ -17,7 +17,7 @@ export default function errorHandler(
       message: error.message,
       type: error.type,
       name: error.name,
-      errors: error.errors
+      errors: error.errors,
     };
 
     if (error.errors.length !== 0) {

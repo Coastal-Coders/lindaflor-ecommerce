@@ -24,7 +24,7 @@ module.exports = {
         huge: '6.4rem',
       },
       colors: {
-        bkg: '#7dd3fc',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
       },
       spacing: {
         xxxsmall: '0.8rem',
