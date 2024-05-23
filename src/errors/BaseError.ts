@@ -18,7 +18,7 @@ export default class BaseError extends Error {
     message,
     type = 'base_error',
     errors = [],
-    stack = ''
+    stack = '',
   }: ErrorType) {
     super(message);
 

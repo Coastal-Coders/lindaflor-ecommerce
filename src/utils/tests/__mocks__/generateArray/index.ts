@@ -6,7 +6,7 @@ function generateArray() {
     .split('')
     .map(() => ({
       id: faker.datatype.uuid(),
-      name: faker.random.word()
+      name: faker.random.word(),
     }));
 }
 

@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createRouter } from 'next-connect';
 
-import cors from 'cors';
 import cache from '@/middlewares/cache.middleware';
 import onError from '@/middlewares/errorHandler.middleware';
 import logger from '@/middlewares/logger.middleware';
+import cors from 'cors';
 
 const corsDefaultConfiguration = {
   origin: '*',

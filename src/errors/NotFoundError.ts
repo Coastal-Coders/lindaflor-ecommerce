@@ -6,7 +6,7 @@ export default class NotFoundError extends BaseError {
     name = 'NotFoundError',
     message,
     type = 'not_found',
-    errors = []
+    errors = [],
   }: ErrorType) {
     super({ message });
 

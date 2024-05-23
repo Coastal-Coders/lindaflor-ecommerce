@@ -6,7 +6,7 @@ export default class InternalError extends BaseError {
     name = 'InternalError',
     message,
     type = 'internal',
-    errors = []
+    errors = [],
   }: ErrorType) {
     super({ message });
 

@@ -6,7 +6,7 @@ export default class BadRequestError extends BaseError {
     message,
     name = 'BadRequestError',
     type = 'bad_request',
-    errors = []
+    errors = [],
   }: ErrorType) {
     super({ message });
 

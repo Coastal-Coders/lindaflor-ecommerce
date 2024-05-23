@@ -6,10 +6,7 @@ beforeEach(() => {
 
 describe('getStorageItem()', () => {
   it('should return the item from localStorage', () => {
-    window.localStorage.setItem(
-      `${APP_KEY}_cartItems`,
-      JSON.stringify(['1', '2'])
-    );
+    window.localStorage.setItem(`${APP_KEY}_cartItems`, JSON.stringify(['1', '2']));
 
     expect(getStorageItem('cartItems')).toStrictEqual(['1', '2']);
   });

@@ -5,12 +5,11 @@ export default function logger(
   response: NextApiResponse,
   next: () => void
 ) {
-  const clientIp =
-    request.headers['x-forwarded-for'] || request.socket.remoteAddress;
+  const clientIp = request.headers['x-forwarded-for'] || request.socket.remoteAddress;
 
   console.log({
     url: request.url,
-    clientIp
+    clientIp,
   });
 
   return next();

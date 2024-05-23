@@ -9,16 +9,11 @@ type MinNumberProps = number | undefined | null;
  * @param max must be greater than min
  * @returns number
  */
-function randomNumberFromInterval(
-  min: MinNumberProps,
-  max: MaxNumberProps
-): number {
+function randomNumberFromInterval(min: MinNumberProps, max: MaxNumberProps): number {
   const maxNumber = max ?? 1;
   const minNumber = min ?? 0;
 
-  const number = Math.floor(
-    Math.random() * (maxNumber - minNumber + 1) + minNumber
-  );
+  const number = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
 
   return number;
 }

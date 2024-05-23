@@ -9,7 +9,7 @@ describe('checkObjectIsEmpty', () => {
 
   it('should return false when object is not empty', () => {
     const object = {
-      name: 'name'
+      name: 'name',
     };
 
     expect(checkObjectIsEmpty(object)).toEqual(false);
