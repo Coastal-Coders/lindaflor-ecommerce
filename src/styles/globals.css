@@ -34,7 +34,18 @@
   }
 
   :root {
-    --color-primary: 155 237 255;
+    --color-background: 149 236 226;
+    --color-content: 0 0 0;
+    --color-primary: 146 120 42;
+    --color-secondary: 68 117 231;
+    --color-tertiary: 15 208 230;
+  }
+  .dark {
+    --color-background: 45 45 45;
+    --color-content: 255 255 255;
+    --color-primary: 146 120 42;
+    --color-secondary: 68 117 231;
+    --color-tertiary: 15 208 230;
   }
 
   * {
@@ -51,7 +62,7 @@
   }
 
   body {
-    background-color: rgb(var(--color-primary));
+    background-color: rgb(var(--color-background));
   }
 
   body,
