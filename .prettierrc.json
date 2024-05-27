@@ -11,7 +11,7 @@
   "arrowParens": "always",
   "endOfLine": "auto",
   "printWidth": 100,
-  "tailwindConfig": "./tailwind.config.js",
+  "tailwindConfig": "./tailwind.config.ts",
   "pluginSearchDirs": false,
   "plugins": ["prettier-plugin-tailwindcss"]
 }

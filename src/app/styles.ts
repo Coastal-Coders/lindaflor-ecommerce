@@ -4,6 +4,6 @@ export const Test = styled.div`
   p-4
   text-center
   text-2xl
-  text-content
+  text-tertiary
   shadow-sm
 `;

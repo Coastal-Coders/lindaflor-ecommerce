@@ -6,7 +6,7 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   compiler: {
-    styledComponents: true,
+    // styledComponents: true,
     removeConsole: {
       exclude: ['error'],
     },

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { ThemeProvider } from '@/utils/theme/theme-provider';
+
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -12,26 +14,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Set theme on page load to avoid flash of unstyled content (FOUC)
-  const themeScript = `
-  (function() {
-    const theme = localStorage.getItem('theme');
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  })();
-  `;
   return (
     <html
       lang='pt-BR'
-      className=''
+      suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider attribute='class'>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

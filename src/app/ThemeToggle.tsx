@@ -1,6 +1,6 @@
 'use client';
 
-import useTheme from './useTheme';
+import useTheme from '@/utils/theme/useTheme';
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
@@ -9,10 +9,11 @@ const ThemeToggle = () => {
     { icon: 'L', text: 'light' },
     { icon: 'D', text: 'dark' },
     { icon: 'S', text: 'system' },
+    { icon: 'O', text: 'orange' },
   ];
 
   return (
-    <div className='fixed right-10 top-5 rounded-lg bg-secondary'>
+    <div className='fixed right-10 top-5 rounded-lg bg-primary'>
       {options?.map((opt) => (
         <button
           key={opt.text}
