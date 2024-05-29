@@ -1,5 +1,4 @@
 import { APP_KEY } from '@/utils/localStorage';
-
 import { checkUserAuthenticated } from '.';
 
 beforeEach(() => {

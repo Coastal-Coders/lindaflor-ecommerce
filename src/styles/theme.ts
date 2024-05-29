@@ -4,25 +4,63 @@ const themePlugin = plugin(
   function ({ addBase }) {
     addBase({
       ':root': {
-        '--color-background': '149 236 226',
-        '--color-content': '0 0 0',
-        '--color-primary': '146 120 42',
-        '--color-secondary': '68 117 231',
-        '--color-tertiary': '15 208 230',
+        '--color-background': '0deg 0% 100%',
+        '--color-foreground': '20deg 14% 4%',
+
+        '--color-border': '20deg 6% 90%',
+        '--color-input': '20deg 6% 90%',
+        '--color-ring': '25deg 95% 53%',
+
+        '--color-card': '0deg 0% 100%',
+        '--color-card-foreground': '20deg 14% 4%',
+
+        '--color-popover': '0deg 0% 100%',
+        '--color-popover-foreground': '20deg 14% 4%',
+
+        '--color-primary': '25deg 95% 53%',
+        '--color-primary-foreground': '60deg 9% 98%',
+
+        '--color-secondary': '60deg 5% 96%',
+        '--color-secondary-foreground': '24deg 10% 10%',
+
+        '--color-muted': '60deg 5% 96%',
+        '--color-muted-foreground': '25deg 5% 45%',
+
+        '--color-accent': '60deg 5% 96%',
+        '--color-accent-foreground': '24deg 10% 10%',
+
+        '--color-destructive': '0deg 84% 60%',
+        '--color-destructive-foreground': '60deg 9% 98%',
       },
+
       '.dark': {
-        '--color-background': '45 45 45',
-        '--color-content': '255 255 255',
-        '--color-primary': '146 120 42',
-        '--color-secondary': '68 117 231',
-        '--color-tertiary': '15 208 230',
-      },
-      '.orange': {
-        '--color-background': '235 141 0',
-        '--color-content': '255 255 255',
-        '--color-primary': '146 120 42',
-        '--color-secondary': '68 117 231',
-        '--color-tertiary': '15 208 230',
+        '--color-background': '20deg 14% 4%',
+        '--color-foreground': '60deg 9% 98%',
+
+        '--color-border': '12deg 6% 15%',
+        '--color-input': '12deg 6% 15%',
+        '--color-ring': '20deg 90% 48%',
+
+        '--color-card': '20deg 14% 4%',
+        '--color-card-foreground': '60deg 9% 98%',
+
+        '--color-popover': '20deg 14% 4%',
+        '--color-popover-foreground': '60deg 9% 98%',
+
+        '--color-primary': '20deg 90% 48%',
+        '--color-primary-foreground': '60deg 9% 98%',
+
+        '--color-secondary': '12deg 6% 15%',
+        '--color-secondary-foreground': '60deg 9% 98%',
+
+        '--color-muted': '12deg 6% 15%',
+        '--color-muted-foreground': '24deg 5% 64%',
+
+        '--color-accent': '12deg 6% 15%',
+        '--color-accent-foreground': '60deg 9% 98%',
+
+        '--color-destructive': '0deg 72% 51%',
+        '--color-destructive-foreground': '60deg 9% 98%',
       },
     });
 
@@ -37,7 +75,8 @@ const themePlugin = plugin(
       },
       html: { fontSize: '62.5%' },
       body: {
-        backgroundColor: 'rgb(var(--color-background))',
+        backgroundColor: 'hsl(var(--color-background))',
+        color: 'hsl(var(--color-foreground))',
         fontFamily: "'Montserrat', sans-serif",
       },
       'input,\ntextarea,\nbutton': { fontFamily: 'inherit' },
@@ -112,16 +151,9 @@ const themePlugin = plugin(
         xl: { min: '1025px', max: '1920px' },
         '2xl': { min: '1921px' },
       },
-      colors: {
-        background: 'rgb(var(--color-background) / <alpha-value>)',
-        content: 'rgb(var(--color-content) / <alpha-value>)',
-        primary: 'rgb(var(--color-primary) / <alpha-value>)',
-        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
-        tertiary: 'rgb(var(--color-tertiary) / <alpha-value>)',
-      },
 
       extend: {
-        boxShadow: { default: '0 8px 8px rgba(0, 0, 0, 0.08)' },
+        boxShadow: { default: '0 8px 8px hsla(0, 0%, 0%, 0.08)' },
         borderRadius: { default: '0.4rem' },
         spacing: {
           xs: '0.8rem',
@@ -132,6 +164,48 @@ const themePlugin = plugin(
           '2xl': '4.0rem',
           '3xl': '4.8rem',
           '4xl': '5.6rem',
+        },
+        colors: {
+          background: 'hsl(var(--color-background) / <alpha-value>)',
+          foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
+          border: 'hsl(var(--color-border) / <alpha-value>)',
+          input: 'hsl(var(--color-input) / <alpha-value>)',
+          ring: 'hsl(var(--color-ring) / <alpha-value>)',
+
+          primary: {
+            DEFAULT: 'hsl(var(--color-primary) / <alpha-value>)',
+            foreground: 'hsl(var(--color-primary-foreground) / <alpha-value>)',
+          },
+
+          secondary: {
+            DEFAULT: 'hsl(var(--color-secondary) / <alpha-value>)',
+            foreground: 'hsl(var(--color-secondary-foreground) / <alpha-value>)',
+          },
+
+          card: {
+            DEFAULT: 'hsl(var(--color-card) / <alpha-value>)',
+            foreground: 'hsl(var(--color-card-foreground) / <alpha-value>)',
+          },
+
+          popover: {
+            DEFAULT: 'hsl(var(--color-popover) / <alpha-value>)',
+            foreground: 'hsl(var(--color-popover-foreground) / <alpha-value>)',
+          },
+
+          muted: {
+            DEFAULT: 'hsl(var(--color-muted) / <alpha-value>)',
+            foreground: 'hsl(var(--color-muted-foreground) / <alpha-value>)',
+          },
+
+          accent: {
+            DEFAULT: 'hsl(var(--color-accent) / <alpha-value>)',
+            foreground: 'hsl(var(--color-accent-foreground) / <alpha-value>)',
+          },
+
+          destructive: {
+            DEFAULT: 'hsl(var(--color-destructive) / <alpha-value>)',
+            foreground: 'hsl(var(--color-destructive-foreground) / <alpha-value>)',
+          },
         },
       },
     },

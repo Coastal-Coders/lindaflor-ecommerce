@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createRouter } from 'next-connect';
-
 import cache from '@/middlewares/cache.middleware';
 import onError from '@/middlewares/errorHandler.middleware';
 import logger from '@/middlewares/logger.middleware';
@@ -28,7 +27,7 @@ export const handler = {
   onNoMatch,
 };
 
-export default (
+export const configureRouter = (
   options: {
     cors?: cors.CorsOptions;
     cache?: number;

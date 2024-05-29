@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-
 import { ThemeProvider } from '@/utils/theme/theme-provider';
-
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -20,7 +18,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider attribute='class'>{children}</ThemeProvider>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          themes={['light', 'dark']}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-
 import { NODE_ENV, uri } from '@/constants/environment-variables';
 
 const axiosiInstance = axios.create({

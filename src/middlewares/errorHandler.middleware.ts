@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-
 import BaseError from '@/errors/BaseError';
 
 export default function errorHandler(

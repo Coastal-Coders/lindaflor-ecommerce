@@ -16,8 +16,8 @@
 //    stale/out-of-date cache caso alterássemos a implementação da API.
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default (time: number) =>
-  (request: NextApiRequest, response: NextApiResponse, next: () => void) => {
+export const cacheControl =
+  (time: number) => (request: NextApiRequest, response: NextApiResponse, next: () => void) => {
     const CACHE_CONTROL_HEADER_VALUE = `max-age=0, s-maxage=${time}, stale-while-revalidate, public`;
 
     response.setHeader('Cache-Control', CACHE_CONTROL_HEADER_VALUE);
