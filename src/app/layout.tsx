@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Drawer from '@/components/Drawer/Drawer';
 import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';
 
@@ -18,6 +19,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
+        <Drawer />
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
