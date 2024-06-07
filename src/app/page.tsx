@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { ThemeToogle } from '@/components/ThemeToogle';
 
 export default function Home() {
   const [data, setData] = useState<string | null>(null);
@@ -14,7 +13,6 @@ export default function Home() {
 
   return (
     <main className='min-h-screen transition-colors duration-75'>
-      <ThemeToogle />
       <div>
         <h1>Welcome to Next.js!</h1>
         <p>{data}</p>

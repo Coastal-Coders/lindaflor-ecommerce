@@ -15,7 +15,7 @@ import { Button } from '../ui/Button';
 const Transactions = () => {
   return (
     <>
-      <Card>
+      <Card className='lg:col-span-2 xl:col-span-2'>
         <CardHeader className='flex flex-row items-center'>
           <div className='grid gap-2'>
             <CardTitle>Transactions</CardTitle>
