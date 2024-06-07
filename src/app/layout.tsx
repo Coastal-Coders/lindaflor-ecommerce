@@ -19,13 +19,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <Drawer />
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           themes={['light', 'dark']}
         >
+          <Drawer />
           {children}
         </ThemeProvider>
       </body>
