@@ -2,15 +2,15 @@ export interface ErrorType {
   status?: number;
   name?: string;
   type?: string;
-  message?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
-  errors?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+  message?: string;
+  errors?: string[];
   stack?: string;
 }
 
 export default class BaseError extends Error {
   status: number;
   type: string;
-  errors: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+  errors: string[];
 
   constructor({
     status = 500,

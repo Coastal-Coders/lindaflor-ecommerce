@@ -7,10 +7,10 @@ import { Label } from '@/components/ui/Label';
 export function SignIn() {
   return (
     <main className='flex min-h-screen items-center'>
-      <Card className='mx-auto max-w-sm'>
+      <Card className='mx-auto'>
         <CardHeader>
           <CardTitle className='text-2xl'>Login</CardTitle>
-          <CardDescription>Enter your email below to login to your account</CardDescription>
+          <CardDescription>Entre com sua conta</CardDescription>
         </CardHeader>
         <CardContent>
           <div className='grid gap-4'>
@@ -25,12 +25,12 @@ export function SignIn() {
             </div>
             <div className='grid gap-2'>
               <div className='flex items-center'>
-                <Label htmlFor='password'>Password</Label>
+                <Label htmlFor='password'>Senha</Label>
                 <Link
                   href='#'
                   className='ml-auto inline-block text-sm underline'
                 >
-                  Forgot your password?
+                  Esqueceu sua senha?
                 </Link>
               </div>
               <Input
@@ -43,22 +43,22 @@ export function SignIn() {
               type='submit'
               className='w-full'
             >
-              Login
+              Entrar
             </Button>
             <Button
               variant='outline'
               className='w-full'
             >
-              Login with Google
+              Login com o Google
             </Button>
           </div>
           <div className='mt-4 text-center text-sm'>
-            Don&apos;t have an account?{' '}
+            Não tem uma conta?{' '}
             <Link
               href='/signup'
               className='underline'
             >
-              Sign up
+              Crie uma conta
             </Link>
           </div>
         </CardContent>

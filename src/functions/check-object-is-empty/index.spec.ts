@@ -1,4 +1,5 @@
-import { checkObjectIsEmpty } from '.';
+import { expect } from '@jest/globals';
+import { checkObjectIsEmpty } from './';
 
 describe('checkObjectIsEmpty', () => {
   it('should return true when object is empty', () => {

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createRouter } from 'next-connect';
-import cache from '@/middlewares/cache.middleware';
+import { cacheControl } from '@/middlewares/cache.middleware';
 import onError from '@/middlewares/errorHandler.middleware';
 import logger from '@/middlewares/logger.middleware';
 import cors from 'cors';
@@ -34,7 +34,7 @@ export const configureRouter = (
   } = {}
 ) => {
   const corsOptions = options.cors || {};
-  const cacheOptions = options.cache || cacheDefaultConfiguration;
+  const cacheOptions = (options.cache ?? 0) || cacheDefaultConfiguration;
 
   const configurations = {
     cors: {
@@ -45,5 +45,5 @@ export const configureRouter = (
   };
 
   const nc = createRouter<NextApiRequest, NextApiResponse>();
-  return nc.use(cors(configurations.cors)).use(logger).use(cache(configurations.cache));
+  return nc.use(cors(configurations.cors)).use(logger).use(cacheControl(configurations.cache));
 };

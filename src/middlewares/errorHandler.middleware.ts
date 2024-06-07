@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import BaseError from '@/errors/BaseError';
 
 export default function errorHandler(
-  error: any, // eslint-disable-line @typescript-eslint/no-explicit-any
+  error: string[],
   request: NextApiRequest,
   response: NextApiResponse
 ) {
