@@ -1,17 +1,27 @@
 export const APP_KEY = 'APPKEY';
 
-export function getStorageItem(key: string) {
-  if (typeof window === 'undefined') return;
+export function getStorageItem<T>(key: string): T | null {
+  if (typeof window === 'undefined') return null;
 
   const data = window.localStorage.getItem(`${APP_KEY}_${key}`);
 
-  return JSON.parse(data!);
+  if (data == null) return null;
+
+  try {
+    return JSON.parse(data) as T;
+  } catch (error) {
+    console.error('Error parsing JSON from localStorage', error);
+    return null;
+  }
 }
 
-export function setStorageItem(key: string, value: unknown) {
+export function setStorageItem(key: string, value: unknown): void {
   if (typeof window === 'undefined') return;
 
-  const data = JSON.stringify(value);
-
-  return window.localStorage.setItem(`${APP_KEY}_${key}`, data);
+  try {
+    const data = JSON.stringify(value);
+    window.localStorage.setItem(`${APP_KEY}_${key}`, data);
+  } catch (error) {
+    console.error('Error setting JSON to localStorage', error);
+  }
 }

@@ -16,11 +16,13 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
     "plugin:tailwindcss/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     },
@@ -30,11 +32,15 @@
   "plugins": ["react", "@typescript-eslint", "react-hooks", "import-helpers", "tailwindcss"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
+    "@typescript-eslint/strict-boolean-expressions": "error",
+
     "react-hooks/exhaustive-deps": "warn",
+
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off", // para trabalhar com NextJS apenas
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+
     "import-helpers/order-imports": [
       "warn",
       {

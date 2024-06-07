@@ -7,7 +7,7 @@ export default class InternalError extends BaseError {
     message,
     type = 'internal',
     errors = [],
-  }: ErrorType) {
+  }: Partial<ErrorType>) {
     super({ message });
 
     this.name = name;

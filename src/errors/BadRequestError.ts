@@ -7,7 +7,7 @@ export default class BadRequestError extends BaseError {
     name = 'BadRequestError',
     type = 'bad_request',
     errors = [],
-  }: ErrorType) {
+  }: Partial<ErrorType>) {
     super({ message });
 
     this.name = name;

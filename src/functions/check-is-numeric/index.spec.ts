@@ -1,4 +1,5 @@
-import { checkIsNumeric } from '.';
+import { expect } from '@jest/globals';
+import { checkIsNumeric } from './';
 
 describe('checkIsNumeric', () => {
   it('should return true when a string passed contains numbers', () => {

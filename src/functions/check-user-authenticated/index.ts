@@ -1,7 +1,7 @@
 import { getStorageItem } from '@/utils';
 
-export const checkUserAuthenticated = () => {
-  const userToken = getStorageItem(process.env.NEXT_PUBLIC_USER_TOKEN);
+export function checkUserAuthenticated(): boolean {
+  const userToken: string | null = getStorageItem(process.env.NEXT_PUBLIC_USER_TOKEN);
 
-  return !!userToken;
-};
+  return !(userToken == null);
+}
