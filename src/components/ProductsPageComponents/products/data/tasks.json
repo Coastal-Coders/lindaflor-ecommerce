@@ -1,0 +1,402 @@
+[
+    {
+        "id": "1",
+        "nome": "Camiseta Básica",
+        "preço": 29.99,
+        "cor": "Branco",
+        "tamanho": "M",
+        "status": "Disponível"
+    },
+    {
+        "id": "2",
+        "nome": "Calça Jeans Skinny",
+        "preço": 89.99,
+        "cor": "Azul",
+        "tamanho": "42",
+        "status": "Disponível"
+    },
+    {
+        "id": "3",
+        "nome": "Vestido Longo Floral",
+        "preço": 139.99,
+        "cor": "Vermelho",
+        "tamanho": "G",
+        "status": "Indisponível"
+    },
+    {
+        "id": "4",
+        "nome": "Jaqueta de Couro",
+        "preço": 199.99,
+        "cor": "Preto",
+        "tamanho": "M",
+        "status": "Disponível"
+    },
+    {
+        "id": "5",
+        "nome": "Blusa de Tricô",
+        "preço": 59.99,
+        "cor": "Cinza",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "6",
+        "nome": "Shorts Jeans",
+        "preço": 49.99,
+        "cor": "Azul Claro",
+        "tamanho": "38",
+        "status": "Disponível"
+    },
+    {
+        "id": "7",
+        "nome": "Saia Plissada",
+        "preço": 79.99,
+        "cor": "Rosa",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "8",
+        "nome": "Moletom Com Capuz",
+        "preço": 99.99,
+        "cor": "Verde",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "9",
+        "nome": "Blazer Alfaiataria",
+        "preço": 159.99,
+        "cor": "Preto",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "10",
+        "nome": "Calça Legging",
+        "preço": 39.99,
+        "cor": "Preto",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "11",
+        "nome": "Camisa Social",
+        "preço": 69.99,
+        "cor": "Azul",
+        "tamanho": "M",
+        "status": "Disponível"
+    },
+    {
+        "id": "12",
+        "nome": "Macacão Pantalona",
+        "preço": 129.99,
+        "cor": "Preto",
+        "tamanho": "G",
+        "status": "Indisponível"
+    },
+    {
+        "id": "13",
+        "nome": "Regata Básica",
+        "preço": 19.99,
+        "cor": "Branco",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "14",
+        "nome": "Jaqueta Jeans",
+        "preço": 149.99,
+        "cor": "Azul",
+        "tamanho": "M",
+        "status": "Disponível"
+    },
+    {
+        "id": "15",
+        "nome": "Cardigan de Lã",
+        "preço": 89.99,
+        "cor": "Marrom",
+        "tamanho": "G",
+        "status": "Indisponível"
+    },
+    {
+        "id": "16",
+        "nome": "Calça Sarja",
+        "preço": 79.99,
+        "cor": "Bege",
+        "tamanho": "42",
+        "status": "Disponível"
+    },
+    {
+        "id": "17",
+        "nome": "Blusa Ciganinha",
+        "preço": 49.99,
+        "cor": "Amarelo",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "18",
+        "nome": "Bermuda Moletom",
+        "preço": 59.99,
+        "cor": "Cinza",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "19",
+        "nome": "Camiseta Polo",
+        "preço": 79.99,
+        "cor": "Branco",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "20",
+        "nome": "Saia Lápis",
+        "preço": 69.99,
+        "cor": "Preto",
+        "tamanho": "M",
+        "status": "Disponível"
+    },
+    {
+        "id": "21",
+        "nome": "Suéter Gola V",
+        "preço": 89.99,
+        "cor": "Azul Marinho",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "22",
+        "nome": "Calça Jogger",
+        "preço": 99.99,
+        "cor": "Verde Militar",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "23",
+        "nome": "Vestido Midi",
+        "preço": 119.99,
+        "cor": "Roxo",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "24",
+        "nome": "Blusa Manga Longa",
+        "preço": 49.99,
+        "cor": "Preto",
+        "tamanho": "M",
+        "status": "Disponível"
+    },
+    {
+        "id": "25",
+        "nome": "Jaqueta Corta Vento",
+        "preço": 129.99,
+        "cor": "Cinza",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "26",
+        "nome": "Calça Capri",
+        "preço": 59.99,
+        "cor": "Verde",
+        "tamanho": "42",
+        "status": "Indisponível"
+    },
+    {
+        "id": "27",
+        "nome": "Blusa de Renda",
+        "preço": 69.99,
+        "cor": "Branco",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "28",
+        "nome": "Bermuda Tactel",
+        "preço": 39.99,
+        "cor": "Azul",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "29",
+        "nome": "Camiseta Longline",
+        "preço": 34.99,
+        "cor": "Preto",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "30",
+        "nome": "Saia Godê",
+        "preço": 54.99,
+        "cor": "Vermelho",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "31",
+        "nome": "Blusa Gola Alta",
+        "preço": 79.99,
+        "cor": "Bordô",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "32",
+        "nome": "Calça de Alfaiataria",
+        "preço": 129.99,
+        "cor": "Cinza",
+        "tamanho": "40",
+        "status": "Indisponível"
+    },
+    {
+        "id": "33",
+        "nome": "Vestido de Festa",
+        "preço": 199.99,
+        "cor": "Dourado",
+        "tamanho": "M",
+        "status": "Disponível"
+    },
+    {
+        "id": "34",
+        "nome": "Camisa Polo Listrada",
+        "preço": 89.99,
+        "cor": "Azul e Branco",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "35",
+        "nome": "Jaqueta Esportiva",
+        "preço": 99.99,
+        "cor": "Vermelho",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "36",
+        "nome": "Calça Flare",
+        "preço": 79.99,
+        "cor": "Preto",
+        "tamanho": "42",
+        "status": "Disponível"
+    },
+    {
+        "id": "37",
+        "nome": "Blusa Ombro a Ombro",
+        "preço": 59.99,
+        "cor": "Rosa",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "38",
+        "nome": "Bermuda de Linho",
+        "preço": 69.99,
+        "cor": "Bege",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "39",
+        "nome": "Camiseta Estampada",
+        "preço": 29.99,
+        "cor": "Branco",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "40",
+        "nome": "Saia Evasê",
+        "preço": 49.99,
+        "cor": "Verde",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "41",
+        "nome": "Suéter de Algodão",
+        "preço": 79.99,
+        "cor": "Cinza",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "42",
+        "nome": "Calça Pantalona",
+        "preço": 99.99,
+        "cor": "Azul Marinho",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "43",
+        "nome": "Vestido Curto",
+        "preço": 89.99,
+        "cor": "Roxo",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "44",
+        "nome": "Blusa com Babados",
+        "preço": 59.99,
+        "cor": "Vermelho",
+        "tamanho": "M",
+        "status": "Disponível"
+    },
+    {
+        "id": "45",
+        "nome": "Jaqueta Bomber",
+        "preço": 129.99,
+        "cor": "Azul Marinho",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "46",
+        "nome": "Calça de Moletom",
+        "preço": 69.99,
+        "cor": "Cinza",
+        "tamanho": "42",
+        "status": "Indisponível"
+    },
+    {
+        "id": "47",
+        "nome": "Blusa Peplum",
+        "preço": 49.99,
+        "cor": "Preto",
+        "tamanho": "P",
+        "status": "Disponível"
+    },
+    {
+        "id": "48",
+        "nome": "Bermuda Cargo",
+        "preço": 59.99,
+        "cor": "Verde Militar",
+        "tamanho": "G",
+        "status": "Disponível"
+    },
+    {
+        "id": "49",
+        "nome": "Camiseta Raglan",
+        "preço": 39.99,
+        "cor": "Branco e Preto",
+        "tamanho": "M",
+        "status": "Indisponível"
+    },
+    {
+        "id": "50",
+        "nome": "Saia Tulipa",
+        "preço": 54.99,
+        "cor": "Azul",
+        "tamanho": "P",
+        "status": "Disponível"
+    }
+]

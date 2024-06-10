@@ -10,7 +10,7 @@ const SearchBar = () => {
           <Input
             type='search'
             placeholder='Procure suas roupas aqui...'
-            className='w-[350px] pl-8 outline-none ring-1 hover:ring-1 hover:ring-gray-400 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 sm:w-[200px] md:w-[250px] lg:w-[300px]'
+            className='w-[350px] pl-8 outline-none ring-1 hover:ring-1 hover:ring-gray-400 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 sm:w-[160px] sm:placeholder:text-[12px] md:w-[250px] lg:w-[300px]'
           />
         </div>
       </form>
