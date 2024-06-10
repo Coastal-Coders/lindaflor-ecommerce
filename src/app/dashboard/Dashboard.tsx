@@ -10,7 +10,7 @@ export function Dashboard() {
           {/*Cards de Informações Totais */}
           <InfoCards />
         </div>
-        <div className='grid grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-3'>
+        <div className='grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3'>
           {/*Transações Recentes */}
           <Transactions />
           {/*Vendas Recentes */}
