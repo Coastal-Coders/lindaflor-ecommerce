@@ -1,16 +1,16 @@
-import React from 'react';
 import { Button } from '@/components/ui/Button';
-import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
-import { Cross2Icon } from '@radix-ui/react-icons';
-import { Table } from '@tanstack/react-table';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from '../../../ui/dropdown-menu';
+} from from '@/components/ui/DropdownMenu';
+import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
+import { Cross2Icon } from '@radix-ui/react-icons';
+import { Table } from '@tanstack/react-table';
 import { statuses, tamanhos, cor } from '../data/data';
 import { DataTableFacetedFilter } from './DataTableFacetedFilter';
+
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
 }

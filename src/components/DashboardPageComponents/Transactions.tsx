@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import {
   Table,
@@ -10,7 +11,6 @@ import {
   TableRow,
 } from '@/components/ui/Table';
 import { ArrowUpRight } from 'lucide-react';
-import { Button } from '../ui/Button';
 
 const Transactions = () => {
   return (
