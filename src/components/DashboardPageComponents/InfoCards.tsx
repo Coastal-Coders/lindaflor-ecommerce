@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Activity, CreditCard, DollarSign, Users } from 'lucide-react';
 const InfoCards = () => {

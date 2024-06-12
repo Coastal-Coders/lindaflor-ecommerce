@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,9 +7,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@/components/ui/DropdownMenu';
 import { CircleUser } from 'lucide-react';
-import { Button } from '../ui/Button';
 
 const UserDropdown = () => {
   //Apenas Para Testes

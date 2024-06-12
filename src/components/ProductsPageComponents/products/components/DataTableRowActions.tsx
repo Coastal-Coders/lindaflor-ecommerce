@@ -1,6 +1,5 @@
 'use client';
-import { DotsHorizontalIcon } from '@radix-ui/react-icons';
-import { Button } from '../../../ui/Button';
+import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,7 +7,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '../../../ui/Dropdown-menu';
+} from '@/components/ui/DropdownMenu';
+import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 
 export function DataTableRowActions() {
   return (

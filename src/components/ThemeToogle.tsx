@@ -8,7 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/Dropdown-menu';
+} from '@/components/ui/DropdownMenu';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 
 export function ThemeToogle() {

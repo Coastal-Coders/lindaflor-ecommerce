@@ -1,7 +1,6 @@
 'use client';
-import React from 'react';
+import { ThemeToogle } from '@/components/ThemeToogle';
 import Sheets from './Sheets';
-import { ThemeToogle } from './ThemeToogle';
 import UserDropdown from './UserDropdown';
 
 const Drawer = () => {
