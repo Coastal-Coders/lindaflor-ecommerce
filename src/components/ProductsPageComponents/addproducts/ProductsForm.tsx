@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -79,10 +78,14 @@ export function ProductsForm() {
     });
     router.push('/products');
   }
+
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          form.handleSubmit(onSubmit);
+        }}
         className='space-y-8'
       >
         <FormField
