@@ -72,6 +72,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     <TableHead
                       key={header.id}
                       colSpan={header.colSpan}
+                      className='sm:px-1 md:px-1'
                     >
                       {header.isPlaceholder
                         ? null
@@ -90,7 +91,10 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                   data-state={row.getIsSelected() && 'selected'}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-[12px]'
+                    >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

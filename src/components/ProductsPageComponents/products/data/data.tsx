@@ -1,27 +1,33 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { CheckCircledIcon, CrossCircledIcon } from '@radix-ui/react-icons';
-export const statuses = [
-  {
-    value: 'Disponível',
-    label: 'Disponível',
-    icon: CheckCircledIcon,
-  },
-  {
-    value: 'Indisponível',
-    label: 'Indisponível',
-    icon: CrossCircledIcon,
-  },
-];
-export const tamanhos = [
-  {
-    value: 'P',
-    label: 'P',
-  },
-  {
-    value: 'M',
-    label: 'M',
-  },
-  {
-    value: 'G',
-    label: 'G',
-  },
-];
+import * as L from './tasks.json';
+
+const sts = (): string[] => {
+  const allStatuses = [...new Set(L.map((e) => e.status))];
+  return allStatuses;
+};
+const size = (): string[] => {
+  const allSizes = [...new Set(L.map((e) => e.tamanho).sort())];
+  return allSizes;
+};
+const color = (): string[] => {
+  const allColors = [...new Set(L.map((e) => e.cor))];
+  return allColors;
+};
+const ico = (sts: string) => {
+  return sts === 'Disponível' ? CheckCircledIcon : CrossCircledIcon;
+};
+
+export const statuses = sts().map((status: string) => ({
+  value: status,
+  label: status,
+  icon: ico(status),
+}));
+export const tamanhos = size().map((s: string) => ({
+  value: s,
+  label: s,
+}));
+export const cor = color().map((c: string) => ({
+  value: c,
+  label: c,
+}));

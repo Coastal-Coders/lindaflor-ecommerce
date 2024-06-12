@@ -4,12 +4,13 @@ import {
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from '@/components/ui/DropdownMenu';
+} from from '@/components/ui/DropdownMenu';
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { Table } from '@tanstack/react-table';
-import { statuses, tamanhos } from '../data/data';
+import { statuses, tamanhos, cor } from '../data/data';
 import { DataTableFacetedFilter } from './DataTableFacetedFilter';
+
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
 }
@@ -48,6 +49,15 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
               />
             </span>
           )}
+          {table.getColumn('cor') && (
+            <span className='hidden sm:flex md:flex'>
+              <DataTableFacetedFilter
+                column={table.getColumn('cor')}
+                title='Cor'
+                options={cor}
+              />
+            </span>
+          )}
           {isFiltered && (
             <Button
               variant='ghost'
@@ -75,6 +85,15 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
             column={table.getColumn('tamanho')}
             title='Tamanhos'
             options={tamanhos}
+          />
+        </span>
+      )}
+      {table.getColumn('cor') && (
+        <span className='sm:hidden md:hidden'>
+          <DataTableFacetedFilter
+            column={table.getColumn('cor')}
+            title='Cor'
+            options={cor}
           />
         </span>
       )}

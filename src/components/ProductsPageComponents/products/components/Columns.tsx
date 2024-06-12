@@ -108,8 +108,6 @@ export const Columns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       const status = statuses.find((status) => status.value === row.getValue('status'));
       const Icon = status?.icon;
-      console.log(status);
-
       if (!status) {
         return null;
       }
