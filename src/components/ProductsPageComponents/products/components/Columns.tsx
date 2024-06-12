@@ -108,7 +108,6 @@ export const Columns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => {
       const status = statuses.find((status) => status.value === row.getValue('status'));
-      console.log(status);
       if (!status) {
         return null;
       }

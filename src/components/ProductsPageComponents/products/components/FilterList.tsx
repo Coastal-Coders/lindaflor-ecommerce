@@ -8,8 +8,8 @@ import {
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from '../../../ui/Dropdown-menu';
-import { statuses, tamanhos } from '../data/data';
+} from '../../../ui/dropdown-menu';
+import { statuses, tamanhos, cor } from '../data/data';
 import { DataTableFacetedFilter } from './DataTableFacetedFilter';
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -49,6 +49,15 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
               />
             </span>
           )}
+          {table.getColumn('cor') && (
+            <span className='hidden sm:flex md:flex'>
+              <DataTableFacetedFilter
+                column={table.getColumn('cor')}
+                title='Cor'
+                options={cor}
+              />
+            </span>
+          )}
           {isFiltered && (
             <Button
               variant='ghost'
@@ -76,6 +85,15 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
             column={table.getColumn('tamanho')}
             title='Tamanhos'
             options={tamanhos}
+          />
+        </span>
+      )}
+      {table.getColumn('cor') && (
+        <span className='sm:hidden md:hidden'>
+          <DataTableFacetedFilter
+            column={table.getColumn('cor')}
+            title='Cor'
+            options={cor}
           />
         </span>
       )}

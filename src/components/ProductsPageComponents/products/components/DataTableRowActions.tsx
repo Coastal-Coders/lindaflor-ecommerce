@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '../../../ui/Dropdown-menu';
+} from '../../../ui/dropdown-menu';
 
 export function DataTableRowActions() {
   return (
