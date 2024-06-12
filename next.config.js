@@ -4,10 +4,8 @@ const nextConfig = {
   swcMinify: true,
   images: {
     formats: ['image/avif', 'image/webp'],
-    // remotePatterns: [{ protocol: '', hostname: '', port: '', pathname: '**' }],
   },
   compiler: {
-    // styledComponents: true,
     removeConsole: {
       exclude: ['error'],
     },
