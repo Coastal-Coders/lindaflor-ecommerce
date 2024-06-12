@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 'use client';
 import { ColumnDef } from '@tanstack/react-table';
 import { statuses } from '../data/data';
@@ -108,13 +107,16 @@ export const Columns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => {
       const status = statuses.find((status) => status.value === row.getValue('status'));
+      const Icon = status?.icon;
       console.log(status);
+
       if (!status) {
         return null;
       }
+
       return (
         <div className='flex w-[100px] items-center'>
-          {status.icon && <status.icon className='mr-2 size-4 text-muted-foreground' />}
+          {Icon && <status.icon className='mr-2 size-4 text-muted-foreground' />}
           <span>{status.label}</span>
         </div>
       );
