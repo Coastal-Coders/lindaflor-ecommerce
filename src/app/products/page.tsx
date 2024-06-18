@@ -1,17 +1,11 @@
-import Link from 'next/link';
+'use client';
 import React from 'react';
-import { Products } from '@/components/ProductsPageComponents/products/Products';
-import { Button } from '@/components/ui/Button';
+import ProductsView from '@/components/ProductsPageComponents/ClientView/ProductsView';
 
 const page = () => {
   return (
     <>
-      <Link href={'/products/addproducts'}>
-        <Button className='m-4 w-fit bg-pink-400/80 font-semibold text-yellow-300 hover:bg-pink-500/80 hover:text-yellow-200 md:ml-10'>
-          Adicionar Produtos
-        </Button>
-      </Link>
-      <Products />
+      <ProductsView />
     </>
   );
 };
