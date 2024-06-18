@@ -67,6 +67,7 @@ export function ProductsForm() {
   });
 
   function onSubmit(data: ProfileFormValues) {
+    console.log(data);
     toast({
       title: 'You submitted the following values:',
       description: (
@@ -76,16 +77,14 @@ export function ProductsForm() {
         </pre>
       ),
     });
-    router.push('/products');
+    console.log(data);
+    router.replace('/products/admin');
   }
 
   return (
     <Form {...form}>
       <form
-        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          form.handleSubmit(onSubmit);
-        }}
+        onSubmit={() => form.handleSubmit(onSubmit)}
         className='space-y-8'
       >
         <FormField

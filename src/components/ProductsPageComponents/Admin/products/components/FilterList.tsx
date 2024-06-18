@@ -8,7 +8,7 @@ import {
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { Table } from '@tanstack/react-table';
-import { statuses, tamanhos, cor } from '../data/data';
+import { statuses, tamanhos, cor } from '../../../data/data';
 import { DataTableFacetedFilter } from './DataTableFacetedFilter';
 
 interface DataTableToolbarProps<TData> {

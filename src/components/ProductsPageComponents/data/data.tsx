@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { CheckCircledIcon, CrossCircledIcon } from '@radix-ui/react-icons';
 import * as L from './tasks.json';
 
@@ -17,7 +16,6 @@ const color = (): string[] => {
 const ico = (sts: string) => {
   return sts === 'Disponível' ? CheckCircledIcon : CrossCircledIcon;
 };
-
 export const statuses = sts().map((status: string) => ({
   value: status,
   label: status,
