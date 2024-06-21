@@ -52,14 +52,17 @@ export function FilterList({
               setSelectedFilters={setSelectedFilters}
             />
           </span>
-          <span className='hidden sm:flex md:flex'>
-            <FacetedFilterView
-              title='Tamanhos'
-              options={tamanhos}
-              selectedFilters={selectedFilters}
-              setSelectedFilters={setSelectedFilters}
-            />
-          </span>
+          {tamanhos.length && (
+            <span className='hidden sm:flex md:flex'>
+              <FacetedFilterView
+                title='Tamanhos'
+                options={tamanhos}
+                selectedFilters={selectedFilters}
+                setSelectedFilters={setSelectedFilters}
+              />
+            </span>
+          )}
+
           <span className='hidden sm:flex md:flex'>
             <FacetedFilterView
               title='Cor'

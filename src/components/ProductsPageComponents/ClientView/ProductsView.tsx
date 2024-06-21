@@ -1,44 +1,29 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Products } from '../data/schema';
-//import * as products from '../data/tasks.json';
+import * as produs from '../data/tasks.json';
 import { PaginationView } from './PaginationView';
 import ProductCardView from './ProductCardView';
 import ProductsFilterBar from './ProductsFilterBar';
-
+const b = () => {
+  return produs.map((e) => e);
+};
 const ProductsView = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [products, setProducts] = useState<Products[]>([
-    {
-      id: '1',
-      nome: 'Camiseta Básica',
-      preço: 29.99,
-      cor: 'Branco',
-      tamanho: 'M',
-      status: 'Disponível',
-    },
-    {
-      id: '2',
-      nome: 'Calça Jeans Skinny',
-      preço: 89.99,
-      cor: 'Azul',
-      tamanho: '42',
-      status: 'Disponível',
-    },
-    {
-      id: '3',
-      nome: 'Vestido Longo Floral',
-      preço: 139.99,
-      cor: 'Vermelho',
-      tamanho: 'G',
-      status: 'Indisponível',
-    },
-  ]);
+  const [products, setProducts] = useState<Products[]>(b);
   const [productsFilter, setProductsFilter] = useState<Products[]>(products);
   const [selectedFilters, setSelectedFilters] = useState<{
     [key: string]: Set<string>;
   }>({});
+  console.log(products);
+
+  useEffect(() => {
+    setProducts(b);
+    setIsFiltered(Object.values(selectedFilters).some((set) => set.size > 0));
+    console.log('teste', selectedFilters);
+  }, [selectedFilters]);
+
   function filterProd(name: string) {
     console.log(selectedFilters);
     setProductsFilter(
@@ -46,11 +31,6 @@ const ProductsView = () => {
         []
     );
   }
-  useEffect(() => {
-    setIsFiltered(Object.values(selectedFilters).some((set) => set.size > 0));
-    console.log('teste', selectedFilters);
-  }, [selectedFilters]);
-
   const totalPages = Math.ceil(productsFilter.length / 20);
   const startIdx = (currentPage - 1) * 20;
   const currentProducts = productsFilter.slice(startIdx, startIdx + 20);
