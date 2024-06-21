@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+'use client';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Label } from '@/components/ui/Label';
+import useSignIn from './hook/useSignIn';
 
 export function SignIn() {
+  const { register, handleSubmit, errors, onSubmit } = useSignIn();
   return (
     <main className='flex min-h-screen items-center'>
       <Card className='mx-auto'>
@@ -13,7 +17,10 @@ export function SignIn() {
           <CardDescription>Entre com sua conta</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className='grid gap-4'>
+          <form
+            className='grid gap-4'
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div className='grid gap-2'>
               <Label htmlFor='email'>Email</Label>
               <Input
@@ -21,7 +28,9 @@ export function SignIn() {
                 type='email'
                 placeholder='m@example.com'
                 required
+                {...register('email', { required: true })}
               />
+              {errors.email && <span>{errors.email.message}</span>}
             </div>
             <div className='grid gap-2'>
               <div className='flex items-center'>
@@ -37,7 +46,9 @@ export function SignIn() {
                 id='password'
                 type='password'
                 required
+                {...register('password', { required: true })}
               />
+              {errors.password && <span>{errors.password.message}</span>}
             </div>
             <Button
               type='submit'
@@ -51,7 +62,7 @@ export function SignIn() {
             >
               Login com o Google
             </Button>
-          </div>
+          </form>
           <div className='mt-4 text-center text-sm'>
             Não tem uma conta?{' '}
             <Link
