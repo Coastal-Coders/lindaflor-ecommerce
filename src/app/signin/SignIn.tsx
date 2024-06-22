@@ -1,14 +1,14 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Label } from '@/components/ui/Label';
-import useSignIn from './hook/useSignIn';
+import { useSignIn } from '@/hooks/auth';
 
 export function SignIn() {
-  const { register, handleSubmit, errors, onSubmit } = useSignIn();
+  const { register, handleSubmit, onSubmit, errors, errorMessage } = useSignIn();
+
   return (
     <main className='flex min-h-screen items-center'>
       <Card className='mx-auto'>
@@ -19,18 +19,17 @@ export function SignIn() {
         <CardContent>
           <form
             className='grid gap-4'
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={(event) => void handleSubmit(onSubmit)(event)}
           >
             <div className='grid gap-2'>
               <Label htmlFor='email'>Email</Label>
               <Input
                 id='email'
                 type='email'
-                placeholder='m@example.com'
-                required
-                {...register('email', { required: true })}
+                autoComplete='email'
+                {...register('email', { required: 'Email é obrigatório' })}
               />
-              {errors.email && <span>{errors.email.message}</span>}
+              {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
             </div>
             <div className='grid gap-2'>
               <div className='flex items-center'>
@@ -45,11 +44,12 @@ export function SignIn() {
               <Input
                 id='password'
                 type='password'
-                required
-                {...register('password', { required: true })}
+                autoComplete='password'
+                {...register('password', { required: 'Senha é obrigatória' })}
               />
-              {errors.password && <span>{errors.password.message}</span>}
+              {errors.password && <span className='text-red-500'>{errors.password.message}</span>}
             </div>
+            {(errorMessage ?? '') && <div className='text-center text-red-500'>{errorMessage}</div>}
             <Button
               type='submit'
               className='w-full'

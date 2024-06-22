@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Auth } from '@/@types/auth';
 import { Tokens } from '@/@types/tokens';
@@ -12,7 +12,9 @@ const useSignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Auth>();
+
   const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const onSubmit: SubmitHandler<Auth> = async (data) => {
     try {
@@ -24,11 +26,18 @@ const useSignIn = () => {
 
       router.push('/dashboard');
     } catch (error) {
-      console.error('Error logging in', error);
+      setErrorMessage('Email ou senha inválidos');
     }
   };
 
-  return { register, handleSubmit, onSubmit, errors };
+  return {
+    register,
+    handleSubmit,
+    onSubmit,
+    setErrorMessage,
+    errorMessage,
+    errors,
+  };
 };
 
 export default useSignIn;
