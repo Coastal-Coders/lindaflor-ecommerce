@@ -21,7 +21,7 @@ export const statuses = sts().map((status: string) => ({
   label: status,
   icon: ico(status),
 }));
-export const tamanhos = size().map((s: string) => ({
+export const tamanho = size().map((s: string) => ({
   value: s,
   label: s,
 }));

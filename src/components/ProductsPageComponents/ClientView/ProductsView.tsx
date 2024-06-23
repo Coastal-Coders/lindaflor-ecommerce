@@ -5,8 +5,12 @@ import * as produs from '../data/tasks.json';
 import { PaginationView } from './PaginationView';
 import ProductCardView from './ProductCardView';
 import ProductsFilterBar from './ProductsFilterBar';
+import { ProductsType } from '@/types/ProductType';
 const b = () => {
   return produs.map((e) => e);
+};
+type ProductsKey = {
+  [key: string]: Set<string>;
 };
 const ProductsView = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,12 +20,29 @@ const ProductsView = () => {
   const [selectedFilters, setSelectedFilters] = useState<{
     [key: string]: Set<string>;
   }>({});
-  console.log(products);
+
+  // Função para aplicar filtros
+  const applyFilters = () => {
+    const filteredProducts = products.filter((product: any) => {
+      return Object.keys(selectedFilters).every((filterKey) => {
+        const filterSet = selectedFilters[filterKey as keyof ProductsKey];
+        if (filterSet && filterSet.size > 0) {
+          const filter = filterKey.toLocaleLowerCase() as any;
+          const productValue = product[filter];
+          // Verifica se o valor do produto está no conjunto de filtros
+          return filterSet.has(productValue);
+        }
+        return true;
+      });
+    });
+
+    setProductsFilter(filteredProducts);
+  };
 
   useEffect(() => {
-    setProducts(b);
-    setIsFiltered(Object.values(selectedFilters).some((set) => set.size > 0));
     console.log('teste', selectedFilters);
+    applyFilters();
+    setIsFiltered(Object.values(selectedFilters).some((set) => set.size > 0));
   }, [selectedFilters]);
 
   function filterProd(name: string) {
@@ -31,6 +52,7 @@ const ProductsView = () => {
         []
     );
   }
+
   const totalPages = Math.ceil(productsFilter.length / 20);
   const startIdx = (currentPage - 1) * 20;
   const currentProducts = productsFilter.slice(startIdx, startIdx + 20);

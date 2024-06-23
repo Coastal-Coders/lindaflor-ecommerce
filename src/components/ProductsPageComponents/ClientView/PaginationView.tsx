@@ -86,7 +86,7 @@ export const PaginationView = ({ currentPage, totalPages, onPageChange }: Pagina
   };
   return (
     <>
-      <Pagination className='mt-4'>
+      {/* <Pagination className='mt-4'>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
@@ -103,7 +103,7 @@ export const PaginationView = ({ currentPage, totalPages, onPageChange }: Pagina
             />
           </PaginationItem>
         </PaginationContent>
-      </Pagination>
+      </Pagination> */}
     </>
   );
 };

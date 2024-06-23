@@ -1,5 +1,5 @@
 'use client';
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Cross2Icon } from '@radix-ui/react-icons';
@@ -27,6 +27,7 @@ const ProductsFilterBar = ({
   setSelectedFilters,
 }: iFilterBar) => {
   const handleFilterProducts = (event: ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value);
     filterProducts(event.target.value);
   };
 

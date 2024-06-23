@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/DropdownMenu';
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { Cross2Icon } from '@radix-ui/react-icons';
-import { statuses, tamanhos, cor } from '../data/data';
+import { statuses, tamanho, cor } from '../data/data';
 import { FacetedFilterView } from './FacetedFilterView';
 
 interface iFilterProps {
@@ -52,11 +52,11 @@ export function FilterList({
               setSelectedFilters={setSelectedFilters}
             />
           </span>
-          {tamanhos.length && (
+          {tamanho.length && (
             <span className='hidden sm:flex md:flex'>
               <FacetedFilterView
-                title='Tamanhos'
-                options={tamanhos}
+                title='Tamanho'
+                options={tamanho}
                 selectedFilters={selectedFilters}
                 setSelectedFilters={setSelectedFilters}
               />
@@ -93,8 +93,8 @@ export function FilterList({
       </span>
       <span className='sm:hidden md:hidden'>
         <FacetedFilterView
-          title='Tamanhos'
-          options={tamanhos}
+          title='Tamanho'
+          options={tamanho}
           selectedFilters={selectedFilters}
           setSelectedFilters={setSelectedFilters}
         />
