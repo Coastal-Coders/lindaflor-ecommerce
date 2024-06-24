@@ -1,11 +1,10 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Products } from '../data/schema';
 import * as produs from '../data/tasks.json';
 import { PaginationView } from './PaginationView';
 import ProductCardView from './ProductCardView';
 import ProductsFilterBar from './ProductsFilterBar';
-import { ProductsType } from '@/types/ProductType';
 const b = () => {
   return produs.map((e) => e);
 };
@@ -15,43 +14,40 @@ type ProductsKey = {
 const ProductsView = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [products, setProducts] = useState<Products[]>(b);
+  const [products] = useState<Products[]>(b);
   const [productsFilter, setProductsFilter] = useState<Products[]>(products);
-  const [selectedFilters, setSelectedFilters] = useState<{
-    [key: string]: Set<string>;
-  }>({});
+  const [selectedFilters, setSelectedFilters] = useState<ProductsKey>({});
 
   // Função para aplicar filtros
-  const applyFilters = () => {
-    const filteredProducts = products.filter((product: any) => {
+  const applyFilters = useCallback(() => {
+    const filteredProducts = products.filter((product: Products) => {
       return Object.keys(selectedFilters).every((filterKey) => {
         const filterSet = selectedFilters[filterKey as keyof ProductsKey];
-        if (filterSet && filterSet.size > 0) {
-          const filter = filterKey.toLocaleLowerCase() as any;
+        if (filterKey === 'Peças') {
+          if (filterSet != null && filterSet.size > 0) {
+            return [...filterSet].some((piece) =>
+              product.nome.toLowerCase().includes(piece.toLowerCase())
+            );
+          }
+        }
+        if (filterSet != null && filterSet.size > 0) {
+          const filter = filterKey.toLocaleLowerCase() as keyof Products;
           const productValue = product[filter];
           // Verifica se o valor do produto está no conjunto de filtros
-          return filterSet.has(productValue);
+          if (productValue != null) {
+            return filterSet.has(productValue.toString());
+          }
         }
         return true;
       });
     });
-
     setProductsFilter(filteredProducts);
-  };
+  }, [selectedFilters, products]);
 
   useEffect(() => {
-    console.log('teste', selectedFilters);
     applyFilters();
     setIsFiltered(Object.values(selectedFilters).some((set) => set.size > 0));
-  }, [selectedFilters]);
-
-  function filterProd(name: string) {
-    console.log(selectedFilters);
-    setProductsFilter(
-      products?.filter((e: Products) => e.nome.toLowerCase().includes(name.trim().toLowerCase())) ??
-        []
-    );
-  }
+  }, [selectedFilters, applyFilters]);
 
   const totalPages = Math.ceil(productsFilter.length / 20);
   const startIdx = (currentPage - 1) * 20;
@@ -59,7 +55,6 @@ const ProductsView = () => {
   return (
     <main className='m-10 min-h-screen items-center justify-center'>
       <ProductsFilterBar
-        filterProducts={filterProd}
         filterStates={setIsFiltered}
         isFiltered={isFiltered}
         selectedFilters={selectedFilters}
