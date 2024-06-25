@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import React from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
@@ -7,7 +8,7 @@ import { Label } from '@/components/ui/Label';
 import { useSignIn } from '@/hooks/auth';
 
 export function SignIn() {
-  const { register, handleSubmit, onSubmit, errors, errorMessage } = useSignIn();
+  const { register, handleSubmit, onSubmit, errors } = useSignIn();
 
   return (
     <main className='flex min-h-screen items-center'>
@@ -49,7 +50,7 @@ export function SignIn() {
               />
               {errors.password && <span className='text-red-500'>{errors.password.message}</span>}
             </div>
-            {(errorMessage ?? '') && <div className='text-center text-red-500'>{errorMessage}</div>}
+            {errors.root && <div className='text-center text-red-500'>{errors.root.message}</div>}
             <Button
               type='submit'
               className='w-full'

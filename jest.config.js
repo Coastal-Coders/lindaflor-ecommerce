@@ -1,15 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-var-requires */
 const nextJest = require('next/jest');
-
 const createJestConfig = nextJest({ dir: './' });
 
 const customJestConfig = {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: ['/node_modules', '/.next/'],
-
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   collectCoverage: true,
   collectCoverageFrom: [
