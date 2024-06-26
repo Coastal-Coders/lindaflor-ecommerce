@@ -82,8 +82,10 @@ export function ProductsForm() {
   return (
     <Form {...form}>
       <form
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          form.handleSubmit(onSubmit);
+        }}
         className='space-y-8'
       >
         <FormField
