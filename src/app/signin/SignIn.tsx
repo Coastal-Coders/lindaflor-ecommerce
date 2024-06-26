@@ -1,10 +1,15 @@
+'use client';
 import Link from 'next/link';
+import React from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Label } from '@/components/ui/Label';
+import { useSignIn } from '@/hooks/auth';
 
 export function SignIn() {
+  const { register, handleSubmit, onSubmit, errors } = useSignIn();
+
   return (
     <main className='flex min-h-screen items-center'>
       <Card className='mx-auto'>
@@ -13,15 +18,19 @@ export function SignIn() {
           <CardDescription>Entre com sua conta</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className='grid gap-4'>
+          <form
+            className='grid gap-4'
+            onSubmit={(event) => void handleSubmit(onSubmit)(event)}
+          >
             <div className='grid gap-2'>
               <Label htmlFor='email'>Email</Label>
               <Input
                 id='email'
                 type='email'
-                placeholder='m@example.com'
-                required
+                autoComplete='email'
+                {...register('email', { required: 'Email é obrigatório' })}
               />
+              {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
             </div>
             <div className='grid gap-2'>
               <div className='flex items-center'>
@@ -36,9 +45,12 @@ export function SignIn() {
               <Input
                 id='password'
                 type='password'
-                required
+                autoComplete='password'
+                {...register('password', { required: 'Senha é obrigatória' })}
               />
+              {errors.password && <span className='text-red-500'>{errors.password.message}</span>}
             </div>
+            {errors.root && <div className='text-center text-red-500'>{errors.root.message}</div>}
             <Button
               type='submit'
               className='w-full'
@@ -51,7 +63,7 @@ export function SignIn() {
             >
               Login com o Google
             </Button>
-          </div>
+          </form>
           <div className='mt-4 text-center text-sm'>
             Não tem uma conta?{' '}
             <Link
