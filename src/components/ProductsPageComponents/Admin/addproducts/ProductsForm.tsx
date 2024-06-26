@@ -67,24 +67,23 @@ export function ProductsForm() {
   });
 
   function onSubmit(data: ProfileFormValues) {
-    console.log(data);
     toast({
       title: 'You submitted the following values:',
       description: (
         <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <>{console.log(data)}</>
           <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
     });
     console.log(data);
-    router.replace('/products/admin');
+    router.push('/products/admin');
   }
 
   return (
     <Form {...form}>
       <form
-        onSubmit={() => form.handleSubmit(onSubmit)}
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onSubmit={form.handleSubmit(onSubmit)}
         className='space-y-8'
       >
         <FormField
@@ -193,7 +192,14 @@ export function ProductsForm() {
             </FormItem>
           )}
         />
-        <Button type='submit'>Cadastrar Produto</Button>
+        <Button
+          type='submit'
+          size={'lg'}
+          variant={'default'}
+          className='bg-primary'
+        >
+          Cadastrar Produto
+        </Button>
       </form>
     </Form>
   );
