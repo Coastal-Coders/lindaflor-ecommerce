@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/Label';
 import { useSignIn } from '@/hooks/auth';
 
 export function SignIn() {
-  const { register, handleSubmit, onSubmit, errors } = useSignIn();
+  const { register, handleSubmit, errors } = useSignIn();
 
   return (
     <main className='flex min-h-screen items-center'>
@@ -20,7 +20,7 @@ export function SignIn() {
         <CardContent>
           <form
             className='grid gap-4'
-            onSubmit={(event) => void handleSubmit(onSubmit)(event)}
+            onSubmit={(event) => void handleSubmit(event)}
           >
             <div className='grid gap-2'>
               <Label htmlFor='email'>Email</Label>
@@ -28,7 +28,7 @@ export function SignIn() {
                 id='email'
                 type='email'
                 autoComplete='email'
-                {...register('email', { required: 'Email é obrigatório' })}
+                {...register('email', { required: true })}
               />
               {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
             </div>
@@ -46,7 +46,7 @@ export function SignIn() {
                 id='password'
                 type='password'
                 autoComplete='password'
-                {...register('password', { required: 'Senha é obrigatória' })}
+                {...register('password', { required: true })}
               />
               {errors.password && <span className='text-red-500'>{errors.password.message}</span>}
             </div>
@@ -57,13 +57,15 @@ export function SignIn() {
             >
               Entrar
             </Button>
+          </form>
+          <div className='mt-4'>
             <Button
               variant='outline'
               className='w-full'
             >
               Login com o Google
             </Button>
-          </form>
+          </div>
           <div className='mt-4 text-center text-sm'>
             Não tem uma conta?{' '}
             <Link

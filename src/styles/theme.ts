@@ -3,6 +3,55 @@ import plugin from 'tailwindcss/plugin';
 const themePlugin = plugin(
   function ({ addBase }) {
     addBase({
+      '*': {
+        outline: 'none',
+        WebkitFontSmoothing: 'antialiased',
+        MozOsxFontSmoothing: 'grayscale',
+        fontFamily: 'Montserrat',
+      },
+      html: { fontSize: '62.5%' },
+      body: {
+        backgroundColor: 'hsl(var(--color-background))',
+        color: 'hsl(var(--color-foreground))',
+      },
+      'input,\ntextarea,\nbutton': { fontFamily: 'inherit' },
+      button: { cursor: 'pointer' },
+      a: { color: 'inherit', textDecoration: 'none' },
+    });
+
+    const montserrat300 = {
+      fontFamily: 'Montserrat',
+      fontStyle: 'normal',
+      fontWeight: '300',
+      fontDisplay: 'swap',
+      src: 'local(""), url("/fonts/montserrat-v15-latin-300.woff2") format("woff2")',
+    };
+    const montserrat400 = {
+      fontFamily: 'Montserrat',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontDisplay: 'swap',
+      src: 'local(""), url("/fonts/montserrat-v15-latin-regular.woff2") format("woff2")',
+    };
+    const montserrat600 = {
+      fontFamily: 'Montserrat',
+      fontStyle: 'normal',
+      fontWeight: '600',
+      fontDisplay: 'swap',
+      src: 'local(""), url("/fonts/montserrat-v15-latin-600.woff2") format("woff2")',
+    };
+
+    addBase({
+      '@font-face': montserrat300,
+    });
+    addBase({
+      '@font-face': montserrat400,
+    });
+    addBase({
+      '@font-face': montserrat600,
+    });
+
+    addBase({
       ':root': {
         '--color-background': '0deg 0% 100%',
         '--color-foreground': '20deg 14% 4%',
@@ -63,58 +112,6 @@ const themePlugin = plugin(
         '--color-destructive-foreground': '60deg 9% 98%',
       },
     });
-
-    addBase({
-      '*': {
-        margin: '0',
-        padding: '0',
-        boxSizing: 'border-box',
-        outline: 'none',
-        WebkitFontSmoothing: 'antialiased',
-        MozOsxFontSmoothing: 'grayscale',
-      },
-      html: { fontSize: '62.5%' },
-      body: {
-        backgroundColor: 'hsl(var(--color-background))',
-        color: 'hsl(var(--color-foreground))',
-        fontFamily: "'Montserrat', sans-serif",
-      },
-      'input,\ntextarea,\nbutton': { fontFamily: 'inherit' },
-      button: { cursor: 'pointer' },
-      a: { color: 'inherit', textDecoration: 'none' },
-    });
-
-    const montserrat300 = {
-      fontFamily: 'Montserrat',
-      fontStyle: 'normal',
-      fontWeight: '300',
-      fontDisplay: 'swap',
-      src: 'local(""), url("/fonts/montserrat-v15-latin-300.woff2") format("woff2")',
-    };
-    const montserrat400 = {
-      fontFamily: 'Montserrat',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      fontDisplay: 'swap',
-      src: 'local(""), url("/fonts/montserrat-v15-latin-regular.woff2") format("woff2")',
-    };
-    const montserrat600 = {
-      fontFamily: 'Montserrat',
-      fontStyle: 'normal',
-      fontWeight: '600',
-      fontDisplay: 'swap',
-      src: 'local(""), url("/fonts/montserrat-v15-latin-600.woff2") format("woff2")',
-    };
-
-    addBase({
-      '@font-face': montserrat300,
-    });
-    addBase({
-      '@font-face': montserrat400,
-    });
-    addBase({
-      '@font-face': montserrat600,
-    });
   },
   {
     theme: {
@@ -132,13 +129,6 @@ const themePlugin = plugin(
         '7xl': ['7.2rem', { lineHeight: '1.6rem' }],
         '8xl': ['9.6rem', { lineHeight: '1.6rem' }],
         '9xl': ['12.8rem', { lineHeight: '1.6rem' }],
-      },
-      screens: {
-        sm: { max: '360px' },
-        md: { min: '361px', max: '728px' },
-        lg: { min: '729px', max: '1024px' },
-        xl: { min: '1025px', max: '1920px' },
-        '2xl': { min: '1921px' },
       },
       borderRadius: {
         none: '0px',
@@ -190,6 +180,9 @@ const themePlugin = plugin(
       },
 
       extend: {
+        fontFamily: {
+          Montserrat: ['Montserrat', 'sans-serif', 'sans', 'Helvetica'],
+        },
         columns: {
           '3xs': '25.6rem',
           '2xs': '28.8rem',
@@ -205,7 +198,6 @@ const themePlugin = plugin(
           '6xl': '115.2rem',
           '7xl': '128rem',
         },
-        boxShadow: { DEFAULT: '0 8px 8px hsla(0, 0%, 0%, 0.08)' },
         colors: {
           background: 'hsl(var(--color-background) / <alpha-value>)',
           foreground: 'hsl(var(--color-foreground) / <alpha-value>)',

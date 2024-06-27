@@ -4,7 +4,7 @@ import { Auth } from '@/@types/auth';
 import { Tokens } from '@/@types/tokens';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import { getCookie, setCookie } from 'cookies-next';
+import { setCookie } from 'cookies-next';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -32,19 +32,16 @@ const useSignIn = () => {
       setCookie('accessToken', accessToken, { httpOnly: true });
       setCookie('refreshToken', refreshToken, { httpOnly: true });
 
-      console.log(getCookie('accessToken'));
-
-      setError('email', { message: 'Email inválido' });
       router.push('/dashboard');
     } catch (error) {
-      console.error('Unexpected error', error);
+      setError('root', { message: 'Email ou senha inválidos' });
     }
   };
 
   return {
     register,
-    handleSubmit,
-    onSubmit,
+    handleSubmit: handleSubmit(onSubmit),
+    setError,
     errors,
   };
 };
