@@ -1,14 +1,6 @@
 import React from 'react';
 import { Controller, ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
-
-type FormFieldContextValue<
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-> = {
-  name: TName;
-};
-
-const FormFieldContext = React.createContext<FormFieldContextValue>({} as FormFieldContextValue);
+import { FormFieldContext } from '.';
 
 const FormField = <
   TFieldValues extends FieldValues = FieldValues,
@@ -24,4 +16,3 @@ const FormField = <
 };
 
 export default FormField;
-export { FormFieldContext };

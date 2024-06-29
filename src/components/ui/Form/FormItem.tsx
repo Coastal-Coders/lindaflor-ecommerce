@@ -1,11 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-
-type FormItemContextValue = {
-  id: string;
-};
-
-const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
+import { FormItemContext } from '.';
 
 const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
@@ -25,4 +20,3 @@ const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
 FormItem.displayName = 'FormItem';
 
 export default FormItem;
-export { FormItemContext };
