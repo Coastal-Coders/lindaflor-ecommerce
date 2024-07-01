@@ -83,10 +83,7 @@ export function ProductsForm() {
   return (
     <Form {...form}>
       <form
-        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          form.handleSubmit(onSubmit);
-        }}
+        onSubmit={(event) => void form.handleSubmit(onSubmit)(event)}
         className='space-y-8'
       >
         <FormField
