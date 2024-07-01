@@ -8,7 +8,7 @@ import {
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { Table } from '@tanstack/react-table';
-import { statuses, tamanhos, cor } from '../data/data';
+import { statuses, tamanho, cor } from '../../../data/data';
 import { DataTableFacetedFilter } from './DataTableFacetedFilter';
 
 interface DataTableToolbarProps<TData> {
@@ -44,8 +44,8 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
             <span className='hidden sm:flex md:flex'>
               <DataTableFacetedFilter
                 column={table.getColumn('tamanho')}
-                title='Tamanhos'
-                options={tamanhos}
+                title='Tamanho'
+                options={tamanho}
               />
             </span>
           )}
@@ -84,7 +84,7 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
           <DataTableFacetedFilter
             column={table.getColumn('tamanho')}
             title='Tamanhos'
-            options={tamanhos}
+            options={tamanho}
           />
         </span>
       )}

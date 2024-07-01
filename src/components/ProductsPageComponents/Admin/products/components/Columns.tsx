@@ -1,11 +1,11 @@
 'use client';
 import { ColumnDef } from '@tanstack/react-table';
-import { statuses } from '../data/data';
-import { Task } from '../data/schema';
+import { statuses } from '../../../data/data';
+import { Products } from '../../../data/schema';
 import { DataTableColumnHeader } from './DataTableColumnHeader';
 import { DataTableRowActions } from './DataTableRowActions';
 
-export const Columns: ColumnDef<Task>[] = [
+export const Columns: ColumnDef<Products>[] = [
   {
     accessorKey: 'id',
     header: ({ column }) => (

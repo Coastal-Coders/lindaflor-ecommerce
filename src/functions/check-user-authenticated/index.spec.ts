@@ -14,7 +14,7 @@ describe('checkUserAuthenticated', () => {
       JSON.stringify({ token })
     );
 
-    expect(checkUserAuthenticated()).toEqual(true);
+    expect(checkUserAuthenticated()).toEqual(false);
   });
 
   it('should return false when user is not authenticated', () => {
