@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import ProductsView from '@/components/ProductsPageComponents/ClientView/ProductsView';
+import ProductsView from '../_components/products/client/ProductsView';
 
 const page = () => {
   return (

@@ -1,51 +1,51 @@
 import { useRouter } from 'next/navigation';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Auth } from '@/@types/auth';
-import { Tokens } from '@/@types/tokens';
+import { Auth } from '@/types/Auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import { getCookie, setCookie } from 'cookies-next';
 import { z } from 'zod';
 
 const schema = z.object({
-  email: z.string().email({ message: 'Email inválido' }),
-  password: z.string().refine((data) => data.trim() !== '', { message: 'Senha é obrigatória' }),
+  email: z.string({ required_error: 'Email é obrigatório' }).email({ message: 'Email inválido' }),
+  password: z
+    .string({ required_error: 'Senha é obrigatória' })
+    .min(1, { message: 'Senha é obrigatória' }),
 });
+
+const useFormValidation = () => {
+  return useForm<Auth>({
+    resolver: zodResolver(schema),
+    mode: 'onChange',
+  });
+};
 
 const useSignIn = () => {
   const router = useRouter();
+
   const {
-    register,
+    control,
     handleSubmit,
     setError,
     formState: { errors },
-  } = useForm<Auth>({
-    resolver: zodResolver(schema),
-  });
+  } = useFormValidation();
 
   const onSubmit: SubmitHandler<Auth> = async (data, event) => {
     event?.preventDefault();
     try {
-      const response = await axios.post<Tokens>('http://localhost:3001/auth/local/signin', data);
-      const { accessToken, refreshToken } = response.data;
+      await axios.post('http://localhost:3001/auth/local/signin', data);
 
-      setCookie('accessToken', accessToken, { httpOnly: true });
-      setCookie('refreshToken', refreshToken, { httpOnly: true });
-
-      console.log(getCookie('accessToken'));
-
-      setError('email', { message: 'Email inválido' });
       router.push('/dashboard');
     } catch (error) {
-      console.error('Unexpected error', error);
+      setError('root', { message: 'Email ou senha inválidos' });
     }
   };
 
   return {
-    register,
-    handleSubmit,
-    onSubmit,
+    control,
     errors,
+    useFormValidation,
+    handleSubmit: handleSubmit(onSubmit),
+    setError,
   };
 };
 

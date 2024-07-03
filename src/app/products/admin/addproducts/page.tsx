@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import AddProducts from '@/components/ProductsPageComponents/Admin/addproducts/AddProducts';
+import { AddProducts } from '@/app/_components/products/admin';
 
 const page = () => {
   return (
