@@ -6,11 +6,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
+import { Label } from '@/components/ui/Label';
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { Cross2Icon } from '@radix-ui/react-icons';
-import { tamanho, cor, Peças } from '../data/data';
-import { FacetedFilterView } from './FacetedFilterView';
-import { Label } from '@/components/ui/Label';
+import { FacetedFilterView } from '.';
+import { Peças, tamanho, cor } from '../data';
 
 interface iFilterProps {
   selectedFilters: {

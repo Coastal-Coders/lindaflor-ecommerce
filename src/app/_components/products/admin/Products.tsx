@@ -1,13 +1,13 @@
+import { productsSchema } from '@/app/_components/products/data';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { z } from 'zod';
-import { productsSchema } from '../../data/schema';
-import { Columns } from './components/Columns';
-import { DataTable } from './components/DataTable';
+import { Columns } from './Columns';
+import { DataTable } from './DataTable';
 
 async function getProducts() {
   const data = await fs.readFile(
-    path.join(process.cwd(), 'src/components/ProductsPageComponents/data/tasks.json')
+    path.join(process.cwd(), 'src/app/_components/products/data/tasks.json')
   );
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const produtcs = JSON.parse(data.toString());

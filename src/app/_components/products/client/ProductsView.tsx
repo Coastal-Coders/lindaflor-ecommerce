@@ -1,10 +1,10 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
+import { ProductCardView, ProductsFilterBar } from '.';
 import { Products } from '../data/schema';
 import * as produs from '../data/tasks.json';
 import { PaginationView } from './PaginationView';
-import ProductCardView from './ProductCardView';
-import ProductsFilterBar from './ProductsFilterBar';
+
 const b = () => {
   return produs.map((e) => e);
 };

@@ -1,11 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import {
-  Pagination,
-  PaginationContent,
+  // Pagination,
+  // PaginationContent,
   PaginationEllipsis,
   PaginationItem,
   PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
+  // PaginationNext,
+  // PaginationPrevious,
 } from '@/components/ui/Pagination';
 
 interface PaginationProps {

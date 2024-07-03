@@ -1,9 +1,8 @@
 'use client';
 import { ColumnDef } from '@tanstack/react-table';
-import { statuses } from '../../../data/data';
-import { Products } from '../../../data/schema';
-import { DataTableColumnHeader } from './DataTableColumnHeader';
-import { DataTableRowActions } from './DataTableRowActions';
+import { DataTableColumnHeader, DataTableRowActions } from '.';
+import { statuses } from '../data';
+import { Products } from '../data/schema';
 
 export const Columns: ColumnDef<Products>[] = [
   {

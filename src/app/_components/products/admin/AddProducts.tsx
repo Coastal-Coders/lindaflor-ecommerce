@@ -1,6 +1,6 @@
 'use client';
+import { ProductsForm } from '@/app/_components/products/admin';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { ProductsForm } from './ProductsForm';
 
 const AddProducts = () => {
   return (

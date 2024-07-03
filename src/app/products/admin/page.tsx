@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { Products } from '@/components/ProductsPageComponents/Admin/products/Products';
+import { Products } from '@/app/_components/products/admin/Products';
 import { Button } from '@/components/ui/Button';
 
 const page = () => {
