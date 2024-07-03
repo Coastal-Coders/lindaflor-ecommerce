@@ -15,7 +15,7 @@ const ProductCardView = ({ product }: { product: Products }) => {
     <>
       <Card>
         <CardHeader>
-          <CardTitle className='break-before-auto sm:text-sm md:text-sm lg:text-base xl:text-xl'>
+          <CardTitle className='break-before-auto text-sm md:text-base lg:text-lg xl:text-xl'>
             {product.nome}
           </CardTitle>
           <CardDescription>{product.cor}</CardDescription>
@@ -29,6 +29,7 @@ const ProductCardView = ({ product }: { product: Products }) => {
             width={300}
             height={150}
             priority
+            className='w-full'
           />
         </CardContent>
         <CardContent>

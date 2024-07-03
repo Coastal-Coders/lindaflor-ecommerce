@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import {
@@ -30,6 +30,7 @@ interface iFilterProps {
     value: string;
     icon?: React.ComponentType<{ className?: string }>;
   }[];
+  facets: Map<string, number>;
 }
 
 export function FacetedFilterView({
@@ -37,11 +38,16 @@ export function FacetedFilterView({
   options,
   selectedFilters,
   setSelectedFilters,
-}: iFilterProps) {
+  facets
+}: iFilterProps) {  
+  const selectedValues = new Set(
+    selectedFilters[title!] ? Array.from(selectedFilters[title!]) : []
+  );
+
   const handleSelect = (value: string) => {
     setSelectedFilters((prev) => {
       const newFilters = { ...prev };
-      const filterSet = newFilters[title!] instanceof Set ? newFilters[title!] : new Set<string>();
+      const filterSet = new Set(newFilters[title!] ? Array.from(newFilters[title!]) : []);
       if (filterSet.has(value)) {
         filterSet.delete(value);
       } else {
@@ -59,9 +65,6 @@ export function FacetedFilterView({
       return newFilters;
     });
   };
-
-  const selectedValues =
-    selectedFilters[title!] instanceof Set ? selectedFilters[title!] : new Set<string>();
 
   return (
     <Popover>
@@ -113,7 +116,7 @@ export function FacetedFilterView({
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className='w-[200px] p-0 sm:w-[170px]'
+        className='w-[170px] p-0 sm:w-[250px]'
         align='start'
       >
         <Command>
@@ -140,6 +143,11 @@ export function FacetedFilterView({
                     </div>
                     {option.icon && <option.icon className='mr-2 size-4 text-muted-foreground' />}
                     <span>{option.label}</span>
+                    {facets.get(option.value) && (
+                      <span className='ml-auto flex size-4 items-center justify-center font-mono text-xs'>
+                        {facets.get(option.value)}
+                      </span>
+                    )}
                   </CommandItem>
                 );
               })}

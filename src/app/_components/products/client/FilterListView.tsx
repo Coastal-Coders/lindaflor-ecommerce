@@ -23,12 +23,18 @@ interface iFilterProps {
   >;
   isFiltered: boolean;
   resetFilters: () => void;
+  facets: {
+    Peças: Map<string, number>;
+    Tamanho: Map<string, number>;
+    Cor: Map<string, number>;
+  };
 }
 export function FilterList({
   selectedFilters,
   setSelectedFilters,
   isFiltered,
   resetFilters,
+  facets,
 }: iFilterProps) {
   return (
     <>
@@ -37,86 +43,93 @@ export function FilterList({
           <Button
             variant='outline'
             size='sm'
-            className='hidden h-8 border border-white p-5 sm:flex sm:flex-1'
+            className='my-5 flex h-8 w-[150px] border border-white p-5 sm:hidden'
           >
             Filtros
           </Button>
         </DropdownMenuTrigger>
+        {isFiltered && (
+          <Button
+            variant='ghost'
+            onClick={resetFilters}
+            className='flex h-8 border px-2 sm:hidden'
+          >
+            <Cross2Icon className='size-4' />
+          </Button>
+        )}
         <DropdownMenuContent className='flex flex-col'>
           <DropdownMenuLabel className='flex justify-center'>Filtros</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <span className='hidden sm:flex'>
+          <span className='flex sm:hidden'>
             <FacetedFilterView
               title='Peças'
               options={Peças}
               selectedFilters={selectedFilters}
               setSelectedFilters={setSelectedFilters}
+              facets={facets.Peças}
             />
           </span>
-          <span className='hidden sm:flex'>
+          <span className='flex sm:hidden'>
             <FacetedFilterView
               title='Tamanho'
               options={tamanho}
               selectedFilters={selectedFilters}
               setSelectedFilters={setSelectedFilters}
+              facets={facets.Tamanho}
             />
           </span>
-          <span className='hidden sm:flex'>
+          <span className='flex sm:hidden'>
             <FacetedFilterView
               title='Cor'
               options={cor}
               selectedFilters={selectedFilters}
               setSelectedFilters={setSelectedFilters}
+              facets={facets.Cor}
             />
           </span>
-          {isFiltered && (
-            <Button
-              variant='ghost'
-              onClick={resetFilters}
-              className='h-8 px-2'
-            >
-              Reset
-              <Cross2Icon className='size-4' />
-            </Button>
-          )}
         </DropdownMenuContent>
       </DropdownMenu>
-      <Label className='sm:hidden'>Filtros: </Label>
-      <div className='flex rounded-md border border-white p-1 sm:hidden'>
-        <span className='sm:hidden'>
+      {/*Web View */}
+      <Label className='hidden sm:flex'>Filtros: </Label>
+      <div className='hidden rounded-md border border-white p-1 sm:flex'>
+        <span className='hidden sm:flex'>
           <FacetedFilterView
             title='Peças'
             options={Peças}
             selectedFilters={selectedFilters}
             setSelectedFilters={setSelectedFilters}
+            facets={facets.Peças}
           />
         </span>
-        <span className='sm:hidden'>
+        <span className='hidden sm:flex'>
           <FacetedFilterView
             title='Tamanho'
             options={tamanho}
             selectedFilters={selectedFilters}
             setSelectedFilters={setSelectedFilters}
+            facets={facets.Tamanho}
           />
         </span>
-        <span className='sm:hidden'>
+        <span className='hidden sm:flex'>
           <FacetedFilterView
             title='Cor'
             options={cor}
             selectedFilters={selectedFilters}
             setSelectedFilters={setSelectedFilters}
+            facets={facets.Cor}
           />
         </span>
+        {isFiltered && (
+          <Button
+            variant='ghost'
+            onClick={resetFilters}
+            className='h-8 px-2 lg:px-3'
+          >
+            Reset
+            <Cross2Icon className='size-4' />
+          </Button>
+        )}
       </div>
-      {isFiltered && (
-        <Button
-          variant='ghost'
-          onClick={resetFilters}
-          className='h-8 border border-white px-2 lg:px-3'
-        >
-          <Cross2Icon className='size-4' />
-        </Button>
-      )}
     </>
   );
 }
