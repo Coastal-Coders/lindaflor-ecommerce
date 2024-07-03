@@ -14,6 +14,11 @@ interface iFilterBar {
       [key: string]: Set<string>;
     }>
   >;
+  facets: {
+    Peças: Map<string, number>;
+    Tamanho: Map<string, number>;
+    Cor: Map<string, number>;
+  };
 }
 
 const ProductsFilterBar = ({
@@ -21,6 +26,7 @@ const ProductsFilterBar = ({
   isFiltered,
   selectedFilters,
   setSelectedFilters,
+  facets,
 }: iFilterBar) => {
   const resetFilters = () => {
     setSelectedFilters({});
@@ -35,6 +41,7 @@ const ProductsFilterBar = ({
           setSelectedFilters={setSelectedFilters}
           isFiltered={isFiltered}
           resetFilters={resetFilters}
+          facets={facets}
         />
       </div>
     </div>
