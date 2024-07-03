@@ -3,4 +3,5 @@ export type SignUpUser = {
   surname: string;
   email: string;
   password: string;
+  confirmPassword: string;
 };
