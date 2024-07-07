@@ -29,13 +29,13 @@ const UserDropdown = () => {
           <Button
             variant='secondary'
             size='icon'
-            className='rounded-full focus-visible:ring-0'
+            className='rounded-full bg-transparent focus-visible:ring-0'
           >
-            <CircleUser className='size-8 sm:size-5' />
+            <CircleUser className='size-5 text-cyan-500 sm:size-8' />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align='end'>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel>User name</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {fields.map((f) => (
             <Link
@@ -46,7 +46,7 @@ const UserDropdown = () => {
             </Link>
           ))}
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Logout</DropdownMenuItem>
+          <DropdownMenuItem className='focus:bg-red-300'>Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>

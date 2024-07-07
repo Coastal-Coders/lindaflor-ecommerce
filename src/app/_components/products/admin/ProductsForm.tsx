@@ -89,7 +89,7 @@ export function ProductsForm() {
         <FormField
           control={form.control}
           name='nome'
-          render={({ field }) => (
+          render={({field}) => (
             <FormItem>
               <FormLabel>Nome do Produto</FormLabel>
               <FormControl>

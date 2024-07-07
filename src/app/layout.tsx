@@ -3,6 +3,8 @@ import React from 'react';
 import Drawer from '@/components/Drawer/Drawer';
 import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';
+import Navbar from '@/components/Navbar/Navbar';
+import Footer from '@/components/Footer/Footer';
 
 export const metadata: Metadata = {
   title: 'LindaFlor',
@@ -26,8 +28,9 @@ export default function RootLayout({
           enableSystem
           themes={['light', 'dark']}
         >
-          <Drawer />
+          <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
