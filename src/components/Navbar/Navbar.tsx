@@ -44,10 +44,10 @@ const Navbar = () => {
             className='max-h-[100px] min-w-[180px]'
           />
         </Link>
-        <div className='ml-auto flex items-center justify-end gap-2 px-2 lg:gap-4 lg:px-6'>
+        <div className='ml-auto flex items-center justify-end gap-1 px-1 lg:gap-4 lg:px-6'>
           <SearchBar />
           <NavbarHidden />
-          <ul className='hidden items-center gap-x-2 px-2 md:flex lg:mr-4 lg:gap-x-8'>
+          <ul className='hidden items-center gap-x-1 px-1 md:flex lg:mr-4 lg:gap-x-8'>
             {Links.map((l) => (
               <Link
                 href={l.href}

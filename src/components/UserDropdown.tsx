@@ -31,7 +31,7 @@ const UserDropdown = () => {
             size='icon'
             className='rounded-full bg-transparent focus-visible:ring-0'
           >
-            <CircleUser className='size-5 text-cyan-500 sm:size-8' />
+            <CircleUser className='size-8 text-cyan-500' />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align='end'>
