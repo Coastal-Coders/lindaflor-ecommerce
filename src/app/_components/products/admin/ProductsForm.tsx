@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/Button';
 import {
   Form,
@@ -23,6 +23,7 @@ import {
 import { toast } from '@/components/ui/UseToast';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import api from '@/services/api';
 
 const profileFormSchema = z.object({
   nome: z
@@ -67,7 +68,7 @@ export function ProductsForm() {
     mode: 'onChange',
   });
 
-  function onSubmit(data: ProfileFormValues) {
+  const onSubmit: SubmitHandler<ProfileFormValues> = async (data, event) => {
     toast({
       title: 'You submitted the following values:',
       description: (
@@ -76,9 +77,10 @@ export function ProductsForm() {
         </pre>
       ),
     });
-    console.log(data);
-    router.push('/products/admin');
-  }
+
+    await api.post('http://localhost:3001/products', data);
+    //router.push('/products/admin');
+  };
 
   return (
     <Form {...form}>
@@ -89,7 +91,7 @@ export function ProductsForm() {
         <FormField
           control={form.control}
           name='nome'
-          render={({field}) => (
+          render={({ field }) => (
             <FormItem>
               <FormLabel>Nome do Produto</FormLabel>
               <FormControl>

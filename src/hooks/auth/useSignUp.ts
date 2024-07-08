@@ -2,8 +2,8 @@ import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { SignUpUser } from '@/types/SignUpUser';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import { z } from 'zod';
+import api from '@/services/api';
 
 const schema = z
   .object({
@@ -49,7 +49,7 @@ const useSignUp = () => {
     event?.preventDefault();
 
     try {
-      await axios.post<SignUpUser>('http://localhost:3001/auth/local/signup', data);
+      await api.post<SignUpUser>('http://localhost:3001/auth/local/signup', data);
 
       router.push('/signin');
     } catch (error) {
