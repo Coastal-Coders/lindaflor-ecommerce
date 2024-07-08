@@ -2,8 +2,8 @@ import { useRouter } from 'next/navigation';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Auth } from '@/types/Auth';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import { z } from 'zod';
+import api from '@/services/api';
 
 const schema = z.object({
   email: z.string({ required_error: 'Email é obrigatório' }).email({ message: 'Email inválido' }),
@@ -32,7 +32,7 @@ const useSignIn = () => {
   const onSubmit: SubmitHandler<Auth> = async (data, event) => {
     event?.preventDefault();
     try {
-      await axios.post('http://localhost:3001/auth/local/signin', data);
+      await api.post('http://localhost:3001/auth/local/signin', data);
 
       router.push('/dashboard');
     } catch (error) {
