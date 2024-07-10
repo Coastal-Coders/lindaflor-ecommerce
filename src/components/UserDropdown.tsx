@@ -14,12 +14,12 @@ const UserDropdown = () => {
   //Apenas Para Testes
   const fields = [
     {
-      value: 'Settings',
-      href: '/',
+      value: 'Sign In',
+      href: '/signin',
     },
     {
-      value: 'Support',
-      href: '/',
+      value: 'Sign Up',
+      href: '/signup',
     },
   ];
   return (
@@ -34,7 +34,11 @@ const UserDropdown = () => {
             <CircleUser className='size-8 text-cyan-500' />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align='end'>
+        <DropdownMenuContent
+          align='center'
+          sideOffset={4}
+          className='bg-gradient-to-bl from-secondary to-background'
+        >
           <DropdownMenuLabel>User name</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {fields.map((f) => (
@@ -42,11 +46,15 @@ const UserDropdown = () => {
               href={f.href}
               key={f.value}
             >
-              <DropdownMenuItem>{f.value}</DropdownMenuItem>
+              <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-primary'>
+                {f.value}
+              </DropdownMenuItem>
             </Link>
           ))}
           <DropdownMenuSeparator />
-          <DropdownMenuItem className='focus:bg-red-300'>Logout</DropdownMenuItem>
+          <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-red-500'>
+            Logout
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>

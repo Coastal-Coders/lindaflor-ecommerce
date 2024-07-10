@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import api from '@/services/api';
 import { SignUpUser } from '@/types/SignUpUser';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import api from '@/services/api';
 
 const schema = z
   .object({

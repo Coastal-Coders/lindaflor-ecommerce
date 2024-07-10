@@ -11,7 +11,7 @@ import NavbarHidden from './NavbarHidden';
 export const Links = [
   {
     value: 'Sobre',
-    href: '/',
+    href: '/about',
   },
   {
     value: 'Loja',

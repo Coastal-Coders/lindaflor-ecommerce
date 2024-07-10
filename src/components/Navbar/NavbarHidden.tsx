@@ -24,6 +24,7 @@ const NavbarHidden = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align='end'
+          sideOffset={7}
           className='flex flex-col gap-y-1 rounded-lg bg-gradient-to-bl from-secondary to-background shadow-xl shadow-black md:hidden'
         >
           {Links.map((f) => (

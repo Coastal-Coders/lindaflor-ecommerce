@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import api from '@/services/api';
 import { Auth } from '@/types/Auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import api from '@/services/api';
 
 const schema = z.object({
   email: z.string({ required_error: 'Email é obrigatório' }).email({ message: 'Email inválido' }),

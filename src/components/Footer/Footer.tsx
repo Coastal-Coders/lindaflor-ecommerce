@@ -3,12 +3,12 @@ import React from 'react';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 const Footer = () => {
   return (
-    <footer className='static bottom-0 z-0 mx-auto flex w-full flex-col items-center justify-center rounded-t-sm bg-gradient-to-b from-primary/60 via-background to-secondary px-4 py-6'>
+    <footer className='static bottom-0 z-0 mx-auto flex w-full flex-col items-center justify-center rounded-t-md border-t-2 border-secondary bg-gradient-to-b from-primary/60 via-background to-secondary px-4 py-6'>
       <div className='grid grid-cols-1 sm:grid-cols-2'>
         <div className='mb-2 flex flex-col gap-5 border-b border-black pb-5 sm:border-none'>
           <h1 className='text-xl font-semibold'>Linda Flor Moda Praia</h1>
           <Link
-            href={'/'}
+            href={'/about'}
             className='w-fit text-base font-semibold hover:italic'
           >
             Sobre Nós
