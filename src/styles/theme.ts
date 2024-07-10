@@ -80,6 +80,15 @@ const themePlugin = plugin(
 
         '--color-destructive': '0deg 84% 60%',
         '--color-destructive-foreground': '60deg 9% 98%',
+
+        '--color-success': '142deg 71% 51%',
+        '--color-success-foreground': '141deg 78% 12%',
+
+        '--color-warning': '60deg 71% 51%',
+        '--color-warning-foreground': '60deg 50% 17%',
+
+        '--color-info': '198deg 87% 54%',
+        '--color-info-foreground': '198deg 87% 97%',
       },
 
       '.dark': {
@@ -107,6 +116,15 @@ const themePlugin = plugin(
 
         '--color-accent': '12deg 6% 15%',
         '--color-accent-foreground': '60deg 9% 98%',
+
+        '--color-success': '142deg 71% 51%',
+        '--color-success-foreground': '142deg 78% 8%',
+
+        '--color-warning': '60deg 71% 51%',
+        '--color-warning-foreground': '60deg 5% 4%',
+
+        '--color-info': '198deg 87% 54%',
+        '--color-info-foreground': '198deg 87% 7%',
 
         '--color-destructive': '0deg 72% 51%',
         '--color-destructive-foreground': '60deg 9% 98%',
@@ -239,6 +257,21 @@ const themePlugin = plugin(
           destructive: {
             DEFAULT: 'hsl(var(--color-destructive) / <alpha-value>)',
             foreground: 'hsl(var(--color-destructive-foreground) / <alpha-value>)',
+          },
+
+          success: {
+            DEFAULT: 'hsl(var(--color-success) / <alpha-value>)',
+            foreground: 'hsl(var(--color-success-foreground) / <alpha-value>)',
+          },
+
+          warning: {
+            DEFAULT: 'hsl(var(--color-warning) / <alpha-value>)',
+            foreground: 'hsl(var(--color-warning-foreground) / <alpha-value>)',
+          },
+
+          info: {
+            DEFAULT: 'hsl(var(--color-info) / <alpha-value>)',
+            foreground: 'hsl(var(--color-info-foreground) / <alpha-value>)',
           },
         },
       },
