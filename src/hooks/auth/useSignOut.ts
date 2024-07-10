@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import api from '@/services/api';
 
 const useSignOut = () => {
   const router = useRouter();
@@ -13,13 +13,10 @@ const useSignOut = () => {
 
   const signOut = async () => {
     try {
-      await axios.post('http://localhost:3001/auth/logout', {
-        withCredentials: true,
-      });
+      await api.post('http://localhost:3001/auth/logout', {});
 
       router.push('/');
     } catch (error) {
-      console.error(error);
       setError('root', { message: 'Erro ao sair' });
     }
   };
