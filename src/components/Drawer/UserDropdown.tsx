@@ -8,9 +8,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
+import { useSignOut } from '@/hooks/auth';
 import { CircleUser } from 'lucide-react';
 
 const UserDropdown = () => {
+  const { handleSubmit } = useSignOut();
   //Apenas Para Testes
   const fields = [
     {
@@ -46,7 +48,7 @@ const UserDropdown = () => {
             </Link>
           ))}
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Logout</DropdownMenuItem>
+          <DropdownMenuItem onClick={(e) => void handleSubmit(e)}>Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>
