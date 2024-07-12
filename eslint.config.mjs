@@ -1,38 +1,120 @@
-import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
-import pluginJs from '@eslint/js';
-import js from '@eslint/js';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import jsPlugin from '@eslint/js';
+import nextPlugin from '@next/eslint-plugin-next';
+import tsEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import importHelpers from 'eslint-plugin-import-helpers';
-import reactEslint from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import tailwindcss from 'eslint-plugin-tailwindcss';
+import importPlugin from 'eslint-plugin-import';
+import prettierPlugin from 'eslint-plugin-prettier';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import twPlugin from 'eslint-plugin-tailwindcss';
 import globals from 'globals';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
 
 export default [
-  ...fixupConfigRules(
-    compat.extends(
-      'next',
-      'next/core-web-vitals',
-      'eslint:recommended',
-      'plugin:react/recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:@typescript-eslint/recommended-requiring-type-checking',
-      'plugin:prettier/recommended',
-      'plugin:tailwindcss/recommended'
-    )
-  ),
+  {
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+      'eslint-plugin-import': importPlugin,
+    },
+    rules: {
+      'eslint-plugin-import/first': 'error',
+      'eslint-plugin-import/newline-after-import': 'error',
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            [
+              // Packages. `react` related packages come first.
+              '^react',
+              '^@?\\w',
+              // Important! to not have line breaks between groups
+              '^[^.]',
+              '^\\.',
+              // Internal packages.
+              '^(components|modules|utils)(/.*|$)',
+              // Side effect imports.
+              '^\\u0000',
+              // Parent imports. Put `..` last.
+              '^\\.\\.(?!/?$)',
+              '^\\.\\./?$',
+              // Other relative imports. Put same-folder imports and `.` last.
+              '^\\./(?=.*/)(?!/?$)',
+              '^\\.(?!/?$)',
+              '^\\./?$',
+              // Style imports.
+              '^.+\\.s?css$',
+            ],
+          ],
+        },
+      ],
+    },
+  },
+
+  {
+    plugins: {
+      '@next/next': nextPlugin,
+    },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs.recommended.rules['next/core-web-vitals'],
+      '@next/next/no-img-element': 'error',
+    },
+  },
+
+  {
+    plugins: { react: reactPlugin },
+    rules: {
+      ...reactPlugin.configs.recommended.rules,
+      'react/prop-types': 'off',
+      'react/react-in-jsx-scope': 'off',
+    },
+  },
+
+  {
+    plugins: { 'react-hooks': reactHooksPlugin },
+    rules: {
+      ...reactHooksPlugin.configs.recommended.rules,
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  },
+
+  {
+    plugins: { '@typescript-eslint': tsEslint },
+    rules: {
+      ...tsEslint.configs.recommended.rules,
+      ...tsEslint.configs.recommended.rules['requiring-type-checking'],
+      '@typescript-eslint/strict-boolean-expressions': 'error',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+    },
+  },
+
+  {
+    plugins: { '@eslint/js': jsPlugin },
+    rules: {
+      ...jsPlugin.configs.recommended.rules,
+      'no-unused-vars': 'error',
+    },
+  },
+
+  {
+    plugins: { tailwindcss: twPlugin },
+    rules: {
+      ...twPlugin.configs.recommended.rules,
+      'tailwindcss/no-arbitrary-value': 'warn',
+    },
+  },
+
+  {
+    plugins: { 'eslint-plugin-prettier': prettierPlugin },
+    rules: {
+      'eslint-plugin-prettier/prettier': 'warn',
+    },
+  },
+
   {
     files: ['**/*.{js,ts,jsx,tsx}'],
     languageOptions: {
@@ -43,7 +125,7 @@ export default [
         ...globals.es2021,
       },
       parser: tsParser,
-      ecmaVersion: 12,
+      ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
         project: './tsconfig.json',
@@ -57,51 +139,6 @@ export default [
         version: 'detect',
       },
     },
-
-    plugins: {
-      react: fixupPluginRules(reactEslint),
-      '@typescript-eslint': fixupPluginRules(typescriptEslint),
-      'react-hooks': fixupPluginRules(reactHooks),
-      'import-helpers': importHelpers,
-      tailwindcss: fixupPluginRules(tailwindcss),
-    },
-    rules: {
-      'react-hooks/rules-of-hooks': 'error',
-      '@typescript-eslint/strict-boolean-expressions': 'error',
-
-      'react-hooks/exhaustive-deps': 'warn',
-
-      'react/prop-types': 'off',
-      'react/react-in-jsx-scope': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-non-null-assertion': 'off',
-
-      'import-helpers/order-imports': [
-        'error',
-        {
-          newlinesBetween: 'never',
-          groups: [
-            ['/^react/', '/^next/'],
-            'module',
-            '/^@shared/',
-            'absolute',
-            '/^components/',
-            '/^pages/',
-            '/utils/',
-            '/constants/',
-            '/^store/',
-            '/^styles/',
-            '/^templates/',
-            ['parent', 'sibling', 'index'],
-          ],
-          alphabetize: {
-            order: 'asc',
-            ignoreCase: true,
-          },
-        },
-      ],
-    },
     ignores: ['**/node_modules/**', '**/.next/**', '**/cypress/**', '**.config.**'],
   },
-  pluginJs.configs.recommended,
 ];
