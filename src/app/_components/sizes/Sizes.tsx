@@ -193,7 +193,7 @@ const Sizes = () => {
         </Table>
       </div>
       <p className='mx-auto w-fit rounded-md bg-secondary p-2 text-center text-base font-semibold text-primary shadow-md shadow-primary'>
-        As medidas podem variar em caso de biquinis encomendados
+        As medidas podem variar em caso de biquínis encomendados
       </p>
     </div>
   );

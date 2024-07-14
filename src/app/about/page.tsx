@@ -1,5 +1,5 @@
 import React from 'react';
-import About from '../_components/about/About';
+import { About } from '../_components/about';
 
 const page = () => {
   return (

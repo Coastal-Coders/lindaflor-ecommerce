@@ -94,8 +94,7 @@ const themePlugin = plugin(
       '.dark': {
         '--color-background': '20deg 14% 4%',
         '--color-foreground': '60deg 9% 98%',
-        '--color-letterum': '40deg 100% 99%',
-        '--color-letterdois': '358deg 100% 75%',
+
         '--color-border': '12deg 6% 15%',
         '--color-input': '12deg 6% 15%',
         '--color-ring': '20deg 90% 48%',
@@ -220,8 +219,6 @@ const themePlugin = plugin(
         colors: {
           background: 'hsl(var(--color-background) / <alpha-value>)',
           foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
-          letterum: 'hsl(var(--color-letterum) / <alpha-value>)',
-          letterdois: 'hsl(var(--color-letterdois) / <alpha-value>)',
 
           border: 'hsl(var(--color-border) / <alpha-value>)',
           input: 'hsl(var(--color-input) / <alpha-value>)',

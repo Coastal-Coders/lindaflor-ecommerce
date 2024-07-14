@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Sizes from '../_components/sizes/Sizes';
+import { Sizes } from '../_components/sizes';
 
 const page = () => {
   return (
