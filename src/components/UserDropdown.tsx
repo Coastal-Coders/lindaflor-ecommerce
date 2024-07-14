@@ -1,3 +1,4 @@
+import { CircleUser } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import {
@@ -9,7 +10,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
 import { useSignOut } from '@/hooks/auth';
-import { CircleUser } from 'lucide-react';
 
 const UserDropdown = () => {
   //Apenas Para Testes
@@ -23,6 +23,7 @@ const UserDropdown = () => {
       href: '/signup',
     },
   ];
+  const { handleSubmit } = useSignOut();
   return (
     <>
       <DropdownMenu>
@@ -52,7 +53,10 @@ const UserDropdown = () => {
             </Link>
           ))}
           <DropdownMenuSeparator />
-          <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-red-500'>
+          <DropdownMenuItem
+            onClick={(e) => void handleSubmit(e)}
+            className='rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
+          >
             Logout
           </DropdownMenuItem>
         </DropdownMenuContent>

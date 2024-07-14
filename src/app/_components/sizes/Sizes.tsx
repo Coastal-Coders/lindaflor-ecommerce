@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import {
   Table,
   TableBody,
+  TableCell,
+  TableHead,
   TableHeader,
   TableRow,
-  TableHead,
-  TableCell,
 } from '@/components/ui/Table';
 
 const Tamanhos = [

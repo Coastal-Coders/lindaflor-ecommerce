@@ -2,11 +2,8 @@
 import { ThemeToogle } from '@/components/ThemeToogle';
 import Sheets from './Sheets';
 import UserDropdown from '../UserDropdown';
-import { usePathname } from 'next/navigation';
 
 const Drawer = () => {
-  const pathname = usePathname();
-  const isHomePage = pathname === '/';
   return (
     <nav className='sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6'>
       <Sheets />

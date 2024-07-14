@@ -10,11 +10,11 @@ const Sheets = () => {
     {
       value: 'Dashboard',
       href: '/dashboard',
-    },   
+    },
     {
       value: 'Products',
       href: '/products',
-    },    
+    },
     {
       value: 'Analytics',
       href: '/',

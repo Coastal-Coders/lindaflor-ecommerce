@@ -1,12 +1,13 @@
 'use client';
+import React from 'react';
+import { CreditCard, Package2, Shirt, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import { Card, CardTitle } from '@/components/ui/Card';
-import { Shirt, ShoppingBag, CreditCard, Package2 } from 'lucide-react';
 import * as Biquini from '../../../../public/Biquini.jpg';
 import * as Logo from '../../../../public/LindaFlorLogo-Photoroom.png';
 import * as Maio from '../../../../public/Maiô.jpg';
+
 const LandingPage = () => {
   return (
     <main className='min-h-screen bg-gradient-to-b from-primary/80 via-background/80 to-primary/70'>

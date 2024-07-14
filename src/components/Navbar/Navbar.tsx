@@ -1,13 +1,14 @@
 'use client';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import NavbarHidden from './NavbarHidden';
 import * as Logo from '../../../public/LindaFlorLogo-Photoroom.png';
 import SearchBar from '../SearchBar';
 //import { ThemeToogle } from '../ThemeToogle';
 import UserDropdown from '../UserDropdown';
-import NavbarHidden from './NavbarHidden';
+
 export const Links = [
   {
     value: 'Sobre',

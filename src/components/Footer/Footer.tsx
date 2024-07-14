@@ -1,6 +1,7 @@
-import Link from 'next/link';
 import React from 'react';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import Link from 'next/link';
+
 const Footer = () => {
   return (
     <footer className='static bottom-0 z-0 mx-auto flex w-full flex-col items-center justify-center rounded-t-md border-t-2 border-secondary bg-gradient-to-b from-primary/60 via-background to-secondary px-4 py-6'>
@@ -17,7 +18,7 @@ const Footer = () => {
             Sobre Nós
           </Link>
           <Link
-            href={'/'}
+            href={'/sizes'}
             className='w-fit text-base font-semibold hover:italic'
           >
             Guia de Tamanhos

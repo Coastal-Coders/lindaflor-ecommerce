@@ -1,8 +1,8 @@
 // import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import api from '@/services/api';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import api from '@/services/api';
 
 const addProductSchema = z.object({
   name: z.string({ required_error: 'Nome é obrigatória' }).max(30, {

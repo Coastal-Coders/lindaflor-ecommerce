@@ -1,9 +1,9 @@
+import { ChangeEvent, useState } from 'react';
+import { Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChangeEvent, useState } from 'react';
 import { Products } from '@/app/_components/products/data/schema';
 import { Input } from '@/components/ui/Input';
-import { Search } from 'lucide-react';
 import * as produs from '../app/_components/products/data/tasks.json';
 
 const produtos = () => {

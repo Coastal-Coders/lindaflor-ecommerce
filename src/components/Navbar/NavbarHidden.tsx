@@ -1,6 +1,7 @@
+import React from 'react';
+import { Grip } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
 import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
@@ -8,8 +9,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
-import { Grip } from 'lucide-react';
 import { Links } from './Navbar';
+
 const NavbarHidden = () => {
   const pathname = usePathname();
   const scrollToContacts = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
