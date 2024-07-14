@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Drawer from '@/components/Drawer/Drawer';
-import { ThemeProvider } from '@/utils/theme/theme-provider';
+import Footer from '@/components/Footer/Footer';
+import Navbar from '@/components/Navbar/Navbar';
+//import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -20,15 +21,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           themes={['light', 'dark']}
-        >
-          <Drawer />
-          {children}
-        </ThemeProvider>
+        > */}
+        <Navbar />
+        <main className='min-h-screen'>{children}</main>
+        <Footer />
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

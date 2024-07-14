@@ -10,19 +10,11 @@ const Sheets = () => {
     {
       value: 'Dashboard',
       href: '/dashboard',
-    },
-    {
-      value: 'Orders',
-      href: '/',
-    },
+    },   
     {
       value: 'Products',
       href: '/products',
-    },
-    {
-      value: 'Costumers',
-      href: '/',
-    },
+    },    
     {
       value: 'Analytics',
       href: '/',
@@ -37,7 +29,7 @@ const Sheets = () => {
             size='icon'
             className='shrink-0'
           >
-            <Menu className='size-8 sm:size-5' />
+            <Menu className='size-5 sm:size-8' />
           </Button>
         </SheetTrigger>
         <SheetContent
@@ -49,9 +41,9 @@ const Sheets = () => {
               href='/'
               className='w-fit'
             >
-              <SheetPrimitive.Close className='mb-2 flex w-fit items-center gap-3 space-x-2 text-lg font-semibold'>
-                <Package2 className='size-8 sm:size-5' />
-                <SheetHeader className='text-2xl sm:text-lg'>Linda Flor</SheetHeader>
+              <SheetPrimitive.Close className='mb-2 flex w-fit items-center gap-3 space-x-1 text-lg font-semibold'>
+                <Package2 className='size-5 sm:size-6' />
+                <SheetHeader className='text-lg sm:text-xl'>Linda Flor</SheetHeader>
               </SheetPrimitive.Close>
             </Link>
             {links.map((e) => (

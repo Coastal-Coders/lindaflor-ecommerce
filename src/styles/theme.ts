@@ -53,10 +53,10 @@ const themePlugin = plugin(
 
     addBase({
       ':root': {
-        '--color-background': '0deg 0% 100%',
+        '--color-background': '353deg 95% 85%',
         '--color-foreground': '20deg 14% 4%',
 
-        '--color-border': '20deg 6% 90%',
+        '--color-border': '358deg 100% 75%',
         '--color-input': '20deg 6% 90%',
         '--color-ring': '25deg 95% 53%',
 
@@ -66,10 +66,10 @@ const themePlugin = plugin(
         '--color-popover': '0deg 0% 100%',
         '--color-popover-foreground': '20deg 14% 4%',
 
-        '--color-primary': '25deg 95% 53%',
+        '--color-primary': '40deg 100% 99%',
         '--color-primary-foreground': '60deg 9% 98%',
 
-        '--color-secondary': '60deg 5% 96%',
+        '--color-secondary': '358deg 100% 75%',
         '--color-secondary-foreground': '24deg 10% 10%',
 
         '--color-muted': '60deg 5% 96%',
@@ -94,7 +94,8 @@ const themePlugin = plugin(
       '.dark': {
         '--color-background': '20deg 14% 4%',
         '--color-foreground': '60deg 9% 98%',
-
+        '--color-letterum': '40deg 100% 99%',
+        '--color-letterdois': '358deg 100% 75%',
         '--color-border': '12deg 6% 15%',
         '--color-input': '12deg 6% 15%',
         '--color-ring': '20deg 90% 48%',
@@ -219,6 +220,8 @@ const themePlugin = plugin(
         colors: {
           background: 'hsl(var(--color-background) / <alpha-value>)',
           foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
+          letterum: 'hsl(var(--color-letterum) / <alpha-value>)',
+          letterdois: 'hsl(var(--color-letterdois) / <alpha-value>)',
 
           border: 'hsl(var(--color-border) / <alpha-value>)',
           input: 'hsl(var(--color-input) / <alpha-value>)',

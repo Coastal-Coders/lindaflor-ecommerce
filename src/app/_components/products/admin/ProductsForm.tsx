@@ -1,14 +1,10 @@
 'use client';
+
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
-import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -22,73 +18,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/Select';
-import { toast } from '@/components/ui/UseToast';
-
-const profileFormSchema = z.object({
-  nome: z
-    .string()
-    .min(2, {
-      message: 'Produto must be at least 2 characters.',
-    })
-    .max(30, {
-      message: 'Produto must not be longer than 30 characters.',
-    }),
-  preço: z
-    .string()
-    .regex(/^\d+(\.\d{1,2})?$/, {
-      message: 'Preço deve ser um número válido com até duas casas decimais.',
-    })
-    .transform((val) => parseFloat(val)),
-  cor: z
-    .string()
-    .min(2, {
-      message: 'Produto must be at least 2 characters.',
-    })
-    .max(30, {
-      message: 'Produto must not be longer than 30 characters.',
-    }),
-  tamanho: z.string(),
-  quantidade: z
-    .string()
-    .regex(/^\d+$/, {
-      message: 'Quantidade deve ser um número inteiro válido.',
-    })
-    .transform((val) => parseInt(val, 10)),
-});
-
-type ProfileFormValues = z.infer<typeof profileFormSchema>;
-
-// This can come from your database or API.
+import useAddProduct from '@/hooks/products/useAddProduct';
 
 export function ProductsForm() {
-  const router = useRouter();
-  const form = useForm<ProfileFormValues>({
-    resolver: zodResolver(profileFormSchema),
-    mode: 'onChange',
-  });
-
-  function onSubmit(data: ProfileFormValues) {
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
-    console.log(data);
-    router.push('/products/admin');
-  }
+  const { useFormValidation, handleSubmit, control, errors } = useAddProduct();
 
   return (
-    <Form {...form}>
+    <Form {...useFormValidation()}>
       <form
-        onSubmit={(event) => void form.handleSubmit(onSubmit)(event)}
+        onSubmit={(e) => void handleSubmit(e)}
         className='space-y-8'
       >
         <FormField
-          control={form.control}
-          name='nome'
+          control={control}
+          name='name'
           render={({ field }) => (
             <FormItem>
               <FormLabel>Nome do Produto</FormLabel>
@@ -99,14 +42,30 @@ export function ProductsForm() {
                   {...field}
                 />
               </FormControl>
-              <FormDescription>teste teste camisa polo.</FormDescription>
-              <FormMessage />
+              {errors.name && <FormMessage>{errors.name?.message}</FormMessage>}
             </FormItem>
           )}
         />
         <FormField
-          control={form.control}
-          name='preço'
+          control={control}
+          name='description'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Descrição do Produto</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder='Ex: Camisa Polo'
+                  className='ring-1 focus-visible:right-1 focus-visible:outline-none focus-visible:ring-gray-400 focus-visible:ring-offset-0'
+                  {...field}
+                />
+              </FormControl>
+              {errors.description && <FormMessage>{errors.description?.message}</FormMessage>}
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={control}
+          name='price'
           render={({ field }) => (
             <FormItem>
               <FormLabel>Preço</FormLabel>
@@ -117,14 +76,13 @@ export function ProductsForm() {
                   {...field}
                 />
               </FormControl>
-              <FormDescription>esse é o preço do produto</FormDescription>
-              <FormMessage />
+              {errors.price && <FormMessage>{errors.price?.message}</FormMessage>}
             </FormItem>
           )}
         />
         <FormField
-          control={form.control}
-          name='cor'
+          control={control}
+          name='color'
           render={({ field }) => (
             <FormItem>
               <FormLabel>Cores</FormLabel>
@@ -143,14 +101,13 @@ export function ProductsForm() {
                   <SelectItem value='Preto'>Preto</SelectItem>
                 </SelectContent>
               </Select>
-              <FormDescription>Cores teste</FormDescription>
-              <FormMessage />
+              {errors.color && <FormMessage>{errors.color?.message}</FormMessage>}
             </FormItem>
           )}
         />
         <FormField
-          control={form.control}
-          name='tamanho'
+          control={control}
+          name='size'
           render={({ field }) => (
             <FormItem>
               <FormLabel>Tamanhos</FormLabel>
@@ -169,14 +126,13 @@ export function ProductsForm() {
                   <SelectItem value='G'>G</SelectItem>
                 </SelectContent>
               </Select>
-              <FormDescription>Tamanhos Teste.</FormDescription>
-              <FormMessage />
+              {errors.size && <FormMessage>{errors.size?.message}</FormMessage>}
             </FormItem>
           )}
         />
         <FormField
-          control={form.control}
-          name='quantidade'
+          control={control}
+          name='stock'
           render={({ field }) => (
             <FormItem>
               <FormLabel>Quantidade </FormLabel>
@@ -187,16 +143,18 @@ export function ProductsForm() {
                   {...field}
                 />
               </FormControl>
-              <FormDescription>Quantidade a ser adicionada em estoque</FormDescription>
-              <FormMessage />
+              {errors.stock && <FormMessage>{errors.stock?.message}</FormMessage>}
             </FormItem>
           )}
         />
+        {errors.root && (
+          <div className='text-center text-sm font-medium text-destructive'>
+            {errors.root.message}
+          </div>
+        )}
         <Button
           type='submit'
-          size={'lg'}
-          variant={'default'}
-          className='bg-primary'
+          size='lg'
         >
           Cadastrar Produto
         </Button>

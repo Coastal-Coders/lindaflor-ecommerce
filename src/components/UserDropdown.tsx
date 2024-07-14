@@ -1,4 +1,3 @@
-import { CircleUser } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import {
@@ -10,18 +9,18 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
 import { useSignOut } from '@/hooks/auth';
+import { CircleUser } from 'lucide-react';
 
 const UserDropdown = () => {
-  const { handleSubmit } = useSignOut();
   //Apenas Para Testes
   const fields = [
     {
-      value: 'Settings',
-      href: '/',
+      value: 'Sign In',
+      href: '/signin',
     },
     {
-      value: 'Support',
-      href: '/',
+      value: 'Sign Up',
+      href: '/signup',
     },
   ];
   return (
@@ -31,24 +30,31 @@ const UserDropdown = () => {
           <Button
             variant='secondary'
             size='icon'
-            className='rounded-full focus-visible:ring-0'
+            className='rounded-full bg-transparent focus-visible:ring-0'
           >
-            <CircleUser className='size-8 sm:size-5' />
+            <CircleUser className='size-10 text-cyan-500' />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align='end'>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuContent
+          align='end'
+          className='bg-gradient-to-bl from-secondary to-background'
+        >
+          <DropdownMenuLabel>User name</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {fields.map((f) => (
             <Link
               href={f.href}
               key={f.value}
             >
-              <DropdownMenuItem>{f.value}</DropdownMenuItem>
+              <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-primary'>
+                {f.value}
+              </DropdownMenuItem>
             </Link>
           ))}
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={(e) => void handleSubmit(e)}>Logout</DropdownMenuItem>
+          <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-red-500'>
+            Logout
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>

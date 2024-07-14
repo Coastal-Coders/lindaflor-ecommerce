@@ -43,13 +43,13 @@ const calculateFacets = (products: Products[], selectedFilters: ProductsKey) => 
       })
     ) {
       const pieces = product.nome.split(' ')[0].trim();
-      facets.Peças.set(pieces, ((facets.Peças.get(pieces) ?? 0) || 0) + 1);
+      facets.Peças.set(pieces, (facets.Peças.get(pieces) ?? 0) + 1);
 
       const size = product.tamanho;
-      facets.Tamanho.set(size, ((facets.Tamanho.get(size) ?? 0) || 0) + 1);
+      facets.Tamanho.set(size, (facets.Tamanho.get(size) ?? 0) + 1);
 
       const color = product.cor;
-      facets.Cor.set(color, ((facets.Cor.get(color) ?? 0) || 0) + 1);
+      facets.Cor.set(color, (facets.Cor.get(color) ?? 0) + 1);
     }
   });
 
