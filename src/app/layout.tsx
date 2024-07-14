@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import React from 'react';
 import Footer from '@/components/Footer/Footer';
 import Navbar from '@/components/Navbar/Navbar';
-import { ThemeProvider } from '@/utils/theme/theme-provider';
+//import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -21,16 +21,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           themes={['light', 'dark']}
-        >
-          <Navbar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        > */}
+        <Navbar />
+        <main className='min-h-screen'>{children}</main>
+        <Footer />
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

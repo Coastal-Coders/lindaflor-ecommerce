@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import React from 'react';
 import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
@@ -11,15 +12,22 @@ import { Grip } from 'lucide-react';
 import { Links } from './Navbar';
 const NavbarHidden = () => {
   const pathname = usePathname();
+  const scrollToContacts = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    const footerContacts = document.querySelector('#footer-contacts');
+    if (footerContacts) {
+      footerContacts.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            size='sm'
+            size='icon'
             className='flex rounded-full bg-secondary text-cyan-400 transition duration-150 ease-in hover:bg-primary md:hidden'
           >
-            <Grip className='size-4 text-cyan-600' />
+            <Grip className='size-6 text-cyan-600' />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -31,6 +39,7 @@ const NavbarHidden = () => {
             <Link
               href={f.href}
               key={f.value}
+              onClick={f.value === 'Contatos' ? scrollToContacts : undefined}
             >
               <DropdownMenuItem
                 className={`rounded-lg p-5 text-sm font-semibold text-cyan-700 hover:bg-primary md:text-base ${pathname === f.href ? 'text-cyan-500' : ''}`}

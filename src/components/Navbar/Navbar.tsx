@@ -19,15 +19,22 @@ export const Links = [
   },
   {
     value: 'Tamanhos',
-    href: '/signin',
+    href: '/sizes',
   },
   {
     value: 'Contatos',
-    href: '/signup',
+    href: '#footer-contacts',
   },
 ];
 const Navbar = () => {
   const pathname = usePathname();
+  const scrollToContacts = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    const footerContacts = document.querySelector('#footer-contacts');
+    if (footerContacts) {
+      footerContacts.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className='sticky top-0 z-10 mb-2 flex items-center border-b bg-gradient-to-r from-cyan-200 via-cyan-100 to-yellow-200 py-3'>
@@ -52,6 +59,7 @@ const Navbar = () => {
               <Link
                 href={l.href}
                 key={l.value}
+                onClick={l.value === 'Contatos' ? scrollToContacts : undefined}
                 className={`rounded-md px-1 text-sm font-semibold text-primary hover:shadow-sm hover:shadow-primary md:text-base ${pathname === l.href ? 'text-cyan-400/95 shadow-md shadow-cyan-400 hover:shadow-md hover:shadow-current' : ''}`}
               >
                 {l.value}
@@ -59,7 +67,7 @@ const Navbar = () => {
             ))}
           </ul>
           <UserDropdown />
-          {/*<ThemeToogle />*/}
+          {/* <ThemeToogle /> */}
           {/*Refazer usando DropDown assim como UserDrop*/}
         </div>
       </div>

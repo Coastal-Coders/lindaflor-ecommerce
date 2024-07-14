@@ -58,7 +58,7 @@ const LandingPage = () => {
         <h1 className='text-center text-3xl font-semibold sm:text-4xl'>
           Entregando Qualidade <p>em</p>
         </h1>
-        <div className='flex w-full flex-col items-center justify-center gap-5 bg-gradient-to-b from-background/80 via-secondary/80 to-primary/10 py-1 md:flex-row md:gap-8 lg:gap-28'>
+        <div className='flex w-full flex-col items-center justify-center gap-5 bg-gradient-to-b from-background/20 via-secondary/80 to-primary/10 py-1 md:flex-row md:gap-8 lg:gap-28'>
           <div className='relative flex flex-col items-center justify-center text-center'>
             <h1 className='absolute top-5 w-full bg-slate-500 text-center text-2xl text-primary'>
               Biquinis
