@@ -10,4 +10,4 @@ const uri: { [key: string]: string } = {
 
 const NODE_ENV = process.env.NODE_ENV;
 
-export { uri, version, NODE_ENV };
+export { NODE_ENV, uri, version };

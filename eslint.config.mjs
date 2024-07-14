@@ -9,6 +9,7 @@ import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import twPlugin from 'eslint-plugin-tailwindcss';
 import globals from 'globals';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default [
   {
@@ -53,6 +54,13 @@ export default [
   },
 
   {
+    plugins: { 'jsx-a11y': jsxA11y },
+    rules: {
+      ...jsxA11y.configs.recommended.rules,
+    },
+  },
+
+  {
     plugins: {
       '@next/next': nextPlugin,
     },
@@ -77,7 +85,7 @@ export default [
     rules: {
       ...reactHooksPlugin.configs.recommended.rules,
       'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/exhaustive-deps': 'error',
     },
   },
 
@@ -104,7 +112,6 @@ export default [
     plugins: { tailwindcss: twPlugin },
     rules: {
       ...twPlugin.configs.recommended.rules,
-      'tailwindcss/no-arbitrary-value': 'warn',
     },
   },
 
@@ -139,6 +146,6 @@ export default [
         version: 'detect',
       },
     },
-    ignores: ['**/node_modules/**', '**/.next/**', '**/cypress/**', '**.config.**'],
+    ignores: ['**/node_modules/**', '**/.next/**', '**/cypress/**'],
   },
 ];

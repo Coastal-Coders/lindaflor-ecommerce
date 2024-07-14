@@ -9,9 +9,9 @@ const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 
 export {
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuGroup,
   DropdownMenuPortal,
-  DropdownMenuSub,
   DropdownMenuRadioGroup,
+  DropdownMenuSub,
+  DropdownMenuTrigger,
 };

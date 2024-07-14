@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
 import React from 'react';
+import type { Metadata } from 'next';
 import Drawer from '@/components/Drawer/Drawer';
 import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';

@@ -1,5 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Activity, CreditCard, DollarSign, Users } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+
 const InfoCards = () => {
   return (
     <>

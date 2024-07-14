@@ -5,4 +5,4 @@ const SheetTrigger = SheetPrimitive.Trigger;
 const SheetClose = SheetPrimitive.Close;
 const SheetPortal = SheetPrimitive.Portal;
 
-export { Sheet, SheetPortal, SheetTrigger, SheetClose };
+export { Sheet, SheetClose, SheetPortal, SheetTrigger };

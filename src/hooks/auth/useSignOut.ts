@@ -1,5 +1,5 @@
-import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import api from '@/services/api';
 
 const useSignOut = () => {

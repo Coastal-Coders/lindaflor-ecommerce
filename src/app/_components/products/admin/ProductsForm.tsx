@@ -1,7 +1,9 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
+import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import {
   Form,
@@ -21,8 +23,6 @@ import {
   SelectValue,
 } from '@/components/ui/Select';
 import { toast } from '@/components/ui/UseToast';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 
 const profileFormSchema = z.object({
   nome: z

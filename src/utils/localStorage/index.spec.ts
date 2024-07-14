@@ -1,5 +1,5 @@
 import { expect } from '@jest/globals';
-import { getStorageItem, setStorageItem, APP_KEY } from '.';
+import { APP_KEY, getStorageItem, setStorageItem } from '.';
 
 beforeEach(() => {
   window.localStorage.clear();
