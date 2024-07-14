@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
 import React from 'react';
+import type { Metadata } from 'next';
 import Footer from '@/components/Footer/Footer';
 import Navbar from '@/components/Navbar/Navbar';
 //import { ThemeProvider } from '@/utils/theme/theme-provider';

@@ -8,6 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
+import { useSignOut } from '@/hooks/auth';
 import { CircleUser } from 'lucide-react';
 
 const UserDropdown = () => {

@@ -1,8 +1,8 @@
+import * as SheetPrimitive from '@radix-ui/react-dialog';
+import { Menu, Package2 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '@/components/ui/Sheet';
-import * as SheetPrimitive from '@radix-ui/react-dialog';
-import { Menu, Package2 } from 'lucide-react';
 
 const Sheets = () => {
   //Apenas Para testes

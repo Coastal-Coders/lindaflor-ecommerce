@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+
 const RecentSales = () => {
   return (
     <>

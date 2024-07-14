@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { CheckIcon, PlusCircledIcon } from '@radix-ui/react-icons';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import {
@@ -12,7 +13,6 @@ import {
 } from '@/components/ui/Command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover';
 import { Separator } from '@/components/ui/Separator';
-import { CheckIcon, PlusCircledIcon } from '@radix-ui/react-icons';
 import { cn } from '@/lib/utils';
 
 interface iFilterProps {
@@ -38,16 +38,21 @@ export function FacetedFilterView({
   options,
   selectedFilters,
   setSelectedFilters,
-  facets
-}: iFilterProps) {  
+  facets,
+}: iFilterProps) {
   const selectedValues = new Set(
-    selectedFilters[title!] ? Array.from(selectedFilters[title!]) : []
+    // selectedFilters[title!] ? Array.from(selectedFilters[title!]) : []
+    Array.from(selectedFilters[title!] ?? [])
   );
 
   const handleSelect = (value: string) => {
     setSelectedFilters((prev) => {
       const newFilters = { ...prev };
-      const filterSet = new Set(newFilters[title!] ? Array.from(newFilters[title!]) : []);
+      const filterSet = new Set(
+        Array.from(
+          selectedFilters[title!] ?? []
+        ) /*newFilters[title!] ? Array.from(newFilters[title!]) : []*/
+      );
       if (filterSet.has(value)) {
         filterSet.delete(value);
       } else {
@@ -143,7 +148,7 @@ export function FacetedFilterView({
                     </div>
                     {option.icon && <option.icon className='mr-2 size-4 text-muted-foreground' />}
                     <span>{option.label}</span>
-                    {facets.get(option.value) && (
+                    {(facets.get(option.value) ?? 0) && (
                       <span className='ml-auto flex size-4 items-center justify-center font-mono text-xs'>
                         {facets.get(option.value)}
                       </span>

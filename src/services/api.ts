@@ -1,10 +1,10 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { NODE_ENV, uri } from '@/constants/environment-variables';
 
-const axiosInstance = axios.create({
+const apiInstance = axios.create({
   baseURL: uri[NODE_ENV],
 });
-axiosInstance.defaults.withCredentials = true;
+
 const api = (axios: AxiosInstance) => {
   return {
     get: function <T>(url: string, config: AxiosRequestConfig = {}) {
@@ -22,4 +22,4 @@ const api = (axios: AxiosInstance) => {
   };
 };
 
-export default api(axiosInstance);
+export default api(apiInstance);

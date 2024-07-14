@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import * as React from 'react';
+import { CheckIcon, PlusCircledIcon } from '@radix-ui/react-icons';
+import { Column } from '@tanstack/react-table';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import {
@@ -13,8 +15,6 @@ import {
 } from '@/components/ui/Command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover';
 import { Separator } from '@/components/ui/Separator';
-import { CheckIcon, PlusCircledIcon } from '@radix-ui/react-icons';
-import { Column } from '@tanstack/react-table';
 import { cn } from '@/lib/utils';
 
 interface DataTableFacetedFilterProps<TData, TValue> {
