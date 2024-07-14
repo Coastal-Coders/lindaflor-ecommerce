@@ -1,4 +1,6 @@
 import React from 'react';
+import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
+import { Cross2Icon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
@@ -7,10 +9,8 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
 import { Label } from '@/components/ui/Label';
-import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
-import { Cross2Icon } from '@radix-ui/react-icons';
 import { FacetedFilterView } from '.';
-import { Peças, tamanho, cor } from '../data';
+import { cor, Peças, tamanho } from '../data';
 
 interface iFilterProps {
   selectedFilters: {

@@ -1,9 +1,9 @@
 'use client';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ProductCardView, ProductsFilterBar } from '.';
+import { PaginationView } from './PaginationView';
 import { Products } from '../data/schema';
 import * as produs from '../data/tasks.json';
-import { PaginationView } from './PaginationView';
 
 const b = () => {
   return produs.map((e) => e);
@@ -43,13 +43,13 @@ const calculateFacets = (products: Products[], selectedFilters: ProductsKey) => 
       })
     ) {
       const pieces = product.nome.split(' ')[0].trim();
-      facets.Peças.set(pieces, (facets.Peças.get(pieces) || 0) + 1);
+      facets.Peças.set(pieces, ((facets.Peças.get(pieces) ?? 0) || 0) + 1);
 
       const size = product.tamanho;
-      facets.Tamanho.set(size, (facets.Tamanho.get(size) || 0) + 1);
+      facets.Tamanho.set(size, ((facets.Tamanho.get(size) ?? 0) || 0) + 1);
 
       const color = product.cor;
-      facets.Cor.set(color, (facets.Cor.get(color) || 0) + 1);
+      facets.Cor.set(color, ((facets.Cor.get(color) ?? 0) || 0) + 1);
     }
   });
 

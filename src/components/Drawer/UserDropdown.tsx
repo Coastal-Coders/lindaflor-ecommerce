@@ -1,3 +1,4 @@
+import { CircleUser } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import {
@@ -9,7 +10,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
 import { useSignOut } from '@/hooks/auth';
-import { CircleUser } from 'lucide-react';
 
 const UserDropdown = () => {
   const { handleSubmit } = useSignOut();

@@ -7,4 +7,4 @@ type ToastActionElement = React.ReactElement<typeof ToastAction>;
 
 const ToastProvider = ToastPrimitives.Provider;
 
-export { type ToastProps, type ToastActionElement, ToastProvider };
+export { type ToastActionElement, type ToastProps, ToastProvider };
