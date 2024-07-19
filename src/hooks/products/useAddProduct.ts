@@ -2,6 +2,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { NODE_ENV, uri } from '@/constants/environment-variables';
 import api from '@/services/api';
 
 const addProductSchema = z.object({
@@ -51,8 +52,11 @@ const useAddProduct = () => {
   const onSubmit: SubmitHandler<AddProduct> = async (data, event) => {
     event?.preventDefault();
 
+    const baseURL = uri[NODE_ENV];
+    const apiURL = `${baseURL}/products`;
+
     try {
-      await api.post('http://localhost:3001/products', data);
+      await api.post(apiURL, data);
       // router.push('/products');
     } catch (error) {
       throw new Error('Erro ao cadastrar produto');

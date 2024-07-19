@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { z } from 'zod';
+import { NODE_ENV, uri } from '@/constants/environment-variables';
 import api from '@/services/api';
 import { SignUpUser } from '@/types/SignUpUser';
 
@@ -48,8 +49,11 @@ const useSignUp = () => {
   const onSubmit: SubmitHandler<SignUpUser> = async (data, event) => {
     event?.preventDefault();
 
+    const baseURL = uri[NODE_ENV];
+    const apiURL = `${baseURL}/auth/local/signup`;
+
     try {
-      await api.post<SignUpUser>('http://localhost:3001/auth/local/signup', data);
+      await api.post<SignUpUser>(apiURL, data);
 
       router.push('/signin');
     } catch (error) {
