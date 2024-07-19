@@ -1,7 +1,7 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
 import { useSignUp } from '@/hooks/auth';
@@ -10,50 +10,55 @@ export function SignUp() {
   const { useFormValidation, handleSubmit, errors, control } = useSignUp();
 
   return (
-    <main className='flex min-h-screen items-center'>
-      <Card className='mx-auto sm:max-w-md'>
-        <CardHeader>
-          <CardTitle>Cadastro</CardTitle>
-          <CardDescription>Entre com suas informações</CardDescription>
-        </CardHeader>
-        <CardContent>
+    <div className='grid min-h-screen w-full lg:grid-cols-2'>
+      <div className='flex items-center justify-center p-6 lg:p-10'>
+        <div className='mx-auto w-full max-w-lg space-y-6'>
+          <div className='space-y-1 text-center'>
+            <h1 className='text-3xl font-bold'>Crie sua conta</h1>
+            <p className='text-xs text-muted-foreground'>
+              Já possui uma conta?{' '}
+              <Link
+                href='/signin'
+                className='underline'
+                prefetch={false}
+              >
+                Faça login
+              </Link>
+            </p>
+          </div>
           <Form {...useFormValidation()}>
             <form
-              className='grid gap-4'
+              className='grid gap-3'
               onSubmit={(e) => void handleSubmit(e)}
             >
-              <div className='grid grid-cols-2 gap-4'>
-                <FormField
-                  control={control}
-                  name='name'
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel htmlFor='name'>Nome</FormLabel>
-                      <Input
-                        id='name'
-                        placeholder='Max'
-                        {...field}
-                      />
-                      {errors.name && <FormMessage>{errors.name.message}</FormMessage>}
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={control}
-                  name='surname'
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel htmlFor='surname'>Sobrenome</FormLabel>
-                      <Input
-                        id='surname'
-                        placeholder='Robinson'
-                        {...field}
-                      />
-                      {errors.surname && <FormMessage>{errors.surname.message}</FormMessage>}
-                    </FormItem>
-                  )}
-                />
-              </div>
+              <FormField
+                control={control}
+                name='name'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel htmlFor='name'>Nome</FormLabel>
+                    <Input
+                      id='name'
+                      {...field}
+                    />
+                    {errors.name && <FormMessage>{errors.name.message}</FormMessage>}
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={control}
+                name='surname'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel htmlFor='surname'>Sobrenome</FormLabel>
+                    <Input
+                      id='surname'
+                      {...field}
+                    />
+                    {errors.surname && <FormMessage>{errors.surname.message}</FormMessage>}
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={control}
                 name='email'
@@ -63,7 +68,6 @@ export function SignUp() {
                     <Input
                       id='email'
                       type='email'
-                      placeholder='m@example.com'
                       autoComplete='email'
                       {...field}
                     />
@@ -114,29 +118,30 @@ export function SignUp() {
                 type='submit'
                 className='w-full'
               >
-                Criar conta
+                Cadastrar
               </Button>
             </form>
           </Form>
-          <div className='mt-4 grid gap-4'>
-            <Button
-              variant='outline'
-              className='w-full'
-            >
-              Criar conta com o Google
-            </Button>
-            <div className='text-center text-sm'>
-              Já tem uma conta?{' '}
-              <Link
-                href='/signin'
-                className='underline'
-              >
-                Entrar
-              </Link>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </main>
+          {/* 
+          // TODO: Implement Google Sign-Up in the backend
+          <Button
+            variant='outline'
+            className='w-full'
+          >
+            Criar conta com o Google
+          </Button> */}
+        </div>
+      </div>
+      <div className='hidden max-h-screen bg-muted lg:block'>
+        <Image
+          src='/Maiô.jpg'
+          alt='Imagem ilustrativa'
+          width={1920}
+          height={1080}
+          priority
+          className='size-full object-cover'
+        />
+      </div>
+    </div>
   );
 }
