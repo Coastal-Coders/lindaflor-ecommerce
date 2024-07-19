@@ -40,19 +40,12 @@ export function FacetedFilterView({
   setSelectedFilters,
   facets,
 }: iFilterProps) {
-  const selectedValues = new Set(
-    // selectedFilters[title!] ? Array.from(selectedFilters[title!]) : []
-    Array.from(selectedFilters[title!] ?? [])
-  );
+  const selectedValues = new Set(Array.from(selectedFilters[title!] ?? []));
 
   const handleSelect = (value: string) => {
     setSelectedFilters((prev) => {
       const newFilters = { ...prev };
-      const filterSet = new Set(
-        Array.from(
-          selectedFilters[title!] ?? []
-        ) /*newFilters[title!] ? Array.from(newFilters[title!]) : []*/
-      );
+      const filterSet = new Set(Array.from(selectedFilters[title!] ?? []));
       if (filterSet.has(value)) {
         filterSet.delete(value);
       } else {
@@ -124,7 +117,7 @@ export function FacetedFilterView({
         className='w-[170px] p-0 sm:w-[250px]'
         align='start'
       >
-        <Command>
+        <Command className='bg-background'>
           <CommandInput placeholder={title} />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
@@ -135,20 +128,21 @@ export function FacetedFilterView({
                   <CommandItem
                     key={option.value}
                     onSelect={() => handleSelect(option.value)}
+                    className='font-semibold'
                   >
                     <div
                       className={cn(
-                        'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary',
+                        'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-black',
                         isSelected
                           ? 'bg-primary text-primary-foreground'
                           : 'opacity-50 [&_svg]:invisible'
                       )}
                     >
-                      <CheckIcon className={cn('size-4')} />
+                      <CheckIcon className={cn('size-4 text-black')} />
                     </div>
                     {option.icon && <option.icon className='mr-2 size-4 text-muted-foreground' />}
                     <span>{option.label}</span>
-                    {(facets.get(option.value) ?? 0) && (
+                    {facets.get(option.value) != null && (
                       <span className='ml-auto flex size-4 items-center justify-center font-mono text-xs'>
                         {facets.get(option.value)}
                       </span>

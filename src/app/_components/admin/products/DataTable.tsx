@@ -15,7 +15,7 @@ import {
   useReactTable,
   VisibilityState,
 } from '@tanstack/react-table';
-import { DataTablePagination, DataTableToolbar } from '@/app/_components/products/admin';
+import { DataTablePagination, DataTableToolbar } from '@/app/_components/admin/products';
 import {
   Table,
   TableBody,
@@ -62,7 +62,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     <div className='space-y-4'>
       <DataTableToolbar table={table} />
       <div className='rounded-md border'>
-        <Table>
+        <Table className='bg-primary'>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -71,7 +71,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     <TableHead
                       key={header.id}
                       colSpan={header.colSpan}
-                      className='sm:px-1 md:px-1'
+                      className='text-black sm:px-1 md:px-1'
                     >
                       {header.isPlaceholder
                         ? null
@@ -92,7 +92,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
                       key={cell.id}
-                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-[12px]'
+                      className='break-words sm:p-1 sm:text-[11px] md:p-1 md:text-sm'
                     >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>

@@ -41,7 +41,7 @@ export function DataTableFacetedFilter<TData, TValue>({
         <Button
           variant='outline'
           size='sm'
-          className='h-8 border-dashed'
+          className='h-8 w-full justify-start border-dashed'
         >
           <PlusCircledIcon className='mr-2 size-4' />
           {title}
@@ -87,7 +87,7 @@ export function DataTableFacetedFilter<TData, TValue>({
         className='w-[200px] p-0 sm:w-[170px]'
         align='start'
       >
-        <Command>
+        <Command className='bg-background'>
           <CommandInput placeholder={title} />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
@@ -106,16 +106,17 @@ export function DataTableFacetedFilter<TData, TValue>({
                       const filterValues = Array.from(selectedValues);
                       column?.setFilterValue(filterValues.length ? filterValues : undefined);
                     }}
+                    className='font-semibold'
                   >
                     <div
                       className={cn(
-                        'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary',
+                        'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-black',
                         isSelected
                           ? 'bg-primary text-primary-foreground'
                           : 'opacity-50 [&_svg]:invisible'
                       )}
                     >
-                      <CheckIcon className={cn('size-4')} />
+                      <CheckIcon className={cn('size-4 text-black')} />
                     </div>
                     {option.icon && <option.icon className='mr-2 size-4 text-muted-foreground' />}
                     <span>{option.label}</span>

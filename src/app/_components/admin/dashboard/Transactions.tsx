@@ -15,7 +15,7 @@ import {
 const Transactions = () => {
   return (
     <>
-      <Card className='lg:col-span-2 xl:col-span-2'>
+      <Card className='bg-background lg:col-span-2 xl:col-span-2'>
         <CardHeader className='flex flex-row items-center'>
           <div className='grid gap-2'>
             <CardTitle>Transactions</CardTitle>
@@ -24,7 +24,7 @@ const Transactions = () => {
           <Button
             asChild
             size='sm'
-            className='ml-auto gap-1'
+            className='ml-auto gap-1 bg-secondary text-black hover:bg-secondary/70'
           >
             <Link href='#'>
               View All
@@ -36,11 +36,11 @@ const Transactions = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Customer</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead className='text-right'>Amount</TableHead>
+                <TableHead className='font-semibold text-black'>Customer</TableHead>
+                <TableHead className='font-semibold text-black'>Type</TableHead>
+                <TableHead className='font-semibold text-black'>Status</TableHead>
+                <TableHead className='font-semibold text-black'>Date</TableHead>
+                <TableHead className='text-right font-semibold text-black'>Amount</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

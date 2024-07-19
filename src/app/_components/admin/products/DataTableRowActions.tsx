@@ -16,18 +16,18 @@ export function DataTableRowActions() {
       <DropdownMenuTrigger asChild>
         <Button
           variant='ghost'
-          className='flex size-8 p-0 focus-visible:ring-0 data-[state=open]:bg-muted'
+          className='flex size-8 p-0 focus-visible:ring-0 data-[state=open]:bg-background'
         >
           <DotsHorizontalIcon className='size-4' />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align='end'
-        className='w-[160px]'
+        className='w-[160px] bg-background font-semibold'
       >
-        <DropdownMenuItem>Edit</DropdownMenuItem>
+        <DropdownMenuItem className='focus:bg-cyan-200'>Edit</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem className='focus:bg-red-500'>
           Delete
           <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
         </DropdownMenuItem>

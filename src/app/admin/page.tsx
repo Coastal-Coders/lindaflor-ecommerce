@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
-import { AddProducts } from '@/app/_components/products/admin';
+import { Dashboard } from '../_components/admin/dashboard';
 
 const page = () => {
   return (
     <>
-      <AddProducts />
+      <Dashboard />
     </>
   );
 };

@@ -1,8 +1,8 @@
 'use client';
 import { ColumnDef } from '@tanstack/react-table';
 import { DataTableColumnHeader, DataTableRowActions } from '.';
-import { statuses } from '../data';
-import { Products } from '../data/schema';
+import { statuses } from '../../products/data';
+import { Products } from '../../products/data/schema';
 
 export const Columns: ColumnDef<Products>[] = [
   {
@@ -14,7 +14,7 @@ export const Columns: ColumnDef<Products>[] = [
       />
     ),
     cell: ({ row }) => (
-      <div className='flex items-center'>
+      <div className='ml-1 flex items-center'>
         <span>{row.getValue('id')}</span>
       </div>
     ),
@@ -113,7 +113,7 @@ export const Columns: ColumnDef<Products>[] = [
 
       return (
         <div className='flex w-[100px] items-center'>
-          {Icon && <status.icon className='mr-2 size-4 text-muted-foreground' />}
+          {Icon && <status.icon className='mr-2 size-4' />}
           <span>{status.label}</span>
         </div>
       );
