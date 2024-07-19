@@ -67,7 +67,7 @@ const themePlugin = plugin(
         '--color-popover-foreground': '20deg 14% 4%',
 
         '--color-primary': '40deg 100% 99%',
-        '--color-primary-foreground': '60deg 9% 98%',
+        '--color-primary-foreground': '60deg 50% 17%',
 
         '--color-secondary': '358deg 100% 75%',
         '--color-secondary-foreground': '24deg 10% 10%',
