@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 const RecentSales = () => {
   return (
     <>
-      <Card>
+      <Card className='bg-background'>
         <CardHeader>
           <CardTitle>Recent Sales</CardTitle>
         </CardHeader>
@@ -18,10 +18,10 @@ const RecentSales = () => {
               <AvatarFallback>OM</AvatarFallback>
             </Avatar>
             <div className='grid gap-1'>
-              <p className='text-sm font-medium leading-none'>Olivia Martin</p>
+              <p className='text-sm font-semibold leading-none'>Olivia Martin</p>
               <p className='text-sm text-muted-foreground'>olivia.martin@email.com</p>
             </div>
-            <div className='ml-auto font-medium'>+$1,999.00</div>
+            <div className='ml-auto font-semibold'>+$1,999.00</div>
           </div>
           <div className='flex items-center gap-4'>
             <Avatar className='hidden size-9 sm:flex'>
@@ -32,10 +32,10 @@ const RecentSales = () => {
               <AvatarFallback>JL</AvatarFallback>
             </Avatar>
             <div className='grid gap-1'>
-              <p className='text-sm font-medium leading-none'>Jackson Lee</p>
+              <p className='text-sm font-semibold leading-none'>Jackson Lee</p>
               <p className='text-sm text-muted-foreground'>jackson.lee@email.com</p>
             </div>
-            <div className='ml-auto font-medium'>+$39.00</div>
+            <div className='ml-auto font-semibold'>+$39.00</div>
           </div>
           <div className='flex items-center gap-4'>
             <Avatar className='hidden size-9 sm:flex'>
@@ -46,10 +46,10 @@ const RecentSales = () => {
               <AvatarFallback>IN</AvatarFallback>
             </Avatar>
             <div className='grid gap-1'>
-              <p className='text-sm font-medium leading-none'>Isabella Nguyen</p>
+              <p className='text-sm font-semibold leading-none'>Isabella Nguyen</p>
               <p className='text-sm text-muted-foreground'>isabella.nguyen@email.com</p>
             </div>
-            <div className='ml-auto font-medium'>+$299.00</div>
+            <div className='ml-auto font-semibold'>+$299.00</div>
           </div>
           <div className='flex items-center gap-4'>
             <Avatar className='hidden size-9 sm:flex'>
@@ -60,10 +60,10 @@ const RecentSales = () => {
               <AvatarFallback>WK</AvatarFallback>
             </Avatar>
             <div className='grid gap-1'>
-              <p className='text-sm font-medium leading-none'>William Kim</p>
+              <p className='text-sm font-semibold leading-none'>William Kim</p>
               <p className='text-sm text-muted-foreground'>will@email.com</p>
             </div>
-            <div className='ml-auto font-medium'>+$99.00</div>
+            <div className='ml-auto font-semibold'>+$99.00</div>
           </div>
           <div className='flex items-center gap-4'>
             <Avatar className='hidden size-9 sm:flex'>
@@ -74,10 +74,10 @@ const RecentSales = () => {
               <AvatarFallback>SD</AvatarFallback>
             </Avatar>
             <div className='grid gap-1'>
-              <p className='text-sm font-medium leading-none'>Sofia Davis</p>
+              <p className='text-sm font-semibold leading-none'>Sofia Davis</p>
               <p className='text-sm text-muted-foreground'>sofia.davis@email.com</p>
             </div>
-            <div className='ml-auto font-medium'>+$39.00</div>
+            <div className='ml-auto font-semibold'>+$39.00</div>
           </div>
         </CardContent>
       </Card>

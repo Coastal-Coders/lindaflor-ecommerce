@@ -29,7 +29,7 @@ const UserDropdown = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            variant='secondary'
+            variant='default'
             size='icon'
             className='rounded-full bg-transparent focus-visible:ring-0'
           >
@@ -52,6 +52,12 @@ const UserDropdown = () => {
               </DropdownMenuItem>
             </Link>
           ))}
+          {/*Ajustar para quando o usuário for Manager ter esse acesso */}
+          <Link href={'/admin'}>
+            <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-primary'>
+              Admin
+            </DropdownMenuItem>
+          </Link>
           <DropdownMenuSeparator />
           <DropdownMenuItem
             onClick={(e) => void handleSubmit(e)}

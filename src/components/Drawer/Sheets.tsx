@@ -9,15 +9,15 @@ const Sheets = () => {
   const links = [
     {
       value: 'Dashboard',
-      href: '/dashboard',
+      href: '/admin/dashboard',
     },
     {
       value: 'Products',
-      href: '/products',
+      href: '/admin/products',
     },
     {
-      value: 'Analytics',
-      href: '/',
+      value: 'New Employee',
+      href: '/admin',
     },
   ];
   return (
@@ -25,21 +25,21 @@ const Sheets = () => {
       <Sheet>
         <SheetTrigger asChild>
           <Button
-            variant='outline'
+            variant='default'
             size='icon'
-            className='shrink-0'
+            className='shrink-0 border border-cyan-500 bg-transparent'
           >
-            <Menu className='size-5 sm:size-8' />
+            <Menu className='size-5 text-cyan-500 sm:size-8' />
           </Button>
         </SheetTrigger>
         <SheetContent
           side='left'
-          className='w-[300px] sm:w-[250px]'
+          className='w-[300px] bg-secondary sm:w-[250px]'
         >
           <nav className='grid gap-6 text-lg font-medium'>
             <Link
-              href='/'
-              className='w-fit'
+              href='/admin'
+              className='w-fit text-primary-foreground'
             >
               <SheetPrimitive.Close className='mb-2 flex w-fit items-center gap-3 space-x-1 text-lg font-semibold'>
                 <Package2 className='size-5 sm:size-6' />
@@ -49,7 +49,7 @@ const Sheets = () => {
             {links.map((e) => (
               <Link
                 href={e.href}
-                className='w-fit text-2xl text-muted-foreground hover:text-foreground sm:text-lg'
+                className='w-fit text-2xl text-primary-foreground hover:text-foreground sm:text-lg'
                 key={e.value}
               >
                 <SheetPrimitive.Close>{e.value}</SheetPrimitive.Close>

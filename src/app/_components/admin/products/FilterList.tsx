@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
 import { DataTableFacetedFilter } from '.';
-import { cor, statuses, tamanho } from '../data';
+import { cor, statuses, tamanho } from '../../products/data';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -23,16 +23,16 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
           <Button
             variant='outline'
             size='sm'
-            className='ml-auto hidden h-8 px-4 sm:flex md:flex'
+            className='ml-auto flex h-8 px-4 md:hidden'
           >
             Filtros
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className='flex flex-col'>
+        <DropdownMenuContent className='flex flex-col bg-background'>
           <DropdownMenuLabel className='flex justify-center'>Filtros</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {table.getColumn('status') && (
-            <span className='hidden sm:flex md:flex'>
+            <span className='flex md:hidden'>
               <DataTableFacetedFilter
                 column={table.getColumn('status')}
                 title='Status'
@@ -41,7 +41,7 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
             </span>
           )}
           {table.getColumn('tamanho') && (
-            <span className='hidden sm:flex md:flex'>
+            <span className='flex md:hidden'>
               <DataTableFacetedFilter
                 column={table.getColumn('tamanho')}
                 title='Tamanho'
@@ -50,7 +50,7 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
             </span>
           )}
           {table.getColumn('cor') && (
-            <span className='hidden sm:flex md:flex'>
+            <span className='flex md:hidden'>
               <DataTableFacetedFilter
                 column={table.getColumn('cor')}
                 title='Cor'
@@ -71,7 +71,7 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
         </DropdownMenuContent>
       </DropdownMenu>
       {table.getColumn('status') && (
-        <span className='sm:hidden md:hidden'>
+        <span className='hidden md:flex'>
           <DataTableFacetedFilter
             column={table.getColumn('status')}
             title='Status'
@@ -80,7 +80,7 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
         </span>
       )}
       {table.getColumn('tamanho') && (
-        <span className='sm:hidden md:hidden'>
+        <span className='hidden md:flex'>
           <DataTableFacetedFilter
             column={table.getColumn('tamanho')}
             title='Tamanhos'
@@ -89,7 +89,7 @@ export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
         </span>
       )}
       {table.getColumn('cor') && (
-        <span className='sm:hidden md:hidden'>
+        <span className='hidden md:flex'>
           <DataTableFacetedFilter
             column={table.getColumn('cor')}
             title='Cor'

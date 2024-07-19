@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Footer from '@/components/Footer/Footer';
-import Navbar from '@/components/Navbar/Navbar';
+import Layout from '@/components/Layout';
 //import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';
 
@@ -27,9 +26,7 @@ export default function RootLayout({
           enableSystem
           themes={['light', 'dark']}
         > */}
-        <Navbar />
-        <main className='min-h-screen'>{children}</main>
-        <Footer />
+        <Layout>{children}</Layout>
         {/* </ThemeProvider> */}
       </body>
     </html>
