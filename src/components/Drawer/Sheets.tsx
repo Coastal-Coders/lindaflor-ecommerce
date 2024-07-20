@@ -27,9 +27,9 @@ const Sheets = () => {
           <Button
             variant='default'
             size='icon'
-            className='shrink-0 border border-cyan-500 bg-transparent'
+            className='shrink-0 border border-primary bg-transparent shadow-sm shadow-primary transition duration-300 ease-in hover:bg-background/80'
           >
-            <Menu className='size-5 text-cyan-500 sm:size-8' />
+            <Menu className='size-5 text-primary sm:size-8' />
           </Button>
         </SheetTrigger>
         <SheetContent
@@ -39,7 +39,7 @@ const Sheets = () => {
           <nav className='grid gap-6 text-lg font-medium'>
             <Link
               href='/admin'
-              className='w-fit text-primary-foreground'
+              className='w-fit text-primary'
             >
               <SheetPrimitive.Close className='mb-2 flex w-fit items-center gap-3 space-x-1 text-lg font-semibold'>
                 <Package2 className='size-5 sm:size-6' />
@@ -49,7 +49,7 @@ const Sheets = () => {
             {links.map((e) => (
               <Link
                 href={e.href}
-                className='w-fit text-2xl text-primary-foreground hover:text-foreground sm:text-lg'
+                className='w-fit text-2xl text-primary hover:text-primary-foreground sm:text-lg'
                 key={e.value}
               >
                 <SheetPrimitive.Close>{e.value}</SheetPrimitive.Close>

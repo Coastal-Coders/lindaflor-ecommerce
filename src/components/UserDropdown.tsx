@@ -1,5 +1,6 @@
 import { CircleUser } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
@@ -24,6 +25,8 @@ const UserDropdown = () => {
     },
   ];
   const { handleSubmit } = useSignOut();
+  const pathname = usePathname();
+  const isAdmin = pathname.startsWith('/admin');
   return (
     <>
       <DropdownMenu>
@@ -31,9 +34,9 @@ const UserDropdown = () => {
           <Button
             variant='default'
             size='icon'
-            className='rounded-full bg-transparent focus-visible:ring-0'
+            className={`flex rounded-full bg-transparent shadow-sm shadow-primary transition duration-300 ease-in ${isAdmin ? 'hover:bg-background' : 'hover:bg-secondary/80'} `}
           >
-            <CircleUser className='size-10 text-cyan-500' />
+            <CircleUser className='size-10 text-primary' />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent

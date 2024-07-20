@@ -85,7 +85,7 @@ const Sizes = () => {
   }, []);
 
   return (
-    <div className='m-auto items-center justify-center overflow-x-auto py-10 md:w-4/5 lg:w-2/3'>
+    <div className='m-auto items-center justify-center overflow-x-auto py-10 md:w-5/6 lg:w-4/5'>
       <h1 className='mx-auto w-fit rounded-md bg-secondary p-2 text-center text-xl font-semibold text-primary shadow-md shadow-primary'>
         Tabela de Medidas
       </h1>
@@ -107,12 +107,12 @@ const Sizes = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow className='text-center hover:bg-secondary'>
+                <TableRow className='bg-background text-center hover:bg-background'>
                   <TableCell className='font-semibold'>Manequim</TableCell>
                   {Tamanhos.map((sizes) => (
                     <TableCell
                       key={`${sizes.label}-manequim`}
-                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-[13px] lg:text-base'
+                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-base lg:text-xl'
                     >
                       {sizes.manequim}
                     </TableCell>
@@ -123,18 +123,18 @@ const Sizes = () => {
                   {Tamanhos.map((sizes) => (
                     <TableCell
                       key={`${sizes.label}-busto`}
-                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-[13px] lg:text-base'
+                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-base lg:text-xl'
                     >
                       {sizes.busto}
                     </TableCell>
                   ))}
                 </TableRow>
-                <TableRow className='text-center hover:bg-secondary'>
+                <TableRow className='bg-background text-center hover:bg-background'>
                   <TableCell className='font-semibold'>Cintura</TableCell>
                   {Tamanhos.map((sizes) => (
                     <TableCell
                       key={`${sizes.label}-cintura`}
-                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-[13px] lg:text-base'
+                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-base lg:text-xl'
                     >
                       {sizes.cintura}
                     </TableCell>
@@ -145,7 +145,7 @@ const Sizes = () => {
                   {Tamanhos.map((sizes) => (
                     <TableCell
                       key={`${sizes.label}-quadril`}
-                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-[13px] lg:text-base'
+                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-base lg:text-xl'
                     >
                       {sizes.quadril}
                     </TableCell>
@@ -181,9 +181,9 @@ const Sizes = () => {
                     <TableCell className='font-bold text-primary sm:px-1 md:px-1'>
                       {sizes.label}
                     </TableCell>
-                    <TableCell>{sizes.manequim}</TableCell>
+                    <TableCell className='bg-background'>{sizes.manequim}</TableCell>
                     <TableCell>{sizes.busto}</TableCell>
-                    <TableCell>{sizes.cintura}</TableCell>
+                    <TableCell className='bg-background'>{sizes.cintura}</TableCell>
                     <TableCell>{sizes.quadril}</TableCell>
                   </TableRow>
                 ))}

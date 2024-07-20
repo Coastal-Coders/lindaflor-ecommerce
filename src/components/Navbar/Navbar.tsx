@@ -38,11 +38,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='sticky top-0 z-10 mb-2 flex items-center border-b bg-gradient-to-r from-cyan-200 via-cyan-100 to-yellow-200 py-3'>
+    <nav className='sticky top-0 z-10 mb-2 flex items-center border-b bg-primary py-3'>
       <div className='flex w-full items-center bg-gradient-to-r from-secondary to-background py-2'>
         <Link
           href={'/'}
-          className='ml-5 flex w-fit'
+          className='ml-5 flex w-fit duration-1000 ease-in-out hover:scale-110'
         >
           <Image
             src={Logo}
@@ -61,7 +61,7 @@ const Navbar = () => {
                 href={l.href}
                 key={l.value}
                 onClick={l.value === 'Contatos' ? scrollToContacts : undefined}
-                className={`rounded-md px-1 text-sm font-semibold text-primary hover:shadow-sm hover:shadow-primary md:text-base ${pathname === l.href ? 'text-cyan-400/95 shadow-md shadow-cyan-400 hover:shadow-md hover:shadow-current' : ''}`}
+                className={`rounded-md px-1 text-sm font-semibold text-primary transition duration-1000 ease-in-out hover:shadow-sm hover:shadow-primary md:text-base ${pathname === l.href ? 'shadow-md shadow-primary hover:shadow-md hover:shadow-current' : ''}`}
               >
                 {l.value}
               </Link>

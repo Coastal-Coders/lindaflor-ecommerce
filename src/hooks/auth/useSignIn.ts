@@ -27,7 +27,7 @@ const useSignIn = () => {
     control,
     handleSubmit,
     setError,
-    formState: { errors },
+    formState: { isSubmitting, errors },
   } = useFormValidation();
 
   const onSubmit: SubmitHandler<Auth> = async (data, event) => {
@@ -48,6 +48,7 @@ const useSignIn = () => {
   return {
     control,
     errors,
+    isSubmitting,
     useFormValidation,
     handleSubmit: handleSubmit(onSubmit),
     setError,

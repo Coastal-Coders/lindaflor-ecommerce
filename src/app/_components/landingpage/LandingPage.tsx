@@ -10,7 +10,7 @@ import * as Maio from '../../../../public/Maiô.jpg';
 
 const LandingPage = () => {
   return (
-    <main className='min-h-screen bg-gradient-to-b from-primary/80 via-background/80 to-primary/70'>
+    <main className='min-h-screen bg-background/80'>
       <section className='relative flex w-full flex-col items-center justify-center rounded-md bg-gradient-to-b from-background via-secondary/80 to-secondary'>
         <h1 className='absolute top-10 text-lg font-semibold italic text-primary sm:top-20 md:text-4xl'>
           Monte o Seu Biquini Perfeito!
@@ -24,9 +24,9 @@ const LandingPage = () => {
         />
         <Link
           href={'/products'}
-          className='absolute bottom-10 text-lg font-semibold italic text-primary underline underline-offset-2 hover:scale-110 sm:bottom-20 md:text-3xl'
+          className='absolute bottom-10 text-lg font-semibold text-primary hover:scale-110 sm:bottom-20 md:text-3xl'
         >
-          Compre Agora!
+          Adquira Agora!
         </Link>
       </section>
       <section className='mx-auto mb-4 grid w-11/12 grid-cols-1 items-center justify-center gap-5 p-2 text-center text-base sm:grid-cols-2 lg:grid-cols-4'>
@@ -55,60 +55,32 @@ const LandingPage = () => {
           </CardTitle>
         </Card>
       </section>
-      <section className='my-10 flex w-full flex-col items-center justify-center gap-5 py-2'>
-        <h1 className='text-center text-3xl font-semibold sm:text-4xl'>
-          Entregando Qualidade <p>em</p>
-        </h1>
-        <div className='flex w-full flex-col items-center justify-center gap-5 bg-gradient-to-b from-background/20 via-secondary/80 to-primary/10 py-1 md:flex-row md:gap-8 lg:gap-28'>
-          <div className='relative flex flex-col items-center justify-center text-center'>
-            <h1 className='absolute top-5 w-full bg-slate-500 text-center text-2xl text-primary'>
-              Biquinis
-            </h1>
-            <Image
-              src={Biquini}
-              alt='Logo'
-              width={2000}
-              height={2000}
-              className='min-h-[600px] w-[400px] rounded-md shadow-md shadow-cyan-200 sm:w-[350px]'
-            />
-          </div>
-          <span className='text-3xl font-semibold italic sm:text-4xl'>&</span>
-          <div className='relative flex flex-col items-center justify-center'>
-            <h1 className='absolute top-5 w-full bg-slate-500 text-center text-2xl text-primary'>
-              Maiôs
-            </h1>
-            <Image
-              src={Maio}
-              alt='Logo'
-              width={2000}
-              height={2000}
-              className='min-h-[600px] w-[400px] rounded-md shadow-md shadow-cyan-200 sm:w-[350px]'
-            />
-          </div>
+      <section className='my-10 flex w-full items-center justify-center gap-5 py-2 md:gap-10 lg:gap-32'>
+        <div className='relative flex flex-col items-center'>
+          <h1 className='absolute top-5 w-full bg-slate-500 text-center text-2xl text-primary'>
+            Biquinis
+          </h1>
+          <Image
+            src={Biquini}
+            alt='Logo'
+            width={2000}
+            height={2000}
+            className='min-h-[600px] w-[400px] rounded-md shadow-md shadow-secondary sm:w-[350px]'
+          />
         </div>
-        <Link
-          href={'/products'}
-          className='text-lg font-semibold italic underline underline-offset-2 hover:scale-110 md:text-3xl'
-        >
-          Conheça Nossos Produtos!
-        </Link>
-        <p className='text-lg font-semibold italic md:text-3xl'>ou</p>
-        <Link
-          href={'https://api.whatsapp.com/message/KVRL354VW77FE1?autoload=1&app_absent=0'}
-          className='text-lg font-semibold italic underline underline-offset-2 hover:scale-110 md:text-3xl'
-        >
-          Encomende seu biquini personalizado
-        </Link>
+        <div className='relative flex flex-col'>
+          <h1 className='absolute top-5 w-full bg-slate-500 text-center text-2xl text-primary'>
+            Maiôs
+          </h1>
+          <Image
+            src={Maio}
+            alt='Logo'
+            width={2000}
+            height={2000}
+            className='min-h-[600px] w-[400px] rounded-md shadow-md shadow-secondary sm:w-[350px]'
+          />
+        </div>
       </section>
-      <span className='mt-6 flex w-full items-center justify-center gap-x-4 rounded-md bg-secondary/80 py-5 text-center text-2xl font-semibold italic sm:text-4xl'>
-        Siga-nos
-        <Link
-          href={'https://www.instagram.com/biquinislindaflor/?hl=pt-br'}
-          className='rounded-md bg-primary/70 px-1 text-secondary underline underline-offset-2 hover:scale-105'
-        >
-          @biquinislindaflor
-        </Link>
-      </span>
     </main>
   );
 };

@@ -26,9 +26,9 @@ const NavbarHidden = () => {
         <DropdownMenuTrigger asChild>
           <Button
             size='icon'
-            className='flex rounded-full bg-secondary text-cyan-400 transition duration-150 ease-in hover:bg-primary md:hidden'
+            className='flex rounded-full bg-transparent shadow-sm shadow-primary transition duration-300 ease-in hover:bg-secondary/80 md:hidden'
           >
-            <Grip className='size-6 text-cyan-600' />
+            <Grip className='size-6 text-primary' />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent

@@ -43,7 +43,7 @@ const useSignUp = () => {
     control,
     handleSubmit,
     setError,
-    formState: { errors },
+    formState: { isSubmitting, errors },
   } = useFormValidation();
 
   const onSubmit: SubmitHandler<SignUpUser> = async (data, event) => {
@@ -66,6 +66,7 @@ const useSignUp = () => {
     setError,
     control,
     errors,
+    isSubmitting,
   };
 };
 

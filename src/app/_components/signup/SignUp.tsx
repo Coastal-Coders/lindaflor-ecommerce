@@ -1,16 +1,17 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import Loading from '@/components/Loading';
 import { Button } from '@/components/ui/Button';
 import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
 import { useSignUp } from '@/hooks/auth';
 
 export function SignUp() {
-  const { useFormValidation, handleSubmit, errors, control } = useSignUp();
+  const { useFormValidation, handleSubmit, errors, control, isSubmitting } = useSignUp();
 
   return (
-    <div className='grid min-h-screen w-full lg:grid-cols-2'>
+    <div className='grid w-full p-5 lg:grid-cols-2'>
       <div className='flex items-center justify-center p-6 lg:p-10'>
         <div className='mx-auto w-full max-w-lg space-y-6'>
           <div className='space-y-1 text-center'>
@@ -117,8 +118,9 @@ export function SignUp() {
               <Button
                 type='submit'
                 className='w-full'
+                disabled={isSubmitting}
               >
-                Cadastrar
+                {isSubmitting ? <Loading /> : 'Cadastrar'}
               </Button>
             </form>
           </Form>
@@ -132,14 +134,14 @@ export function SignUp() {
           </Button> */}
         </div>
       </div>
-      <div className='hidden max-h-screen bg-muted lg:block'>
+      <div className='hidden max-h-screen lg:block'>
         <Image
           src='/Maiô.jpg'
           alt='Imagem ilustrativa'
           width={1920}
           height={1080}
           priority
-          className='size-full object-cover'
+          className='size-full overflow-hidden rounded-md object-cover shadow-md shadow-secondary'
         />
       </div>
     </div>

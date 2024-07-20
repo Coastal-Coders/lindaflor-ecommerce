@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Loading from '@/components/Loading';
 import { Button } from '@/components/ui/Button';
 import {
   Form,
@@ -16,21 +17,20 @@ import { Label } from '@/components/ui/Label';
 import { useSignIn } from '@/hooks/auth';
 
 export function SignIn() {
-  const { useFormValidation, handleSubmit, errors, control } = useSignIn();
+  const { useFormValidation, handleSubmit, errors, control, isSubmitting } = useSignIn();
 
   return (
-    <div className='grid min-h-screen w-full lg:grid-cols-2'>
-      <div className='hidden max-h-screen bg-muted lg:block'>
+    <div className='grid w-full p-5 lg:grid-cols-2'>
+      <div className='hidden max-h-screen lg:block'>
         <Image
           src='/Biquini.jpg'
           width={1920}
           height={1080}
           priority
           alt='Login Image'
-          className='size-full object-cover'
+          className='size-full overflow-hidden rounded-md object-cover shadow-md shadow-secondary'
         />
       </div>
-
       <div className='flex items-center justify-center p-6 lg:p-10'>
         <div className='mx-auto w-full max-w-md space-y-6'>
           <div className='space-y-2 text-center'>
@@ -97,8 +97,9 @@ export function SignIn() {
               <Button
                 type='submit'
                 className='w-full'
+                disabled={isSubmitting}
               >
-                Entrar
+                {isSubmitting ? <Loading /> : 'Entrar'}
               </Button>
             </form>
           </Form>
