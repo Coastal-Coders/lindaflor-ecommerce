@@ -8,21 +8,13 @@ import { SignUpUser } from '@/types/SignUpUser';
 
 const schema = z
   .object({
-    name: z.string({ required_error: 'Nome é obrigatório' }).min(1, { message: 'Digite seu nome' }),
-    surname: z
-      .string({ required_error: 'Sobrenome é obrigatório' })
-      .min(1, { message: 'Digite seu sobrenome' }),
-    email: z
-      .string({ required_error: 'Email é obrigatória' })
-      .min(1, { message: 'Email é obrigatório' })
-      .email({ message: 'Email inválido' }),
+    name: z.string({ required_error: 'Nome é obrigatório' }),
+    surname: z.string({ required_error: 'Sobrenome é obrigatório' }),
+    email: z.string({ required_error: 'Email é obrigatório' }).email({ message: 'Email inválido' }),
     password: z
       .string({ required_error: 'Senha é obrigatória' })
       .min(8, { message: 'Senha deve ter no mínimo 8 caracteres' }),
-
-    confirmPassword: z
-      .string({ required_error: 'Confirme a senha' })
-      .min(1, { message: 'Confirmação de senha é obrigatória' }),
+    confirmPassword: z.string({ required_error: 'Confirme a senha' }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'As senhas não correspondem',

@@ -1,21 +1,38 @@
 'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Loading from '@/components/Loading';
+import { Alert, AlertDescription } from '@/components/ui/Alert';
 import { Button } from '@/components/ui/Button';
 import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
 import { useSignUp } from '@/hooks/auth';
 
+type FormFieldType = {
+  name: 'name' | 'surname' | 'email' | 'password' | 'confirmPassword';
+  label: string;
+  type: string;
+  autoComplete?: string;
+};
+
+const formFields: FormFieldType[] = [
+  { name: 'name', label: 'Nome', type: 'text' },
+  { name: 'surname', label: 'Sobrenome', type: 'text' },
+  { name: 'email', label: 'Email', type: 'email', autoComplete: 'email' },
+  { name: 'password', label: 'Senha', type: 'password', autoComplete: 'password' },
+  { name: 'confirmPassword', label: 'Confirmar Senha', type: 'password', autoComplete: 'password' },
+];
+
 export function SignUp() {
   const { useFormValidation, handleSubmit, errors, control, isSubmitting } = useSignUp();
 
   return (
-    <div className='grid w-full p-5 lg:grid-cols-2'>
+    <div className='grid h-screen w-full lg:grid-cols-2'>
       <div className='flex items-center justify-center p-6 lg:p-10'>
         <div className='mx-auto w-full max-w-lg space-y-6'>
           <div className='space-y-1 text-center'>
-            <h1 className='text-3xl font-bold'>Crie sua conta</h1>
+            <h1 className='text-3xl font-bold sm:text-lg sm:font-semibold'>Crie sua conta</h1>
             <p className='text-xs text-muted-foreground'>
               Já possui uma conta?{' '}
               <Link
@@ -32,88 +49,31 @@ export function SignUp() {
               className='grid gap-3'
               onSubmit={(e) => void handleSubmit(e)}
             >
-              <FormField
-                control={control}
-                name='name'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel htmlFor='name'>Nome</FormLabel>
-                    <Input
-                      id='name'
-                      {...field}
-                    />
-                    {errors.name && <FormMessage>{errors.name.message}</FormMessage>}
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={control}
-                name='surname'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel htmlFor='surname'>Sobrenome</FormLabel>
-                    <Input
-                      id='surname'
-                      {...field}
-                    />
-                    {errors.surname && <FormMessage>{errors.surname.message}</FormMessage>}
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={control}
-                name='email'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel htmlFor='email'>Email</FormLabel>
-                    <Input
-                      id='email'
-                      type='email'
-                      autoComplete='email'
-                      {...field}
-                    />
-                    {errors.email && <FormMessage>{errors.email.message}</FormMessage>}
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={control}
-                name='password'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel htmlFor='password'>Senha</FormLabel>
-                    <Input
-                      id='password'
-                      type='password'
-                      autoComplete='password'
-                      {...field}
-                    />
-                    {errors.password && <FormMessage>{errors.password.message}</FormMessage>}
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={control}
-                name='confirmPassword'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel htmlFor='confirmPassword'>Confirmar Senha</FormLabel>
-                    <Input
-                      id='confirmPassword'
-                      type='password'
-                      autoComplete='password'
-                      {...field}
-                    />
-                    {errors.confirmPassword && (
-                      <FormMessage>{errors.confirmPassword.message}</FormMessage>
-                    )}
-                  </FormItem>
-                )}
-              />
+              {formFields.map((field) => (
+                <FormField
+                  key={field.name}
+                  control={control}
+                  name={field.name}
+                  render={({ field: formField }) => (
+                    <FormItem>
+                      <FormLabel htmlFor={field.name}>{field.label}</FormLabel>
+                      <Input
+                        id={field.name}
+                        type={field.type}
+                        autoComplete={field.autoComplete}
+                        {...formField}
+                      />
+                      {errors[field.name] && (
+                        <FormMessage>{errors[field.name]?.message}</FormMessage>
+                      )}
+                    </FormItem>
+                  )}
+                />
+              ))}
               {errors.root && (
-                <span className='text-center text-sm font-medium text-destructive'>
-                  {errors.root.message}
-                </span>
+                <Alert variant='error'>
+                  <AlertDescription>{errors.root.message}</AlertDescription>
+                </Alert>
               )}
               <Button
                 type='submit'
@@ -127,21 +87,22 @@ export function SignUp() {
           {/* 
           // TODO: Implement Google Sign-Up in the backend
           <Button
-            variant='outline'
-            className='w-full'
+          variant='outline'
+          className='w-full'
           >
             Criar conta com o Google
-          </Button> */}
+            </Button> */}
         </div>
       </div>
-      <div className='hidden max-h-screen lg:block'>
+      <div className='relative m-5 hidden h-auto lg:block'>
         <Image
           src='/Maiô.jpg'
-          alt='Imagem ilustrativa'
-          width={1920}
-          height={1080}
+          alt='Sign Up Image'
+          fill
           priority
-          className='size-full overflow-hidden rounded-md object-cover shadow-md shadow-secondary'
+          quality={100}
+          className='hidden overflow-hidden rounded-md object-cover shadow-md shadow-secondary lg:block'
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         />
       </div>
     </div>

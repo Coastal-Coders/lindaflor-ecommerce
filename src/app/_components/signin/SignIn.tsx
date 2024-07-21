@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,15 +21,16 @@ export function SignIn() {
   const { useFormValidation, handleSubmit, errors, control, isSubmitting } = useSignIn();
 
   return (
-    <div className='grid w-full p-5 lg:grid-cols-2'>
-      <div className='hidden max-h-screen lg:block'>
+    <div className='grid h-screen w-full lg:grid-cols-2'>
+      <div className='relative m-5 hidden h-auto lg:block'>
         <Image
           src='/Biquini.jpg'
-          width={1920}
-          height={1080}
-          priority
           alt='Login Image'
-          className='size-full overflow-hidden rounded-md object-cover shadow-md shadow-secondary'
+          fill
+          priority
+          quality={100}
+          className='hidden overflow-hidden rounded-md object-cover shadow-md shadow-secondary lg:block'
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         />
       </div>
       <div className='flex items-center justify-center p-6 lg:p-10'>
