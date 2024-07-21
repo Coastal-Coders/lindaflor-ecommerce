@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Loading from '@/components/Loading';
+import { Alert, AlertDescription } from '@/components/ui/Alert';
 import { Button } from '@/components/ui/Button';
 import {
   Form,
@@ -92,9 +93,9 @@ export function SignIn() {
                 />
               </div>
               {errors.root && (
-                <p className='text-center text-sm font-medium text-destructive'>
-                  {errors.root.message}
-                </p>
+                <Alert variant='error'>
+                  <AlertDescription>{errors.root.message}</AlertDescription>
+                </Alert>
               )}
               <Button
                 type='submit'
