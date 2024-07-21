@@ -15,7 +15,6 @@ import {
   FormMessage,
 } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
-import { Label } from '@/components/ui/Label';
 import { useSignIn } from '@/hooks/auth';
 
 export function SignIn() {
@@ -64,34 +63,31 @@ export function SignIn() {
                   </FormItem>
                 )}
               />
-              <div className='space-y-2'>
-                <div className='flex items-center justify-between'>
-                  <Label htmlFor='password'>Senha</Label>
-                  <Link
-                    href='#'
-                    className='text-sm text-primary underline'
-                    prefetch={false}
-                  >
-                    Esqueceu sua senha?
-                  </Link>
-                </div>
-                <FormField
-                  control={control}
-                  name='password'
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input
-                          type='password'
-                          autoComplete='password'
-                          {...field}
-                        />
-                      </FormControl>
-                      {errors.password && <FormMessage>{errors.password.message}</FormMessage>}
-                    </FormItem>
-                  )}
-                />
-              </div>
+              <FormField
+                control={control}
+                name='password'
+                render={({ field }) => (
+                  <FormItem className='grid grid-cols-[auto,1fr] items-center'>
+                    <FormLabel className='col-span-1'>Senha</FormLabel>
+                    {/* TODO: Implement password recovery */}
+                    <Link
+                      href='#'
+                      className='col-span-1 text-end text-sm text-primary underline'
+                    >
+                      Esqueceu sua senha?
+                    </Link>
+                    <FormControl className='col-span-2'>
+                      <Input
+                        type='password'
+                        autoComplete='password'
+                        {...field}
+                      />
+                    </FormControl>
+                    {errors.password && <FormMessage>{errors.password.message}</FormMessage>}
+                  </FormItem>
+                )}
+              />
+
               {errors.root && (
                 <Alert variant='error'>
                   <AlertDescription>{errors.root.message}</AlertDescription>
