@@ -28,7 +28,7 @@ export default function RootLayout({
           themes={['light', 'dark']}
         >
           <Navbar />
-          {children}
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

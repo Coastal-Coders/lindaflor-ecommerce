@@ -28,10 +28,10 @@ const cardData = [
 const LandingPage = () => {
   return (
     <section className='mb-5 min-h-screen w-full'>
+      <h1 className='my-4 text-center text-lg font-semibold italic text-primary md:text-4xl'>
+        Monte o Seu Biquíni Perfeito!
+      </h1>
       <section className='relative my-5 flex h-96 w-full flex-col items-center justify-center bg-gradient-to-b from-background via-secondary/80 to-secondary'>
-        <h1 className='absolute top-10 z-10 text-lg font-semibold italic text-primary sm:top-20 md:text-4xl'>
-          Monte o Seu Biquíni Perfeito!
-        </h1>
         {/* TODO: Use other image, image with low resolution */}
         <Image
           src='/Logo.png'
@@ -41,14 +41,16 @@ const LandingPage = () => {
           fill
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         />
+      </section>
 
+      <div className='my-2 w-full text-center hover:scale-110'>
         <Link
           href={'/products'}
-          className='absolute bottom-10 z-10 text-lg font-semibold text-primary hover:scale-110 sm:bottom-20 md:text-3xl'
+          className='text-lg font-semibold text-primary md:text-3xl'
         >
           Adquira Agora!
         </Link>
-      </section>
+      </div>
 
       <section className='mx-auto mb-4 grid w-full grid-cols-1 items-center justify-center gap-5 p-2 px-5 text-center text-base sm:grid-cols-2 lg:grid-cols-4'>
         {cardData.map((card, index) => (
