@@ -1,7 +1,7 @@
 'use client';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import Sheets from './Sheets';
-import UserDropdown from '../UserDropdown';
+import { UserDropdown } from '../Navbar';
 
 const Drawer = () => {
   return (

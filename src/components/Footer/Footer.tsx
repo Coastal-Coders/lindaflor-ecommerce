@@ -51,7 +51,7 @@ const Footer = () => {
           >
             R. Renato Barreto de Menezes, 1100 - São Conrado, Aracaju - SE, 49043-240
           </Link>
-          <h4 className='text-lg font-semibold'>Telefone: 079 3023-0103</h4>
+          <h3 className='text-lg font-semibold'>Telefone: 079 3023-0103</h3>
         </div>
       </div>
     </footer>

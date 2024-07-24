@@ -24,7 +24,7 @@ export function SignIn() {
     <div className='grid h-screen w-full lg:grid-cols-2'>
       <div className='relative m-5 hidden h-auto lg:block'>
         <Image
-          src='/Biquini.jpg'
+          src='/Biquíni.jpg'
           alt='Login Image'
           fill
           priority
