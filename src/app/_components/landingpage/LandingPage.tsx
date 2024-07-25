@@ -43,10 +43,10 @@ const LandingPage = () => {
         />
       </section>
 
-      <div className='my-2 w-full text-center hover:scale-110'>
+      <div className='my-2 flex justify-center'>
         <Link
           href={'/products'}
-          className='text-lg font-semibold text-primary md:text-3xl'
+          className='text-lg font-semibold text-primary hover:scale-110 md:text-3xl'
         >
           Adquira Agora!
         </Link>
