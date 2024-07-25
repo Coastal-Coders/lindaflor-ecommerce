@@ -1,10 +1,11 @@
+'use client';
 import React from 'react';
-import { About } from '../_components/about';
+import { ProductsView } from '@/app/_components/products/client';
 
 const page = () => {
   return (
     <>
-      <About />
+      <ProductsView />
     </>
   );
 };

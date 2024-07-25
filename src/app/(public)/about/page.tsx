@@ -1,11 +1,10 @@
-'use client';
 import React from 'react';
-import { Sizes } from '../_components/sizes';
+import { About } from '@/app/_components/about';
 
 const page = () => {
   return (
     <>
-      <Sizes />
+      <About />
     </>
   );
 };

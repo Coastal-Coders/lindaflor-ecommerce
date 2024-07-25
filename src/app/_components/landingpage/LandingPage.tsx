@@ -67,7 +67,7 @@ const LandingPage = () => {
       </section>
 
       <section className='grid h-[600px] grid-cols-2 gap-5 px-5 py-2 md:gap-10 lg:gap-32'>
-        <div className='relative mx-5 h-auto'>
+        <div className='relative h-auto'>
           <h1 className='absolute top-5 z-10 w-full bg-slate-500 text-center text-2xl text-secondary'>
             Biquínis
           </h1>

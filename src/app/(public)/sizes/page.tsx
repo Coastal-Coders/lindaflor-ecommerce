@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
-import { Dashboard } from '../_components/admin/dashboard';
+import { Sizes } from '@/app/_components/sizes';
 
 const page = () => {
   return (
     <>
-      <Dashboard />
+      <Sizes />
     </>
   );
 };

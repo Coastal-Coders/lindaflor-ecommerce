@@ -1,7 +1,5 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Footer } from '@/components/Footer';
-import { Navbar } from '@/components/Navbar';
 import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';
 
@@ -27,9 +25,7 @@ export default function RootLayout({
           enableSystem
           themes={['light', 'dark']}
         >
-          <Navbar />
           <main>{children}</main>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

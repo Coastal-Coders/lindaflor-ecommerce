@@ -1,6 +1,9 @@
 'use client';
 import React from 'react';
 
+{
+  /* TODO: Design better Loading component */
+}
 const Loading = ({ message = '' }: { message?: string }) => {
   return (
     <div
