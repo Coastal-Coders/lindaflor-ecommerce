@@ -28,10 +28,10 @@ const cardData = [
 const LandingPage = () => {
   return (
     <section className='mb-5 min-h-screen w-full'>
-      <h1 className='my-4 text-center text-lg font-semibold italic text-primary md:text-4xl'>
-        Monte o Seu Biquíni Perfeito!
-      </h1>
-      <section className='relative my-5 flex h-96 w-full flex-col items-center justify-center bg-gradient-to-b from-background via-secondary/80 to-secondary'>
+      <section className='relative my-5 flex min-h-[500px] w-full flex-col items-center rounded-b-md bg-gradient-to-b from-background via-secondary/80 to-secondary'>
+        <h1 className='absolute top-0 text-lg font-semibold italic text-primary md:text-4xl'>
+          Monte o Seu Biquíni Perfeito!
+        </h1>
         {/* TODO: Use other image, image with low resolution */}
         <Image
           src='/Logo.png'
@@ -40,17 +40,18 @@ const LandingPage = () => {
           quality={100}
           fill
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+          style={{ minHeight: '500px' }}
+          className='p-6'
         />
+        <div className='absolute bottom-1 my-2 flex justify-center'>
+          <Link
+            href={'/products'}
+            className='text-lg font-semibold text-primary transition duration-500 ease-in-out hover:scale-110 md:text-3xl'
+          >
+            Adquira Agora!
+          </Link>
+        </div>
       </section>
-
-      <div className='my-2 flex justify-center'>
-        <Link
-          href={'/products'}
-          className='text-lg font-semibold text-primary hover:scale-110 md:text-3xl'
-        >
-          Adquira Agora!
-        </Link>
-      </div>
 
       <section className='mx-auto mb-4 grid w-full grid-cols-1 items-center justify-center gap-5 p-2 px-5 text-center text-base sm:grid-cols-2 lg:grid-cols-4'>
         {cardData.map((card, index) => (
@@ -66,9 +67,9 @@ const LandingPage = () => {
         ))}
       </section>
 
-      <section className='grid h-[600px] grid-cols-2 gap-5 px-5 py-2 md:gap-10 lg:gap-32'>
-        <div className='relative h-auto'>
-          <h1 className='absolute top-5 z-10 w-full bg-slate-500 text-center text-2xl text-secondary'>
+      <section className='grid min-h-[600px] grid-cols-1 gap-5 px-5 py-2 sm:grid-cols-2 md:gap-10 lg:gap-20'>
+        <div className='relative min-h-[500px] transition duration-1000 ease-in-out hover:scale-95'>
+          <h1 className='absolute top-3 z-10 w-full bg-slate-500 text-center text-2xl text-secondary'>
             Biquínis
           </h1>
           <Image
@@ -80,8 +81,8 @@ const LandingPage = () => {
           />
         </div>
 
-        <div className='relative h-auto'>
-          <h1 className='absolute top-5 z-10 w-full bg-slate-500 text-center text-2xl text-secondary'>
+        <div className='relative min-h-[500px] transition duration-1000 ease-in-out hover:scale-95'>
+          <h1 className='absolute top-3 z-10 w-full bg-slate-500 text-center text-2xl text-secondary'>
             Maiôs
           </h1>
           <Image

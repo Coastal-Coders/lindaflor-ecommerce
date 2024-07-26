@@ -57,7 +57,7 @@ export function FilterList({
             <Cross2Icon className='size-4' />
           </Button>
         )}
-        <DropdownMenuContent className='flex flex-col'>
+        <DropdownMenuContent className='flex flex-col bg-background'>
           <DropdownMenuLabel className='flex justify-center'>Filtros</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <span className='flex sm:hidden'>

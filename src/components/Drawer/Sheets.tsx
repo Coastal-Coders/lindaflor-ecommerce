@@ -9,7 +9,7 @@ const Sheets = () => {
   const links = [
     {
       value: 'Dashboard',
-      href: '/admin/dashboard',
+      href: '/admin',
     },
     {
       value: 'Products',
@@ -17,7 +17,7 @@ const Sheets = () => {
     },
     {
       value: 'New Employee',
-      href: '/admin',
+      href: '/',
     },
   ];
   return (
@@ -36,7 +36,7 @@ const Sheets = () => {
           side='left'
           className='w-[300px] bg-secondary sm:w-[250px]'
         >
-          <nav className='grid gap-6 text-lg font-medium'>
+          <section className='grid gap-6 text-lg font-medium'>
             <Link
               href='/admin'
               className='w-fit text-primary'
@@ -55,7 +55,7 @@ const Sheets = () => {
                 <SheetPrimitive.Close>{e.value}</SheetPrimitive.Close>
               </Link>
             ))}
-          </nav>
+          </section>
         </SheetContent>
       </Sheet>
     </>

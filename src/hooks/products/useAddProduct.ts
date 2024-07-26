@@ -1,9 +1,11 @@
-// import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 import { z } from 'zod';
-import { NODE_ENV, uri } from '@/constants/environment-variables';
-import api from '@/services/api';
+import { useAlert } from '@/utils/AlertProvider/AlertProvider';
+//import { set } from 'cypress/types/lodash';
+//import { NODE_ENV, uri } from '@/constants/environment-variables';
+//import api from '@/services/api';
 
 const addProductSchema = z.object({
   name: z.string({ required_error: 'Nome é obrigatória' }).max(30, {
@@ -42,23 +44,27 @@ const useFormValidation = () => {
 };
 
 const useAddProduct = () => {
-  // const router = useRouter();
+  const router = useRouter();
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useFormValidation();
+  const { setAlert } = useAlert();
 
   const onSubmit: SubmitHandler<AddProduct> = async (data, event) => {
     event?.preventDefault();
 
-    const baseURL = uri[NODE_ENV];
-    const apiURL = `${baseURL}/products`;
+    // const baseURL = uri[NODE_ENV];
+    //const apiURL = `${baseURL}/products`;
 
     try {
-      await api.post(apiURL, data);
-      // router.push('/products');
+      //await api.post(apiURL, data);
+      console.log(data);
+      setAlert('Success', 'Produto cadastrado com sucesso');
+      router.push('/admin/products');
     } catch (error) {
+      setAlert('Fail', 'Error ao Cadastrar');
       throw new Error('Erro ao cadastrar produto');
     }
   };

@@ -67,7 +67,7 @@ const UserDropdown = () => {
           <DropdownMenuSeparator />
           <DropdownMenuItem
             onClick={(e) => void handleSubmit(e)}
-            className='rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
+            className='cursor-pointer rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
           >
             Logout
           </DropdownMenuItem>

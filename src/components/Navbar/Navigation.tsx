@@ -26,7 +26,7 @@ const Links = [
   },
   {
     value: 'Contatos',
-    href: '#',
+    href: '#footer-contacts',
   },
 ];
 
@@ -38,7 +38,7 @@ const Navigation = () => {
           <Link
             href={links.href}
             key={links.value}
-            className='hidden flex-row rounded-md text-sm font-semibold text-primary transition duration-1000 ease-in-out hover:shadow-sm hover:shadow-primary md:text-base lg:block'
+            className='hidden flex-row rounded-md text-sm font-semibold text-primary transition duration-700 ease-in-out hover:shadow-sm hover:shadow-primary md:text-base lg:block'
           >
             {links.value}
           </Link>
@@ -59,6 +59,11 @@ const Navigation = () => {
           sideOffset={7}
           className='flex flex-col gap-y-1 rounded-lg bg-gradient-to-bl from-secondary to-background shadow-xl shadow-black lg:hidden'
         >
+          <Link href={'/'}>
+            <DropdownMenuItem className='rounded-lg p-5 text-sm font-semibold text-foreground hover:bg-primary md:hidden md:text-base'>
+              Home
+            </DropdownMenuItem>
+          </Link>
           {Links.map((f) => (
             <Link
               href={f.href}

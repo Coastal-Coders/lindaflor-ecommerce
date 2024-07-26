@@ -13,7 +13,7 @@ import { Products } from '../data/schema';
 const ProductCardView = ({ product }: { product: Products }) => {
   return (
     <>
-      <Card className='border-2 border-secondary bg-gradient-to-br from-primary to-cyan-200/50'>
+      <Card className='border-2 border-secondary bg-gradient-to-br from-background/30 to-background/10'>
         <CardHeader>
           <CardTitle className='break-before-auto text-sm md:text-base lg:text-lg xl:text-xl'>
             {product.nome}

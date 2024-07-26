@@ -70,7 +70,7 @@ export function FacetedFilterView({
         <Button
           variant='outline'
           size='sm'
-          className='h-8 border-dashed'
+          className='h-8 w-full justify-start border-dashed'
         >
           <PlusCircledIcon className='mr-2 size-4' />
           {title}
