@@ -2,7 +2,7 @@ import React from 'react';
 import AlertGlobal from '@/components/AlertGlobal';
 import { Drawer } from '@/components/Drawer';
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <section>
       <Drawer />
