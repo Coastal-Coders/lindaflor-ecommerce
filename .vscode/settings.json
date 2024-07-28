@@ -4,5 +4,51 @@
     "source.fixAll.eslint": "explicit",
     "source.fixAll.tslint": "explicit",
     "source.fixAll.stylelint": "explicit"
-  }
+  },
+  //
+  // ** Recommended settings for extensions in recommendations, better the set this in the user settings file. ** //
+  // ** ctrl+shift+p -> >Preferences: Open User Settings (JSON) ** //
+  //
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.quickSuggestions": {
+  //   "strings": "on"
+  // },
+  // "files.exclude": {
+  //   "**/.git": true,
+  //   "**/.svn": true,
+  //   "**/.hg": true,
+  //   "**/.next": true,
+  //   "**/.jest": true,
+  //   "**/.husky": true,
+  //   "**/.github": true,
+  //   "**/cypress": true,
+  //   "**/coverage": true,
+  //   "**/generators": true,
+  //   "**/CVS": true,
+  //   "**/.DS_Store": true,
+  //   "**/Thumbs.db": true,
+  //   ".vscode": true,
+  //   "node_modules": true,
+  // },
+  // "console-ninja.featureSet": "Community",
+  // "auto-rename-tag.activationOnLanguage": [
+  //   "*"
+  // ],
+  // "cSpell.language": "en, pt-BR",
+  // "template-string-converter.convertWithinTemplateString": false,
+  // "template-string-converter.addBracketsToProps": true,
+  // "template-string-converter.autoRemoveTemplateString": true,
+  // "todo-tree.highlights.useColourScheme": true,
+  // "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  // "todo-tree.highlights.highlightDelay": 0,
+  // "todo-tree.tree.expanded": true,
+  // "todo-tree.tree.flat": true,
+  //
+  // ** Quality of life settings ** //
+  //
+  // "explorer.fileNesting.enabled": true,
+  // "explorer.fileNesting.patterns": {
+  //   "package.json": "eslint*, .editor*, next*, jest*, cypress*, .config*, .prettier*, tsconfig*, vite*, pnpm-*, bun.lockb, nest*, package-lock*, yarn*, tailwind.config*, postcss.config*, LICENSE, README.md, .gitignore",
+  //   ".env": ".env*"
+  // },
 }

@@ -1,0 +1,39 @@
+{
+  "recommendations": [
+    // General
+    "Prisma.prisma",
+    "mikestead.dotenv",
+    "usernamehw.errorlens",
+    "naumovs.color-highlight",
+    "YoavBls.pretty-ts-errors",
+    "formulahendry.code-runner",
+    "ms-vsliveshare.vsliveshare",
+    // Auto complete
+    "christian-kohler.path-intellisense",
+    // Quality of life
+    "albert.TabOut",
+    "Gruntfuggly.todo-tree",
+    "WallabyJs.console-ninja",
+    "formulahendry.auto-rename-tag",
+    "PeterSchmalfeldt.explorer-exclude",
+    "meganrogge.template-string-converter",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+    // Git
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    // Formatters
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "aeschli.vscode-css-formatter",
+    // Tailwind
+    "csstools.postcss",
+    "bradlc.vscode-tailwindcss",
+    "rvest.vs-code-prettier-eslint",
+    "alfredbirk.tailwind-documentation",
+    // Snippets
+    "Monish.regexsnippets",
+    "PulkitGangwar.nextjs-snippets",
+  ]
+}
