@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Products } from '@/app/_components/products/data/schema';
 import { Input } from '@/components/ui/Input';
+import { useClickOutside } from '@/hooks/Navigation';
 import * as produs from '../../app/_components/products/data/tasks.json';
 
 const produtos = () => {
@@ -17,12 +18,20 @@ const SearchBar = () => {
   {
     /* TODO: Make a custom hook */
   }
-  const [isFocused, setIsFocused] = useState(false);
-
   const [products] = useState<Products[]>(produtos);
   const [productsFilter, setProductsFilter] = useState<Products[]>([]);
   const [showProducts, setShowProducts] = useState(false);
   const [inputValue, setInputValue] = useState('');
+
+  const handleOutsideClick = () => {
+    setShowProducts(false);
+    setInputValue('');
+  };
+
+  const { ref, isFocused, setIsFocused } = useClickOutside<HTMLFormElement>({
+    initialIsFocused: false,
+    onOutsideClick: handleOutsideClick,
+  });
 
   function Filter(nome: string) {
     if (nome.trim() === '') {
@@ -48,7 +57,10 @@ const SearchBar = () => {
 
   return (
     <div className='relative w-full'>
-      <form className={`flex flex-row ${isFocused ? '' : 'pl-5'}`}>
+      <form
+        className={`flex flex-row ${isFocused ? '' : 'pl-5'}`}
+        ref={ref}
+      >
         {isFocused && (
           <span className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2 text-primary-foreground'>
             <Search className='size-5' />
@@ -67,8 +79,6 @@ const SearchBar = () => {
           <Search className='size-5' />
         </span>
       </form>
-
-      {/*TODO: Handle click outside and hide the results */}
       {showProducts && (
         <span
           className={`absolute mt-1 max-h-52 w-full overflow-y-auto rounded-md bg-muted text-foreground shadow-lg ${showProducts ? 'border-x border-black shadow-black' : ''}`}

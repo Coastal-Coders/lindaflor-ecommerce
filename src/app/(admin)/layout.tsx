@@ -4,10 +4,10 @@ import { Drawer } from '@/components/Drawer';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section>
+    <>
       <Drawer />
-      {children}
+      <section>{children}</section>
       <AlertGlobal />
-    </section>
+    </>
   );
 }

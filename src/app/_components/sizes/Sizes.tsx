@@ -85,7 +85,7 @@ const Sizes = () => {
   }, []);
 
   return (
-    <div className='m-auto items-center justify-center overflow-x-auto py-10 md:w-5/6 lg:w-4/5'>
+    <div className='m-auto flex min-h-screen flex-col items-center justify-center overflow-x-auto md:w-5/6 lg:w-4/5'>
       <h1 className='mx-auto w-fit rounded-md bg-secondary p-2 text-center text-xl font-semibold text-primary shadow-md shadow-primary'>
         Tabela de Medidas
       </h1>
@@ -192,7 +192,7 @@ const Sizes = () => {
           )}
         </Table>
       </div>
-      <p className='mx-auto w-fit rounded-md bg-secondary p-2 text-center text-base font-semibold text-primary shadow-md shadow-primary'>
+      <p className='mx-2 w-fit rounded-md bg-secondary p-2 text-center text-base font-semibold text-primary shadow-md shadow-primary'>
         As medidas podem variar em caso de biquínis encomendados
       </p>
     </div>

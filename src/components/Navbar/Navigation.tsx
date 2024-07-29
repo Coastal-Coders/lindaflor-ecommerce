@@ -3,6 +3,7 @@
 import React from 'react';
 import { Grip } from 'lucide-react';
 import Link from 'next/link';
+import { useNavigation } from '@/hooks/Navigation';
 import { Button } from '../ui/Button';
 import {
   DropdownMenu,
@@ -31,6 +32,7 @@ const Links = [
 ];
 
 const Navigation = () => {
+  const { pathname, scrollToContacts } = useNavigation();
   return (
     <>
       <span className='flex flex-row gap-2'>
@@ -38,7 +40,8 @@ const Navigation = () => {
           <Link
             href={links.href}
             key={links.value}
-            className='hidden flex-row rounded-md text-sm font-semibold text-primary transition duration-700 ease-in-out hover:shadow-sm hover:shadow-primary md:text-base lg:block'
+            onClick={links.value === 'Contatos' ? scrollToContacts : undefined}
+            className={`hidden flex-row rounded-md text-sm font-semibold text-primary transition duration-700 ease-in-out hover:shadow-sm hover:shadow-primary md:text-base lg:block xl:px-1 ${pathname === links.href ? 'shadow-md shadow-primary' : ''}`}
           >
             {links.value}
           </Link>
@@ -68,8 +71,11 @@ const Navigation = () => {
             <Link
               href={f.href}
               key={f.value}
+              onClick={f.value === 'Contatos' ? scrollToContacts : undefined}
             >
-              <DropdownMenuItem className='rounded-lg p-5 text-sm font-semibold text-foreground hover:bg-primary md:text-base'>
+              <DropdownMenuItem
+                className={`rounded-lg p-5 text-sm font-semibold text-foreground transition duration-500 ease-in-out hover:bg-primary md:text-base ${pathname === f.href ? 'bg-primary' : ''}`}
+              >
                 {f.value}
               </DropdownMenuItem>
             </Link>

@@ -5,11 +5,11 @@ import { Navbar } from '@/components/Navbar';
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section>
+    <>
       <Navbar />
-      {children}
+      <section>{children}</section>
       <AlertGlobal />
       <Footer />
-    </section>
+    </>
   );
 }
