@@ -1,10 +1,12 @@
 'use client';
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 
+type AlertVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
+
 interface AlertContextProps {
-  alert: { title: string; description: string } | null;
+  alert: { title: string; description: string; variant: AlertVariant } | null;
   // eslint-disable-next-line no-unused-vars
-  setAlert: (title: string, description: string) => void;
+  setAlert: (title: string, description: string, variant?: AlertVariant) => void;
 }
 
 const AlertContext = createContext<AlertContextProps | undefined>(undefined);
@@ -13,10 +15,11 @@ export const AlertProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [alert, setAlertState] = useState<{
     title: string;
     description: string;
+    variant: AlertVariant;
   } | null>(null);
 
-  const setAlert = (title: string, description: string) => {
-    setAlertState({ title, description });
+  const setAlert = (title: string, description: string, variant: AlertVariant = 'default') => {
+    setAlertState({ title, description, variant });
     setTimeout(() => setAlertState(null), 4000);
   };
 

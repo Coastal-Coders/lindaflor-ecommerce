@@ -9,11 +9,12 @@ const AlertGlobal = () => {
   if (!alert) return null;
 
   return (
-    <Alert className='absolute bottom-20 right-3 w-fit flex-col items-start border border-black bg-primary p-2 shadow-lg shadow-black'>
-      <AlertTitle className='font-bold text-secondary'>{alert.title}</AlertTitle>
-      <AlertDescription className='font-semibold text-secondary'>
-        {alert.description}
-      </AlertDescription>
+    <Alert
+      variant={alert.variant}
+      className='absolute bottom-20 right-3 flex w-fit flex-col shadow-lg shadow-black'
+    >
+      <AlertTitle className='font-bold'>{alert.title}</AlertTitle>
+      <AlertDescription className='font-semibold'>{alert.description}</AlertDescription>
     </Alert>
   );
 };

@@ -61,10 +61,10 @@ const useAddProduct = () => {
     try {
       //await api.post(apiURL, data);
       console.log(data);
-      setAlert('Success', 'Produto cadastrado com sucesso');
+      setAlert('Success', 'Produto cadastrado com sucesso', 'success');
       router.push('/admin/products');
     } catch (error) {
-      setAlert('Fail', 'Error ao Cadastrar');
+      setAlert('Fail', 'Error ao Cadastrar', 'error');
       throw new Error('Erro ao cadastrar produto');
     }
   };

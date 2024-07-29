@@ -1,9 +1,9 @@
-import { SignIn } from '../_components/signin';
+import { SignUp } from '../../_components/signup';
 
 const page = () => {
   return (
     <>
-      <SignIn />
+      <SignUp />
     </>
   );
 };
