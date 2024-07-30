@@ -26,7 +26,9 @@ const formFields: FormFieldType[] = [
 
 export function SignUp() {
   const { useFormValidation, handleSubmit, errors, control, isSubmitting } = useSignUp();
-
+  // if (isLoading) {
+  //   return <Loading message='Carregando pagina' />;
+  // }
   return (
     <div className='grid h-screen w-full lg:grid-cols-2'>
       <div className='flex items-center justify-center p-6 lg:p-10'>

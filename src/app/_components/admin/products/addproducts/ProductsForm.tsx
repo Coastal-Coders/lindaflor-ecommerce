@@ -11,23 +11,18 @@ import {
   FormMessage,
 } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/Select';
 import useAddProduct from '@/hooks/products/useAddProduct';
+import { colorOptions, Selectors, sizeOptions } from './Selectors';
 
 export function ProductsForm() {
   const { useFormValidation, handleSubmit, control, errors } = useAddProduct();
+
   return (
     <>
       <Form {...useFormValidation()}>
         <form
           onSubmit={(e) => void handleSubmit(e)}
-          className='space-y-8'
+          className='w-10/12 space-y-8'
         >
           <FormField
             control={control}
@@ -86,22 +81,13 @@ export function ProductsForm() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Cores</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className='ring-1 focus-visible:right-1 focus-visible:outline-none focus-visible:ring-gray-400 focus-visible:ring-offset-0'>
-                      <SelectValue placeholder='Selecione a Cor do Produto' />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value='Vermelho'>Vermelho</SelectItem>
-                    <SelectItem value='Azul'>Azul</SelectItem>
-                    <SelectItem value='Preto'>Preto</SelectItem>
-                  </SelectContent>
-                </Select>
-                {errors.color && <FormMessage>{errors.color?.message}</FormMessage>}
+                <Selectors
+                  title='Cores'
+                  options={colorOptions}
+                  selectedValues={new Set(field.value)}
+                  onChange={(values) => field.onChange(Array.from(values))}
+                />
+                {errors.color && <FormMessage>{errors.color.message}</FormMessage>}
               </FormItem>
             )}
           />
@@ -111,21 +97,12 @@ export function ProductsForm() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Tamanhos</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className='ring-1 focus-visible:right-1 focus-visible:outline-none focus-visible:ring-gray-400 focus-visible:ring-offset-0'>
-                      <SelectValue placeholder='Selecione o Tamanho do Produto' />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value='P'>P</SelectItem>
-                    <SelectItem value='M'>M</SelectItem>
-                    <SelectItem value='G'>G</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Selectors
+                  title='Tamanhos'
+                  options={sizeOptions}
+                  selectedValues={new Set(field.value)}
+                  onChange={(values) => field.onChange(Array.from(values))}
+                />
                 {errors.size && <FormMessage>{errors.size?.message}</FormMessage>}
               </FormItem>
             )}

@@ -19,7 +19,9 @@ import { useSignIn } from '@/hooks/auth';
 
 export function SignIn() {
   const { useFormValidation, handleSubmit, errors, control, isSubmitting } = useSignIn();
-
+  // if (isLoading) {
+  //   return <Loading message='Carregando pagina' />;
+  // }
   return (
     <div className='grid h-screen w-full lg:grid-cols-2'>
       <div className='relative m-5 hidden h-auto lg:block'>

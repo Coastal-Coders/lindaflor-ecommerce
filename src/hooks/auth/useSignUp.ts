@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { NODE_ENV, uri } from '@/constants/environment-variables';
 import api from '@/services/api';
 import { SignUpUser } from '@/types/SignUpUser';
+import { useAlert } from '@/utils/AlertProvider/AlertProvider';
 
 const schema = z
   .object({
@@ -35,8 +36,9 @@ const useSignUp = () => {
     control,
     handleSubmit,
     setError,
-    formState: { isSubmitting, errors },
+    formState: { isLoading, isSubmitting, errors },
   } = useFormValidation();
+  const { setAlert } = useAlert();
 
   const onSubmit: SubmitHandler<SignUpUser> = async (data, event) => {
     event?.preventDefault();
@@ -46,10 +48,12 @@ const useSignUp = () => {
 
     try {
       await api.post<SignUpUser>(apiURL, data);
+      setAlert('Sucess', 'Cadastro Realizado com Sucesso', 'success');
 
       router.push('/signin');
     } catch (error) {
       setError('root', { message: 'Erro ao cadastrar usuário' });
+      setAlert('Error', 'Falha ao Cadastrar', 'error');
     }
   };
   return {
@@ -59,6 +63,7 @@ const useSignUp = () => {
     control,
     errors,
     isSubmitting,
+    isLoading,
   };
 };
 

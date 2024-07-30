@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { NODE_ENV, uri } from '@/constants/environment-variables';
 import api from '@/services/api';
 import { Auth } from '@/types/Auth';
+import { useAlert } from '@/utils/AlertProvider/AlertProvider';
 
 const schema = z.object({
   email: z.string({ required_error: 'Email é obrigatório' }).email({ message: 'Email inválido' }),
@@ -27,8 +28,9 @@ const useSignIn = () => {
     control,
     handleSubmit,
     setError,
-    formState: { isSubmitting, errors },
+    formState: { isSubmitting, isLoading, errors },
   } = useFormValidation();
+  const { setAlert } = useAlert();
 
   const onSubmit: SubmitHandler<Auth> = async (data, event) => {
     event?.preventDefault();
@@ -38,9 +40,11 @@ const useSignIn = () => {
 
     try {
       await api.post(apiURL, data);
+      setAlert('Sucess', 'LogIn Realizado com Sucesso', 'success');
 
-      router.push('/dashboard');
+      router.push('/');
     } catch (error) {
+      setAlert('Error', 'Falha ao Logar', 'error');
       setError('root', { message: 'Email ou senha inválidos' });
     }
   };
@@ -49,6 +53,7 @@ const useSignIn = () => {
     control,
     errors,
     isSubmitting,
+    isLoading,
     useFormValidation,
     handleSubmit: handleSubmit(onSubmit),
     setError,

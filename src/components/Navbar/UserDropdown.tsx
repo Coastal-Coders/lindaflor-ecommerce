@@ -15,7 +15,6 @@ import {
 import { useSignOut } from '@/hooks/auth';
 
 const UserDropdown = () => {
-  //Apenas Para Testes
   const fields = [
     {
       value: 'Sign In',
@@ -29,6 +28,7 @@ const UserDropdown = () => {
   const { handleSubmit } = useSignOut();
   const pathname = usePathname();
   const isAdmin = pathname.startsWith('/admin');
+
   return (
     <>
       <DropdownMenu>

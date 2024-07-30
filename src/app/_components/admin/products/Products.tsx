@@ -23,8 +23,11 @@ export async function Products() {
     <>
       <div className='flex min-h-screen w-full flex-col'>
         <main className='flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8'>
-          <Link href={'/admin/products/addproducts'}>
-            <Button className='w-fit bg-primary font-semibold text-secondary hover:scale-105 hover:bg-primary/80'>
+          <Link
+            href={'/admin/products/addproducts'}
+            className='w-fit hover:scale-105 hover:bg-primary/80'
+          >
+            <Button className='bg-primary font-semibold text-secondary shadow-sm shadow-black'>
               Adicionar Produtos
             </Button>
           </Link>

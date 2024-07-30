@@ -2,10 +2,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { z } from 'zod';
+import { NODE_ENV, uri } from '@/constants/environment-variables';
+import api from '@/services/api';
 import { useAlert } from '@/utils/AlertProvider/AlertProvider';
-//import { set } from 'cypress/types/lodash';
-//import { NODE_ENV, uri } from '@/constants/environment-variables';
-//import api from '@/services/api';
 
 const addProductSchema = z.object({
   name: z.string({ required_error: 'Nome é obrigatória' }).max(30, {
@@ -20,12 +19,8 @@ const addProductSchema = z.object({
       message: 'Preço deve ser um número válido com até duas casas decimais.',
     })
     .transform((val) => parseFloat(val)),
-  color: z.string({ required_error: 'Cor é obrigatório' }).max(30, {
-    message: 'Produto must not be longer than 30 characters.',
-  }),
-  size: z.string({ required_error: 'Tamanho é obrigatório' }).max(15, {
-    message: 'Tamanho do produto não pode ter mais de 15 caracteres',
-  }),
+  color: z.array(z.string()).nonempty({ message: 'Selecione pelo menos uma cor' }),
+  size: z.array(z.string()).nonempty({ message: 'Selecione pelo menos um tamanho' }),
   stock: z
     .string({ required_error: 'Quantidade é obrigatória' })
     .regex(/^\d+$/, {
@@ -55,12 +50,11 @@ const useAddProduct = () => {
   const onSubmit: SubmitHandler<AddProduct> = async (data, event) => {
     event?.preventDefault();
 
-    // const baseURL = uri[NODE_ENV];
-    //const apiURL = `${baseURL}/products`;
+    const baseURL = uri[NODE_ENV];
+    const apiURL = `${baseURL}/products`;
 
     try {
-      //await api.post(apiURL, data);
-      console.log(data);
+      await api.post(apiURL, data);
       setAlert('Success', 'Produto cadastrado com sucesso', 'success');
       router.push('/admin/products');
     } catch (error) {

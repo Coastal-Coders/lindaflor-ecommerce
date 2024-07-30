@@ -10,13 +10,12 @@ const Navbar = () => {
       <div className='my-2 grid w-full grid-flow-col grid-cols-3 items-center gap-4'>
         <Link
           href={'/'}
-          className='mx-auto hidden w-fit duration-1000 ease-in-out hover:scale-110 md:block'
+          className='relative mx-auto hidden h-14 w-40 duration-1000 ease-in-out hover:scale-110 md:block'
         >
           <Image
             src='/Logo.png'
             alt='Logo'
-            width={200}
-            height={150}
+            fill
             priority
             quality={100}
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'

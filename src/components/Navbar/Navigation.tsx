@@ -52,7 +52,7 @@ const Navigation = () => {
         <DropdownMenuTrigger asChild>
           <Button
             size='icon'
-            className='flex rounded-full bg-transparent shadow-sm shadow-primary transition duration-300 ease-in hover:bg-secondary/80 lg:hidden'
+            className='flex rounded-full bg-transparent p-1 shadow-sm shadow-primary transition duration-300 ease-in hover:bg-secondary/80 lg:hidden'
           >
             <Grip className='size-6 text-primary' />
           </Button>

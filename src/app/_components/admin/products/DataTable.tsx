@@ -61,8 +61,8 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   return (
     <div className='space-y-4'>
       <DataTableToolbar table={table} />
-      <div className='rounded-md border'>
-        <Table className='bg-primary'>
+      <div className='rounded-md border border-black shadow-sm shadow-black'>
+        <Table className='rounded-md bg-primary'>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
