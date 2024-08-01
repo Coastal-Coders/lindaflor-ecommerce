@@ -1,5 +1,5 @@
-export { statuses } from './data';
-export { tamanho } from './data';
-export { cor } from './data';
-export { Peças } from './data';
+export { stock } from './data';
+export { sizes } from './data';
+export { colors } from './data';
+export { categories } from './data';
 export { productsSchema } from './schema';

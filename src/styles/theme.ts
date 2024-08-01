@@ -53,7 +53,7 @@ const themePlugin = plugin(
 
     addBase({
       ':root': {
-        '--color-background': '353deg 95% 85%',
+        '--color-background': '40deg 100% 99%',
         '--color-foreground': '20deg 14% 4%',
 
         '--color-border': '358deg 100% 75%',
@@ -66,7 +66,7 @@ const themePlugin = plugin(
         '--color-popover': '0deg 0% 100%',
         '--color-popover-foreground': '20deg 14% 4%',
 
-        '--color-primary': '40deg 100% 99%',
+        '--color-primary': '353deg 95% 85%',
         '--color-primary-foreground': '60deg 50% 17%',
 
         '--color-secondary': '358deg 100% 75%',
@@ -180,6 +180,7 @@ const themePlugin = plugin(
         12: '4.8rem',
         14: '5.6rem',
         16: '6.4rem',
+        18: '7.2rem',
         20: '8rem',
         24: '9.6rem',
         28: '11.2rem',

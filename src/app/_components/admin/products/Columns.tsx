@@ -1,7 +1,6 @@
 'use client';
 import { ColumnDef } from '@tanstack/react-table';
 import { DataTableColumnHeader, DataTableRowActions } from '.';
-import { statuses } from '../../products/data';
 import { Products } from '../../products/data/schema';
 
 export const Columns: ColumnDef<Products>[] = [
@@ -24,7 +23,7 @@ export const Columns: ColumnDef<Products>[] = [
     },
   },
   {
-    accessorKey: 'nome',
+    accessorKey: 'name',
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
@@ -34,13 +33,13 @@ export const Columns: ColumnDef<Products>[] = [
     cell: ({ row }) => {
       return (
         <div className='flex items-center'>
-          <span>{row.getValue('nome')}</span>
+          <span>{row.getValue('name')}</span>
         </div>
       );
     },
   },
   {
-    accessorKey: 'preço',
+    accessorKey: 'price',
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
@@ -50,7 +49,7 @@ export const Columns: ColumnDef<Products>[] = [
     cell: ({ row }) => {
       return (
         <div className='flex items-center'>
-          <span>R$ {row.getValue('preço')}</span>
+          <span>R$ {row.getValue('price')}</span>
         </div>
       );
     },
@@ -59,7 +58,7 @@ export const Columns: ColumnDef<Products>[] = [
     },
   },
   {
-    accessorKey: 'cor',
+    accessorKey: 'color',
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
@@ -69,7 +68,7 @@ export const Columns: ColumnDef<Products>[] = [
     cell: ({ row }) => {
       return (
         <div className='flex items-center'>
-          <span>{row.getValue('cor')}</span>
+          <span>{row.getValue('color')}</span>
         </div>
       );
     },
@@ -78,7 +77,7 @@ export const Columns: ColumnDef<Products>[] = [
     },
   },
   {
-    accessorKey: 'tamanho',
+    accessorKey: 'size',
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
@@ -88,7 +87,7 @@ export const Columns: ColumnDef<Products>[] = [
     cell: ({ row }) => {
       return (
         <div className='flex items-center'>
-          <span>{row.getValue('tamanho')}</span>
+          <span>{row.getValue('size')}</span>
         </div>
       );
     },
@@ -97,24 +96,17 @@ export const Columns: ColumnDef<Products>[] = [
     },
   },
   {
-    accessorKey: 'status',
+    accessorKey: 'stock',
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        title='Status'
+        title='Estoque'
       />
     ),
     cell: ({ row }) => {
-      const status = statuses.find((status) => status.value === row.getValue('status'));
-      const Icon = status?.icon;
-      if (!status) {
-        return null;
-      }
-
       return (
-        <div className='flex w-[100px] items-center'>
-          {Icon && <status.icon className='mr-2 size-4' />}
-          <span>{status.label}</span>
+        <div className='flex items-center'>
+          <span>{row.getValue('stock')} Peças</span>
         </div>
       );
     },

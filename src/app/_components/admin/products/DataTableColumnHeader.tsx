@@ -47,14 +47,14 @@ export function DataTableColumnHeader<TData, TValue>({
         <DropdownMenuContent align='start'>
           <DropdownMenuItem
             onClick={() => column.toggleSorting(false)}
-            className='rounded-sm hover:bg-background'
+            className='rounded-sm transition duration-300 ease-in-out hover:scale-90 hover:bg-accent'
           >
             <ArrowUpIcon className='mr-2 size-3.5 text-muted-foreground/70' />
             Asc
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => column.toggleSorting(true)}
-            className='rounded-sm hover:bg-background'
+            className='rounded-sm bg-accent transition duration-300 ease-in-out hover:scale-90'
           >
             <ArrowDownIcon className='mr-2 size-3.5 text-muted-foreground/70' />
             Desc
@@ -62,7 +62,7 @@ export function DataTableColumnHeader<TData, TValue>({
           <DropdownMenuSeparator />
           <DropdownMenuItem
             onClick={() => column.toggleVisibility(false)}
-            className='rounded-sm hover:bg-background'
+            className='rounded-sm transition duration-300 ease-in-out hover:scale-90 hover:bg-accent'
           >
             <EyeNoneIcon className='mr-2 size-3.5 text-muted-foreground/70' />
             Hide

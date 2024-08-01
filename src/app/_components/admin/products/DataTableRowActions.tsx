@@ -15,19 +15,21 @@ export function DataTableRowActions() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant='ghost'
-          className='flex size-8 p-0 focus-visible:ring-0 data-[state=open]:bg-background'
+          variant='secondary'
+          className='flex size-8 border border-black p-0 shadow-sm shadow-black transition duration-500 ease-in-out hover:scale-90 focus-visible:ring-0 data-[state=open]:bg-background'
         >
           <DotsHorizontalIcon className='size-4' />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align='end'
-        className='w-[160px] bg-background font-semibold'
+        className='w-[160px] border border-black bg-background font-semibold shadow-sm shadow-black'
       >
-        <DropdownMenuItem className='focus:bg-cyan-200'>Edit</DropdownMenuItem>
+        <DropdownMenuItem className='cursor-pointer rounded-md transition duration-500 ease-in-out hover:scale-90 focus:bg-cyan-200'>
+          Edit
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className='focus:bg-red-500'>
+        <DropdownMenuItem className='cursor-pointer rounded-md transition duration-500 ease-in-out hover:scale-90 focus:bg-red-500'>
           Delete
           <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
         </DropdownMenuItem>

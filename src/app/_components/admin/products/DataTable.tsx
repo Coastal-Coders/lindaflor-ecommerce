@@ -57,7 +57,6 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
-
   return (
     <div className='space-y-4'>
       <DataTableToolbar table={table} />
@@ -92,9 +91,11 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
                       key={cell.id}
-                      className='break-words sm:p-1 sm:text-[11px] md:p-1 md:text-sm'
+                      className='break-words font-semibold sm:p-1 sm:text-[11px] md:p-1 md:text-sm'
                     >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {cell.column.id === 'color' || cell.column.id === 'size'
+                        ? (cell.getValue() as string[]).join(', ')
+                        : flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
                 </TableRow>

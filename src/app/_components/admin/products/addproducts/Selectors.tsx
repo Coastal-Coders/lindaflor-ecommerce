@@ -175,7 +175,7 @@ export const Selectors = ({ title, options, selectedValues, onChange }: Selector
                 className='mx-2 h-4'
               />
               <Badge
-                variant='default'
+                variant='secondary'
                 className='rounded-md border-black px-2 font-normal lg:hidden'
               >
                 {selectedValues.size}
@@ -183,7 +183,7 @@ export const Selectors = ({ title, options, selectedValues, onChange }: Selector
               <div className='hidden space-x-1 lg:flex'>
                 {selectedValues.size > 2 ? (
                   <Badge
-                    variant='default'
+                    variant='secondary'
                     className='rounded-md border-black px-2 font-normal'
                   >
                     {selectedValues.size} selected
@@ -194,7 +194,7 @@ export const Selectors = ({ title, options, selectedValues, onChange }: Selector
                     return (
                       <Badge
                         key={value}
-                        variant='default'
+                        variant='secondary'
                         className='rounded-md border-black px-1 font-normal'
                       >
                         {option?.label}
@@ -208,7 +208,7 @@ export const Selectors = ({ title, options, selectedValues, onChange }: Selector
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className='z-10 max-h-60 w-full overflow-y-auto rounded-md border border-black bg-primary'
+        className='z-10 max-h-60 w-full overflow-y-auto rounded-md border border-black bg-background'
         align='start'
       >
         <Command className='m-1'>
@@ -235,14 +235,12 @@ export const Selectors = ({ title, options, selectedValues, onChange }: Selector
                   <CommandItem
                     key={option.value}
                     onSelect={() => handleSelect(option.value)}
-                    className='my-2 flex w-10/12 cursor-pointer items-center rounded-md text-base font-semibold hover:bg-slate-200'
+                    className='my-2 flex w-10/12 cursor-pointer items-center rounded-md text-base font-semibold transition duration-500 ease-in-out hover:scale-95'
                   >
                     <div
                       className={cn(
-                        'mr-2 flex h-6 w-6 items-center justify-center rounded-sm border border-black',
-                        isSelected
-                          ? 'bg-primary text-primary-foreground'
-                          : 'opacity-50 [&_svg]:invisible'
+                        'mr-2 flex h-6 w-6 items-center justify-center rounded-sm border border-black bg-background',
+                        isSelected ? 'text-primary-foreground' : '[&_svg]:invisible'
                       )}
                     >
                       <CheckIcon className={cn('size-6 text-black')} />
@@ -266,7 +264,7 @@ export const Selectors = ({ title, options, selectedValues, onChange }: Selector
               <CommandGroup>
                 <CommandItem
                   onSelect={handleClearFilters}
-                  className='my-1 cursor-pointer justify-center rounded-sm border border-black bg-background/80 text-center text-base hover:font-semibold'
+                  className='my-1 cursor-pointer justify-center rounded-sm border border-black bg-primary/80 text-center text-base transition duration-500 ease-in-out hover:scale-95 hover:font-semibold'
                 >
                   {options.length > 0 &&
                     (options[0].value.length <= 4 ? 'Limpar Tamanhos' : 'Limpar Cores')}

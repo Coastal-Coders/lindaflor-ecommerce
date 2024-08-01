@@ -5,6 +5,7 @@
     "source.fixAll.tslint": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
+  "tailwindCSS.rootFontSize": 10,
   //
   // ** Recommended settings for extensions in recommendations, better the set this in the user settings file. ** //
   // ** ctrl+shift+p -> >Preferences: Open User Settings (JSON) ** //

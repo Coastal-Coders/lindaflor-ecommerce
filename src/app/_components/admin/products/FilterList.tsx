@@ -1,5 +1,4 @@
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
-import { Cross2Icon } from '@radix-ui/react-icons';
 import { Table } from '@tanstack/react-table';
 import { Button } from '@/components/ui/Button';
 import {
@@ -9,91 +8,62 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
 import { DataTableFacetedFilter } from '.';
-import { cor, statuses, tamanho } from '../../products/data';
+import { colors, sizes } from '../../products/data';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
 }
 export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
-  const isFiltered = table.getState().columnFilters.length > 0;
   return (
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            variant='outline'
+            variant='default'
             size='sm'
-            className='ml-auto flex h-8 px-4 md:hidden'
+            className='ml-auto flex h-8 px-4 text-base font-semibold shadow-black transition duration-500 ease-in-out hover:scale-95 md:hidden'
           >
             Filtros
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className='flex flex-col bg-background'>
+        <DropdownMenuContent className='flex flex-col gap-y-1 border border-black shadow-black'>
           <DropdownMenuLabel className='flex justify-center'>Filtros</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {table.getColumn('status') && (
+          {table.getColumn('size') && (
             <span className='flex md:hidden'>
               <DataTableFacetedFilter
-                column={table.getColumn('status')}
-                title='Status'
-                options={statuses}
-              />
-            </span>
-          )}
-          {table.getColumn('tamanho') && (
-            <span className='flex md:hidden'>
-              <DataTableFacetedFilter
-                column={table.getColumn('tamanho')}
+                column={table.getColumn('size')}
                 title='Tamanho'
-                options={tamanho}
+                options={sizes}
               />
             </span>
           )}
-          {table.getColumn('cor') && (
+          {table.getColumn('color') && (
             <span className='flex md:hidden'>
               <DataTableFacetedFilter
-                column={table.getColumn('cor')}
+                column={table.getColumn('color')}
                 title='Cor'
-                options={cor}
+                options={colors}
               />
             </span>
-          )}
-          {isFiltered && (
-            <Button
-              variant='ghost'
-              onClick={() => table.resetColumnFilters()}
-              className='h-8 px-2 lg:px-3'
-            >
-              Reset
-              <Cross2Icon className='ml-2 size-4' />
-            </Button>
           )}
         </DropdownMenuContent>
       </DropdownMenu>
-      {table.getColumn('status') && (
+      {table.getColumn('size') && (
         <span className='hidden md:flex'>
           <DataTableFacetedFilter
-            column={table.getColumn('status')}
-            title='Status'
-            options={statuses}
+            column={table.getColumn('size')}
+            title='Tamanho'
+            options={sizes}
           />
         </span>
       )}
-      {table.getColumn('tamanho') && (
+      {table.getColumn('color') && (
         <span className='hidden md:flex'>
           <DataTableFacetedFilter
-            column={table.getColumn('tamanho')}
-            title='Tamanhos'
-            options={tamanho}
-          />
-        </span>
-      )}
-      {table.getColumn('cor') && (
-        <span className='hidden md:flex'>
-          <DataTableFacetedFilter
-            column={table.getColumn('cor')}
+            column={table.getColumn('color')}
             title='Cor'
-            options={cor}
+            options={colors}
           />
         </span>
       )}

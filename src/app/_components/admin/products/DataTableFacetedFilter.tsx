@@ -23,7 +23,6 @@ interface DataTableFacetedFilterProps<TData, TValue> {
   options: {
     label: string;
     value: string;
-    icon?: React.ComponentType<{ className?: string }>;
   }[];
 }
 
@@ -33,15 +32,15 @@ export function DataTableFacetedFilter<TData, TValue>({
   options,
 }: DataTableFacetedFilterProps<TData, TValue>) {
   const facets = column?.getFacetedUniqueValues();
-  const selectedValues = new Set(column?.getFilterValue() as string[]);
+  const selectedValues = new Set((column?.getFilterValue() as string[]) ?? []);
 
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          variant='outline'
+          variant='default'
           size='sm'
-          className='h-8 w-full justify-start border-dashed'
+          className='h-8 w-full justify-start border-dashed shadow-black transition duration-500 ease-in-out hover:scale-95'
         >
           <PlusCircledIcon className='mr-2 size-4' />
           {title}
@@ -84,10 +83,10 @@ export function DataTableFacetedFilter<TData, TValue>({
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className='w-[200px] p-0 sm:w-[170px]'
-        align='start'
+        className='w-[200px] border border-black p-0 shadow-black sm:w-[170px]'
+        align='end'
       >
-        <Command className='bg-background'>
+        <Command className='bg-primary'>
           <CommandInput placeholder={title} />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
@@ -106,19 +105,16 @@ export function DataTableFacetedFilter<TData, TValue>({
                       const filterValues = Array.from(selectedValues);
                       column?.setFilterValue(filterValues.length ? filterValues : undefined);
                     }}
-                    className='font-semibold'
+                    className='font-semibold transition duration-500 ease-in-out hover:scale-95'
                   >
                     <div
                       className={cn(
-                        'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-black',
-                        isSelected
-                          ? 'bg-primary text-primary-foreground'
-                          : 'opacity-50 [&_svg]:invisible'
+                        'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-black bg-background',
+                        isSelected ? 'text-primary-foreground' : '[&_svg]:invisible'
                       )}
                     >
                       <CheckIcon className={cn('size-4 text-black')} />
                     </div>
-                    {option.icon && <option.icon className='mr-2 size-4 text-muted-foreground' />}
                     <span>{option.label}</span>
                     {facets?.get(option.value) && (
                       <span className='ml-auto flex size-4 items-center justify-center font-mono text-xs'>
@@ -135,7 +131,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                 <CommandGroup>
                   <CommandItem
                     onSelect={() => column?.setFilterValue(undefined)}
-                    className='justify-center text-center'
+                    className='justify-center rounded-md border border-black bg-secondary text-center transition duration-300 ease-in-out hover:scale-95'
                   >
                     Clear filters
                   </CommandItem>

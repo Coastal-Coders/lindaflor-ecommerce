@@ -132,8 +132,8 @@ export function ProductsForm() {
           <Button
             type='submit'
             size='lg'
-            variant={'default'}
-            className='w-full bg-background ring-1 hover:scale-105 hover:bg-background/80'
+            variant={'secondary'}
+            className='w-full text-base font-semibold ring-1 ring-black hover:scale-105'
           >
             Cadastrar Produto
           </Button>

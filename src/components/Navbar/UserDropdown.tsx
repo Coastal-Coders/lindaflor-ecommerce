@@ -34,17 +34,17 @@ const UserDropdown = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            variant='default'
+            variant='secondary'
             size='icon'
             aria-label='User Options'
-            className={`flex rounded-full bg-transparent shadow-sm shadow-primary transition duration-300 ease-in ${isAdmin ? 'hover:bg-background' : 'hover:bg-secondary/80'} `}
+            className={`flex rounded-full shadow-sm shadow-background transition duration-300 ease-in hover:scale-105 ${isAdmin ? 'hover:bg-primary' : 'hover:bg-primary/80'} `}
           >
-            <CircleUser className='size-10 text-primary' />
+            <CircleUser className='size-10 text-background' />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align='end'
-          className='bg-gradient-to-bl from-secondary to-background'
+          className='z-[65] bg-gradient-to-bl from-secondary to-primary'
         >
           <DropdownMenuLabel>User name</DropdownMenuLabel>
           <DropdownMenuSeparator />

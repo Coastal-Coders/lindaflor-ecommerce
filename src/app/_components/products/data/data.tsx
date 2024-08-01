@@ -1,39 +1,50 @@
-import { CheckCircledIcon, CrossCircledIcon } from '@radix-ui/react-icons';
-import * as L from './tasks.json';
+import * as productsData from './tasks.json';
 
-const sts = (): string[] => {
-  const allStatuses = [...new Set(L.map((e) => e.status))];
+const getStocks = (): number[] => {
+  const allStatuses = [...new Set(productsData.map((product) => product.stock))];
   return allStatuses;
 };
-const size = (): string[] => {
-  const allSizes = [...new Set(L.map((e) => e.tamanho).sort())];
+
+const getSizes = (): string[] => {
+  const allSizes = [
+    ...new Set(
+      productsData
+        .map((product) => product.size)
+        .flat()
+        .sort()
+    ),
+  ];
   return allSizes;
 };
-const color = (): string[] => {
-  const allColors = [...new Set(L.map((e) => e.cor))];
+
+const getColors = (): string[] => {
+  const allColors = [...new Set(productsData.map((product) => product.color).flat())];
   return allColors;
 };
-const peça = (): string[] => {
-  const allPeças = [...new Set(L.map((e) => e.nome.split(' ')[0].trim()))];
-  return allPeças;
+
+const getCategories = (): string[] => {
+  const allCategories = [
+    ...new Set(productsData.map((product) => product.name.split(' ')[0].trim())),
+  ];
+  return allCategories;
 };
-const ico = (sts: string) => {
-  return sts === 'Disponível' ? CheckCircledIcon : CrossCircledIcon;
-};
-export const statuses = sts().map((status: string) => ({
-  value: status,
-  label: status,
-  icon: ico(status),
+
+export const stock = getStocks().map((status: number) => ({
+  value: status.toString(),
+  label: status.toString(),
 }));
-export const tamanho = size().map((s: string) => ({
-  value: s,
-  label: s,
+
+export const sizes = getSizes().map((size: string) => ({
+  value: size,
+  label: size,
 }));
-export const cor = color().map((c: string) => ({
-  value: c,
-  label: c,
+
+export const colors = getColors().map((color: string) => ({
+  value: color,
+  label: color,
 }));
-export const Peças = peça().map((p: string) => ({
-  value: p,
-  label: p,
+
+export const categories = getCategories().map((category: string) => ({
+  value: category,
+  label: category,
 }));

@@ -6,18 +6,23 @@ import { productsSchema } from '@/app/_components/products/data';
 import { Button } from '@/components/ui/Button';
 import { Columns } from './Columns';
 import { DataTable } from './DataTable';
+import { Products } from '../../products/data/schema';
 
 async function getProducts() {
   const data = await fs.readFile(
     path.join(process.cwd(), 'src/app/_components/products/data/tasks.json')
   );
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const produtcs = JSON.parse(data.toString());
+  const transformedProducts = produtcs.map((product: Products) => ({
+    ...product,
+    price: String(product.price),
+    stock: String(product.stock),
+  }));
 
-  return z.array(productsSchema).parse(produtcs);
+  return z.array(productsSchema).parse(transformedProducts);
 }
 
-export async function Products() {
+export async function Product() {
   const produtcs = await getProducts();
   return (
     <>
@@ -25,9 +30,12 @@ export async function Products() {
         <main className='flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8'>
           <Link
             href={'/admin/products/addproducts'}
-            className='w-fit hover:scale-105 hover:bg-primary/80'
+            className='w-fit transition duration-500 ease-in-out hover:scale-105'
           >
-            <Button className='bg-primary font-semibold text-secondary shadow-sm shadow-black'>
+            <Button
+              variant={'ghost'}
+              className='font-semibold text-secondary shadow-sm shadow-black'
+            >
               Adicionar Produtos
             </Button>
           </Link>

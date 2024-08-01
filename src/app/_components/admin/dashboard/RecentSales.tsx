@@ -4,11 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 const RecentSales = () => {
   return (
     <>
-      <Card className='bg-background'>
+      <Card className='border border-black bg-primary shadow-sm shadow-black'>
         <CardHeader>
           <CardTitle>Recent Sales</CardTitle>
         </CardHeader>
-        <CardContent className='grid gap-8'>
+        <CardContent className='grid gap-8 border-t border-background py-2'>
           <div className='flex items-center gap-4'>
             <Avatar className='hidden size-9 sm:flex'>
               <AvatarImage

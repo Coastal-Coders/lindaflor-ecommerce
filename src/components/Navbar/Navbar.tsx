@@ -6,8 +6,8 @@ import { Navigation, SearchBar, UserDropdown } from '.';
 
 const Navbar = () => {
   return (
-    <nav className='sticky top-0 z-50 items-center border-y-8 border-primary bg-gradient-to-r from-secondary to-background'>
-      <div className='my-2 grid w-full grid-flow-col grid-cols-3 items-center gap-4'>
+    <nav className='sticky top-0 z-[60] items-center border-b border-secondary bg-background py-0.5'>
+      <div className='my-2 grid w-full grid-flow-col grid-cols-3 items-center gap-4 bg-gradient-to-r from-secondary to-primary py-2'>
         <Link
           href={'/'}
           className='relative mx-auto hidden h-14 w-40 duration-1000 ease-in-out hover:scale-110 md:block'

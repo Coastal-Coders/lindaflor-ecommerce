@@ -19,8 +19,12 @@ const addProductSchema = z.object({
       message: 'Preço deve ser um número válido com até duas casas decimais.',
     })
     .transform((val) => parseFloat(val)),
-  color: z.array(z.string()).nonempty({ message: 'Selecione pelo menos uma cor' }),
-  size: z.array(z.string()).nonempty({ message: 'Selecione pelo menos um tamanho' }),
+  color: z
+    .array(z.string(), { required_error: 'Selecione pelo menos uma cor' })
+    .nonempty({ message: 'Selecione pelo menos uma cor' }),
+  size: z
+    .array(z.string(), { required_error: 'Selecione pelo menos um tamanho' })
+    .nonempty({ message: 'Selecione pelo menos um tamanho' }),
   stock: z
     .string({ required_error: 'Quantidade é obrigatória' })
     .regex(/^\d+$/, {

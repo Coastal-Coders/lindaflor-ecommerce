@@ -31,7 +31,7 @@ export function SignIn() {
           fill
           priority
           quality={100}
-          className='hidden overflow-hidden rounded-md object-cover shadow-md shadow-secondary lg:block'
+          className='hidden overflow-hidden rounded-md object-cover shadow-md shadow-black lg:block'
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         />
       </div>

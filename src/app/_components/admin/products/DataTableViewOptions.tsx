@@ -21,9 +21,9 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant='outline'
+          variant='secondary'
           size='sm'
-          className='ml-auto h-8'
+          className='ml-auto h-8 shadow-black transition duration-500 ease-in-out hover:scale-95'
         >
           <MixerHorizontalIcon className='mr-2 size-4' />
           View
@@ -31,7 +31,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align='end'
-        className='w-[150px] bg-background'
+        className='w-[150px] border border-black'
       >
         <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -42,7 +42,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
             return (
               <DropdownMenuCheckboxItem
                 key={column.id}
-                className='capitalize'
+                className='capitalize transition duration-500 ease-in-out hover:scale-95 hover:bg-accent'
                 checked={column.getIsVisible()}
                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >

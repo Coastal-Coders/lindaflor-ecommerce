@@ -86,11 +86,11 @@ const Sizes = () => {
 
   return (
     <div className='m-auto flex min-h-screen flex-col items-center justify-center overflow-x-auto md:w-5/6 lg:w-4/5'>
-      <h1 className='mx-auto w-fit rounded-md bg-secondary p-2 text-center text-xl font-semibold text-primary shadow-md shadow-primary'>
+      <h1 className='mx-auto w-fit rounded-md bg-secondary p-2 text-center text-xl font-semibold shadow-md shadow-black'>
         Tabela de Medidas
       </h1>
-      <div className='mx-1 my-10 rounded-md border bg-secondary text-primary sm:mx-2'>
-        <Table>
+      <div className='mx-1 my-10 rounded-md border bg-secondary sm:mx-2'>
+        <Table style={{ border: '1px solid black' }}>
           {isScreenMediumOrAbove ? (
             <>
               <TableHeader>
@@ -99,7 +99,7 @@ const Sizes = () => {
                   {Tamanhos.map((sizes) => (
                     <TableHead
                       key={sizes.label}
-                      className='text-center font-bold text-primary sm:px-1 md:px-1'
+                      className='text-center font-bold text-foreground sm:px-1 md:px-1'
                     >
                       {sizes.label}
                     </TableHead>
@@ -107,7 +107,7 @@ const Sizes = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow className='bg-background text-center hover:bg-background'>
+                <TableRow className='bg-background text-center'>
                   <TableCell className='font-semibold'>Manequim</TableCell>
                   {Tamanhos.map((sizes) => (
                     <TableCell
@@ -118,7 +118,7 @@ const Sizes = () => {
                     </TableCell>
                   ))}
                 </TableRow>
-                <TableRow className='text-center hover:bg-secondary'>
+                <TableRow className='text-center'>
                   <TableCell className='font-semibold'>Busto</TableCell>
                   {Tamanhos.map((sizes) => (
                     <TableCell
@@ -129,7 +129,7 @@ const Sizes = () => {
                     </TableCell>
                   ))}
                 </TableRow>
-                <TableRow className='bg-background text-center hover:bg-background'>
+                <TableRow className='bg-background text-center'>
                   <TableCell className='font-semibold'>Cintura</TableCell>
                   {Tamanhos.map((sizes) => (
                     <TableCell
@@ -140,7 +140,7 @@ const Sizes = () => {
                     </TableCell>
                   ))}
                 </TableRow>
-                <TableRow className='text-center hover:bg-secondary'>
+                <TableRow className='text-center'>
                   <TableCell className='font-semibold'>Quadril</TableCell>
                   {Tamanhos.map((sizes) => (
                     <TableCell
@@ -157,17 +157,17 @@ const Sizes = () => {
             <>
               <TableHeader>
                 <TableRow className='hover:bg-secondary'>
-                  <TableHead className='px-1 text-center font-bold text-primary lg:px-4'></TableHead>
-                  <TableHead className='px-1 text-center font-bold text-primary lg:px-4'>
+                  <TableHead className='px-1 text-center font-bold text-foreground lg:px-4'></TableHead>
+                  <TableHead className='px-1 text-center font-bold text-foreground lg:px-4'>
                     Manequim
                   </TableHead>
-                  <TableHead className='px-1 text-center font-bold text-primary lg:px-4'>
+                  <TableHead className='px-1 text-center font-bold text-foreground lg:px-4'>
                     Busto
                   </TableHead>
-                  <TableHead className='px-1 text-center font-bold text-primary lg:px-4'>
+                  <TableHead className='px-1 text-center font-bold text-foreground lg:px-4'>
                     Cintura
                   </TableHead>
-                  <TableHead className='px-1 text-center font-bold text-primary lg:px-4'>
+                  <TableHead className='px-1 text-center font-bold text-foreground lg:px-4'>
                     Quadril
                   </TableHead>
                 </TableRow>
@@ -176,14 +176,14 @@ const Sizes = () => {
                 {Tamanhos.map((sizes) => (
                   <TableRow
                     key={sizes.label}
-                    className='items-center justify-center text-center text-base hover:bg-secondary'
+                    className='items-center justify-center text-center text-base'
                   >
-                    <TableCell className='px-2 font-bold text-primary md:px-2 lg:px-4'>
+                    <TableCell className='px-2 font-bold text-foreground md:px-2 lg:px-4'>
                       {sizes.label}
                     </TableCell>
-                    <TableCell className='bg-background font-semibold'>{sizes.manequim}</TableCell>
+                    <TableCell className='bg-background'>{sizes.manequim}</TableCell>
                     <TableCell>{sizes.busto}</TableCell>
-                    <TableCell className='bg-background font-semibold'>{sizes.cintura}</TableCell>
+                    <TableCell className='bg-background'>{sizes.cintura}</TableCell>
                     <TableCell>{sizes.quadril}</TableCell>
                   </TableRow>
                 ))}
@@ -192,7 +192,7 @@ const Sizes = () => {
           )}
         </Table>
       </div>
-      <p className='mx-2 w-fit rounded-md bg-secondary p-2 text-center text-base font-semibold text-primary shadow-md shadow-primary'>
+      <p className='mx-2 w-fit rounded-md bg-secondary p-2 text-center text-base font-semibold shadow-md shadow-black'>
         As medidas podem variar em caso de biquínis encomendados
       </p>
     </div>

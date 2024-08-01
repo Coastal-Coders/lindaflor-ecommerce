@@ -41,7 +41,7 @@ const Navigation = () => {
             href={links.href}
             key={links.value}
             onClick={links.value === 'Contatos' ? scrollToContacts : undefined}
-            className={`hidden flex-row rounded-md text-sm font-semibold text-primary transition duration-700 ease-in-out hover:shadow-sm hover:shadow-primary md:text-base lg:block xl:px-1 ${pathname === links.href ? 'shadow-md shadow-primary' : ''}`}
+            className={`hidden flex-row rounded-md text-sm font-semibold text-foreground transition duration-700 ease-in-out hover:shadow-sm hover:shadow-background md:px-px md:text-base lg:block xl:px-1 ${pathname === links.href ? 'shadow-md shadow-background' : ''}`}
           >
             {links.value}
           </Link>
@@ -52,18 +52,21 @@ const Navigation = () => {
         <DropdownMenuTrigger asChild>
           <Button
             size='icon'
-            className='flex rounded-full bg-transparent p-1 shadow-sm shadow-primary transition duration-300 ease-in hover:bg-secondary/80 lg:hidden'
+            variant={'secondary'}
+            className='flex rounded-full p-1 shadow-sm shadow-background transition duration-300 ease-in hover:scale-105 hover:bg-secondary/50 lg:hidden'
           >
-            <Grip className='size-6 text-primary' />
+            <Grip className='size-6 text-background' />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align='end'
           sideOffset={7}
-          className='flex flex-col gap-y-1 rounded-lg bg-gradient-to-bl from-secondary to-background shadow-xl shadow-black lg:hidden'
+          className='z-[65] flex flex-col gap-y-1 rounded-lg bg-gradient-to-bl from-secondary to-primary shadow-xl shadow-black lg:hidden'
         >
           <Link href={'/'}>
-            <DropdownMenuItem className='rounded-lg p-5 text-sm font-semibold text-foreground hover:bg-primary md:hidden md:text-base'>
+            <DropdownMenuItem
+              className={`rounded-lg p-5 text-sm font-semibold text-foreground hover:bg-primary md:hidden md:text-base ${pathname === '/' ? 'bg-background/80 hover:bg-background/80' : ''}`}
+            >
               Home
             </DropdownMenuItem>
           </Link>
@@ -74,7 +77,7 @@ const Navigation = () => {
               onClick={f.value === 'Contatos' ? scrollToContacts : undefined}
             >
               <DropdownMenuItem
-                className={`rounded-lg p-5 text-sm font-semibold text-foreground transition duration-500 ease-in-out hover:bg-primary md:text-base ${pathname === f.href ? 'bg-primary' : ''}`}
+                className={`rounded-lg p-5 text-sm font-semibold text-foreground transition duration-500 ease-in-out hover:bg-primary md:text-base ${pathname === f.href ? 'bg-background/80 hover:bg-background/80' : ''}`}
               >
                 {f.value}
               </DropdownMenuItem>

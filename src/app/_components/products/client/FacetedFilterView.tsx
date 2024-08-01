@@ -68,9 +68,9 @@ export function FacetedFilterView({
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          variant='outline'
+          variant='default'
           size='sm'
-          className='h-8 w-full justify-start border-dashed'
+          className='h-8 w-full justify-start border-dashed shadow-black transition duration-500 ease-in-out hover:scale-95'
         >
           <PlusCircledIcon className='mr-2 size-4' />
           {title}
@@ -117,7 +117,7 @@ export function FacetedFilterView({
         className='w-[170px] p-0 sm:w-[250px]'
         align='start'
       >
-        <Command className='bg-background'>
+        <Command className='bg-primary'>
           <CommandInput placeholder={title} />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
@@ -128,14 +128,12 @@ export function FacetedFilterView({
                   <CommandItem
                     key={option.value}
                     onSelect={() => handleSelect(option.value)}
-                    className='font-semibold'
+                    className='font-semibold transition duration-500 ease-in-out hover:scale-95'
                   >
                     <div
                       className={cn(
-                        'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-black',
-                        isSelected
-                          ? 'bg-primary text-primary-foreground'
-                          : 'opacity-50 [&_svg]:invisible'
+                        'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-black bg-background',
+                        isSelected ? 'text-primary-foreground' : '[&_svg]:invisible'
                       )}
                     >
                       <CheckIcon className={cn('size-4 text-black')} />
@@ -157,7 +155,7 @@ export function FacetedFilterView({
                 <CommandGroup>
                   <CommandItem
                     onSelect={handleClearFilters}
-                    className='justify-center text-center'
+                    className='justify-center rounded-md border border-black bg-secondary text-center transition duration-300 ease-in-out hover:scale-95'
                   >
                     Clear filters
                   </CommandItem>

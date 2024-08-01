@@ -15,7 +15,7 @@ import {
 const Transactions = () => {
   return (
     <>
-      <Card className='bg-background lg:col-span-2 xl:col-span-2'>
+      <Card className='border border-black bg-primary shadow-sm shadow-black lg:col-span-2 xl:col-span-2'>
         <CardHeader className='flex flex-row items-center'>
           <div className='grid gap-2'>
             <CardTitle>Transactions</CardTitle>
@@ -24,7 +24,8 @@ const Transactions = () => {
           <Button
             asChild
             size='sm'
-            className='ml-auto gap-1 bg-secondary text-black hover:bg-secondary/70'
+            variant={'secondary'}
+            className='ml-auto gap-1 border border-black text-black shadow-black transition duration-500 ease-in-out hover:scale-95'
           >
             <Link href='#'>
               View All

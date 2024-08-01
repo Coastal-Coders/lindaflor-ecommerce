@@ -39,7 +39,7 @@ const SearchBar = () => {
     } else {
       setProductsFilter(
         products?.filter((e: Products) =>
-          e.nome.toLowerCase().includes(nome.trim().toLowerCase())
+          e.name.toLowerCase().includes(nome.trim().toLowerCase())
         ) ?? []
       );
     }
@@ -75,7 +75,7 @@ const SearchBar = () => {
           onChange={handleFilter}
           value={inputValue}
         />
-        <span className='inset-y-0 right-0 flex items-center rounded-r-full bg-primary/50 pl-1 pr-3 text-primary-foreground hover:cursor-pointer'>
+        <span className='inset-y-0 right-0 flex items-center rounded-r-full bg-background/50 pl-1 pr-3 text-primary-foreground hover:cursor-pointer'>
           <Search className='size-5' />
         </span>
       </form>
@@ -87,7 +87,7 @@ const SearchBar = () => {
             <Link
               href={'/'}
               key={product.id}
-              className='flex items-center border-b border-secondary p-2 hover:border-primary hover:bg-secondary'
+              className='flex items-center border-b border-secondary p-2 hover:border-primary-foreground hover:bg-secondary'
               onClick={handleProductClick}
             >
               <Image
@@ -99,7 +99,7 @@ const SearchBar = () => {
                 height={30}
                 className='min-h-[50px] min-w-[40px]'
               />
-              <h2 className='px-1 text-base font-semibold'>{product.nome}</h2>
+              <h2 className='px-1 text-base font-semibold'>{product.name}</h2>
             </Link>
           ))}
         </span>
