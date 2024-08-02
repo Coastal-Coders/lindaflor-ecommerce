@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
 import { DataTableFacetedFilter } from '.';
-import { colors, sizes } from '../../products/data';
+import { colors, sizes } from '../../(public)/products/data';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;

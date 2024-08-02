@@ -1,5 +1,5 @@
 'use client';
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useRef, useState } from 'react';
 
 type AlertVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
 
@@ -17,9 +17,14 @@ export const AlertProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     description: string;
     variant: AlertVariant;
   } | null>(null);
-
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const setAlert = (title: string, description: string, variant: AlertVariant = 'default') => {
     setAlertState({ title, description, variant });
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => setAlertState(null), 4000);
     setTimeout(() => setAlertState(null), 4000);
   };
 

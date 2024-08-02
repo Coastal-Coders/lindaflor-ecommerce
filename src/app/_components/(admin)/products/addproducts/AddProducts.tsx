@@ -1,7 +1,7 @@
 'use client';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { ProductsForm } from '@/app/_components/admin/products';
+import { ProductsForm } from '@/app/_components/(admin)/products';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 

@@ -4,10 +4,10 @@ import { ChangeEvent, useState } from 'react';
 import { Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Products } from '@/app/_components/products/data/schema';
+import { Products } from '@/app/_components/(public)/products/data/schema';
 import { Input } from '@/components/ui/Input';
 import { useClickOutside } from '@/hooks/Navigation';
-import * as produs from '../../app/_components/products/data/tasks.json';
+import * as produs from '../../app/_components/(public)/products/data/tasks.json';
 
 const produtos = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -58,7 +58,7 @@ const SearchBar = () => {
   return (
     <div className='relative w-full'>
       <form
-        className={`flex flex-row ${isFocused ? '' : 'pl-5'}`}
+        className={`flex flex-row`}
         ref={ref}
       >
         {isFocused && (
@@ -69,15 +69,12 @@ const SearchBar = () => {
         <Input
           type='search'
           placeholder='Pesquisar'
-          className={`rounded-l-full ${isFocused ? 'pl-8' : ''}`}
+          className={`max-w-[250px] rounded-full xl:max-w-[350px] ${isFocused ? 'pl-8' : ''}`}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           onChange={handleFilter}
           value={inputValue}
         />
-        <span className='inset-y-0 right-0 flex items-center rounded-r-full bg-background/50 pl-1 pr-3 text-primary-foreground hover:cursor-pointer'>
-          <Search className='size-5' />
-        </span>
       </form>
       {showProducts && (
         <span

@@ -15,7 +15,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover
 import { Separator } from '@/components/ui/Separator';
 import { cn } from '@/lib/utils';
 
-interface iFilterProps {
+export interface state {
   selectedFilters: {
     [key: string]: Set<string>;
   };
@@ -24,6 +24,10 @@ interface iFilterProps {
       [key: string]: Set<string>;
     }>
   >;
+}
+
+interface iFilterProps {
+  state: state;
   title?: string;
   options: {
     label: string;
@@ -33,19 +37,13 @@ interface iFilterProps {
   facets: Map<string, number>;
 }
 
-export function FacetedFilterView({
-  title,
-  options,
-  selectedFilters,
-  setSelectedFilters,
-  facets,
-}: iFilterProps) {
-  const selectedValues = new Set(Array.from(selectedFilters[title!] ?? []));
+export function FacetedFilterView({ title, options, state, facets }: iFilterProps) {
+  const selectedValues = new Set(Array.from(state.selectedFilters[title!] ?? []));
 
   const handleSelect = (value: string) => {
-    setSelectedFilters((prev) => {
+    state.setSelectedFilters((prev) => {
       const newFilters = { ...prev };
-      const filterSet = new Set(Array.from(selectedFilters[title!] ?? []));
+      const filterSet = new Set(Array.from(state.selectedFilters[title!] ?? []));
       if (filterSet.has(value)) {
         filterSet.delete(value);
       } else {
@@ -57,7 +55,7 @@ export function FacetedFilterView({
   };
 
   const handleClearFilters = () => {
-    setSelectedFilters((prev) => {
+    state.setSelectedFilters((prev) => {
       const newFilters = { ...prev };
       delete newFilters[title!];
       return newFilters;

@@ -1,4 +1,4 @@
-import { SignUp } from '../../_components/signup';
+import { SignUp } from '../../_components/(public)/signup';
 
 const page = () => {
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { AlertProvider } from '@/utils/AlertProvider/AlertProvider';
+import { CartProvider } from '@/utils/CartProvider/CartProvider';
 import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';
 
@@ -27,7 +28,9 @@ export default function RootLayout({
           themes={['light', 'dark']}
         >
           <AlertProvider>
-            <main>{children}</main>
+            <CartProvider>
+              <main>{children}</main>
+            </CartProvider>
           </AlertProvider>
         </ThemeProvider>
       </body>

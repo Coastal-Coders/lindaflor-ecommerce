@@ -1,10 +1,10 @@
 import React from 'react';
-import { About } from '@/app/_components/(public)/about';
+import Cart from '@/app/_components/(public)/cart/Cart';
 
 const page = () => {
   return (
     <>
-      <About />
+      <Cart />
     </>
   );
 };

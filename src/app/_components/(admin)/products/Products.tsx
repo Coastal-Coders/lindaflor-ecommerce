@@ -2,15 +2,15 @@ import { promises as fs } from 'fs';
 import Link from 'next/link';
 import path from 'path';
 import { z } from 'zod';
-import { productsSchema } from '@/app/_components/products/data';
+import { productsSchema } from '@/app/_components/(public)/products/data';
 import { Button } from '@/components/ui/Button';
 import { Columns } from './Columns';
 import { DataTable } from './DataTable';
-import { Products } from '../../products/data/schema';
+import { Products } from '../../(public)/products/data/schema';
 
 async function getProducts() {
   const data = await fs.readFile(
-    path.join(process.cwd(), 'src/app/_components/products/data/tasks.json')
+    path.join(process.cwd(), 'src/app/_components/(public)/products/data/tasks.json')
   );
   const produtcs = JSON.parse(data.toString());
   const transformedProducts = produtcs.map((product: Products) => ({

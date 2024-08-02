@@ -15,7 +15,7 @@ import {
   useReactTable,
   VisibilityState,
 } from '@tanstack/react-table';
-import { DataTablePagination, DataTableToolbar } from '@/app/_components/admin/products';
+import { DataTablePagination, DataTableToolbar } from '@/app/_components/(admin)/products';
 import {
   Table,
   TableBody,

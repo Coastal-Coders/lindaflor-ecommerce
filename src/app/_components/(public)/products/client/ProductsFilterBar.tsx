@@ -1,19 +1,13 @@
 /* eslint-disable no-unused-vars */
 'use client';
 import React from 'react';
+import { state } from './FacetedFilterView';
 import FilterListView from './FilterListView';
 
 interface iFilterBar {
   filterStates: (filtered: boolean) => void;
   isFiltered: boolean;
-  selectedFilters: {
-    [key: string]: Set<string>;
-  };
-  setSelectedFilters: React.Dispatch<
-    React.SetStateAction<{
-      [key: string]: Set<string>;
-    }>
-  >;
+  state: state;
   facets: {
     Peças: Map<string, number>;
     Tamanho: Map<string, number>;
@@ -21,15 +15,9 @@ interface iFilterBar {
   };
 }
 
-const ProductsFilterBar = ({
-  filterStates,
-  isFiltered,
-  selectedFilters,
-  setSelectedFilters,
-  facets,
-}: iFilterBar) => {
+const ProductsFilterBar = ({ filterStates, isFiltered, state, facets }: iFilterBar) => {
   const resetFilters = () => {
-    setSelectedFilters({});
+    state.setSelectedFilters({});
     filterStates(false);
   };
 
@@ -37,8 +25,7 @@ const ProductsFilterBar = ({
     <div className='mb-5 flex items-center justify-between'>
       <div className='flex flex-1 items-center space-x-2'>
         <FilterListView
-          selectedFilters={selectedFilters}
-          setSelectedFilters={setSelectedFilters}
+          state={state}
           isFiltered={isFiltered}
           resetFilters={resetFilters}
           facets={facets}

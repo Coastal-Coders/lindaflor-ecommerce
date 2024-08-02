@@ -10,17 +10,11 @@ import {
 } from '@/components/ui/DropdownMenu';
 import { Label } from '@/components/ui/Label';
 import { FacetedFilterView } from '.';
+import { state } from './FacetedFilterView';
 import { categories, colors, sizes } from '../data';
 
 interface iFilterProps {
-  selectedFilters: {
-    [key: string]: Set<string>;
-  };
-  setSelectedFilters: React.Dispatch<
-    React.SetStateAction<{
-      [key: string]: Set<string>;
-    }>
-  >;
+  state: state;
   isFiltered: boolean;
   resetFilters: () => void;
   facets: {
@@ -29,13 +23,7 @@ interface iFilterProps {
     Cor: Map<string, number>;
   };
 }
-export function FilterList({
-  selectedFilters,
-  setSelectedFilters,
-  isFiltered,
-  resetFilters,
-  facets,
-}: iFilterProps) {
+export function FilterList({ state, isFiltered, resetFilters, facets }: iFilterProps) {
   return (
     <>
       <DropdownMenu>
@@ -64,8 +52,7 @@ export function FilterList({
             <FacetedFilterView
               title='Peças'
               options={categories}
-              selectedFilters={selectedFilters}
-              setSelectedFilters={setSelectedFilters}
+              state={state}
               facets={facets.Peças}
             />
           </span>
@@ -73,8 +60,7 @@ export function FilterList({
             <FacetedFilterView
               title='Tamanho'
               options={sizes}
-              selectedFilters={selectedFilters}
-              setSelectedFilters={setSelectedFilters}
+              state={state}
               facets={facets.Tamanho}
             />
           </span>
@@ -82,8 +68,7 @@ export function FilterList({
             <FacetedFilterView
               title='Cor'
               options={colors}
-              selectedFilters={selectedFilters}
-              setSelectedFilters={setSelectedFilters}
+              state={state}
               facets={facets.Cor}
             />
           </span>
@@ -96,8 +81,7 @@ export function FilterList({
           <FacetedFilterView
             title='Peças'
             options={categories}
-            selectedFilters={selectedFilters}
-            setSelectedFilters={setSelectedFilters}
+            state={state}
             facets={facets.Peças}
           />
         </span>
@@ -105,8 +89,7 @@ export function FilterList({
           <FacetedFilterView
             title='Tamanho'
             options={sizes}
-            selectedFilters={selectedFilters}
-            setSelectedFilters={setSelectedFilters}
+            state={state}
             facets={facets.Tamanho}
           />
         </span>
@@ -114,8 +97,7 @@ export function FilterList({
           <FacetedFilterView
             title='Cor'
             options={colors}
-            selectedFilters={selectedFilters}
-            setSelectedFilters={setSelectedFilters}
+            state={state}
             facets={facets.Cor}
           />
         </span>

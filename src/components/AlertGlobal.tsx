@@ -11,7 +11,7 @@ const AlertGlobal = () => {
   return (
     <Alert
       variant={alert.variant}
-      className='absolute bottom-20 right-3 flex w-fit flex-col shadow-lg shadow-black'
+      className='sticky bottom-20 ml-auto mr-5 flex w-fit flex-col shadow-lg shadow-black'
     >
       <AlertTitle className='font-bold'>{alert.title}</AlertTitle>
       <AlertDescription className='font-semibold'>{alert.description}</AlertDescription>
