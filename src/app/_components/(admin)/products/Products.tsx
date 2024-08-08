@@ -1,29 +1,27 @@
-import { promises as fs } from 'fs';
+'use client';
 import Link from 'next/link';
-import path from 'path';
-import { z } from 'zod';
-import { productsSchema } from '@/app/_components/(public)/products/data';
+import Loading from '@/components/Loading';
 import { Button } from '@/components/ui/Button';
+import { useGetProducts } from '@/hooks/products/useGetProducts';
 import { Columns } from './Columns';
 import { DataTable } from './DataTable';
-import { Products } from '../../(public)/products/data/schema';
 
-async function getProducts() {
-  const data = await fs.readFile(
-    path.join(process.cwd(), 'src/app/_components/(public)/products/data/tasks.json')
-  );
-  const produtcs = JSON.parse(data.toString());
-  const transformedProducts = produtcs.map((product: Products) => ({
-    ...product,
-    price: String(product.price),
-    stock: String(product.stock),
-  }));
-
-  return z.array(productsSchema).parse(transformedProducts);
-}
-
-export async function Product() {
-  const produtcs = await getProducts();
+export function Product() {
+  const { isError, isLoading, produtos } = useGetProducts();
+  if (isLoading) {
+    return (
+      <div className='flex min-h-screen w-full flex-col'>
+        <Loading message='Carregando Produtos' />
+      </div>
+    );
+  }
+  if (isError || !produtos) {
+    return (
+      <div className='flex min-h-screen w-full flex-col'>
+        <h1>ERROR ou Nenhum Produto Encontrado</h1>
+      </div>
+    );
+  }
   return (
     <>
       <div className='flex min-h-screen w-full flex-col'>
@@ -40,7 +38,7 @@ export async function Product() {
             </Button>
           </Link>
           <DataTable
-            data={produtcs}
+            data={produtos}
             columns={Columns}
           />
         </main>

@@ -1,5 +1,6 @@
 'use client';
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
@@ -10,7 +11,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
 
-export function DataTableRowActions() {
+export function DataTableRowActions({ id }: { id: number }) {
+  const router = useRouter();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,7 +27,10 @@ export function DataTableRowActions() {
         align='end'
         className='w-[160px] border border-black bg-background font-semibold shadow-sm shadow-black'
       >
-        <DropdownMenuItem className='cursor-pointer rounded-md transition duration-500 ease-in-out hover:scale-90 focus:bg-cyan-200'>
+        <DropdownMenuItem
+          className='cursor-pointer rounded-md transition duration-500 ease-in-out hover:scale-90 focus:bg-cyan-200'
+          onClick={() => router.push(`/admin/products/${id}`)}
+        >
           Edit
         </DropdownMenuItem>
         <DropdownMenuSeparator />

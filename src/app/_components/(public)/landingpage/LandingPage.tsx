@@ -29,21 +29,20 @@ const LandingPage = () => {
   return (
     <section className='mb-5 min-h-screen w-full'>
       <section className='relative mb-5 flex min-h-[500px] w-full flex-col items-center rounded-b-md bg-gradient-to-b from-primary via-secondary/80 to-secondary shadow-sm shadow-black'>
-        <h1 className='absolute top-1 text-lg font-semibold italic text-background md:text-4xl'>
+        <h1 className='absolute top-1 z-10 text-lg font-semibold italic text-background md:text-4xl'>
           Monte o Seu Biquíni Perfeito!
         </h1>
         {/* TODO: Use other image, image with low resolution */}
         <Image
-          src='/Logo.png'
+          src='https://images.pexels.com/photos/20646776/pexels-photo-20646776/free-photo-of-mar-panorama-vista-paisagem.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
           alt='Logo'
           priority
           quality={100}
           fill
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           style={{ minHeight: '500px' }}
-          className='p-6'
         />
-        <div className='absolute bottom-1 my-2 flex justify-center'>
+        <div className='absolute bottom-1 z-10 my-2 flex justify-center'>
           <Link
             href={'/products'}
             className='text-lg font-semibold text-background transition duration-500 ease-in-out hover:scale-110 md:text-3xl'

@@ -4,22 +4,17 @@ import { ChangeEvent, useState } from 'react';
 import { Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Products } from '@/app/_components/(public)/products/data/schema';
 import { Input } from '@/components/ui/Input';
 import { useClickOutside } from '@/hooks/Navigation';
-import * as produs from '../../app/_components/(public)/products/data/tasks.json';
-
-const produtos = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return produs.map((e: any) => e);
-};
+import { AddProduct } from '@/hooks/products/useAddProduct';
+import { useGetProducts } from '@/hooks/products/useGetProducts';
 
 const SearchBar = () => {
   {
     /* TODO: Make a custom hook */
   }
-  const [products] = useState<Products[]>(produtos);
-  const [productsFilter, setProductsFilter] = useState<Products[]>([]);
+  const { produtos } = useGetProducts();
+  const [productsFilter, setProductsFilter] = useState<AddProduct[]>([]);
   const [showProducts, setShowProducts] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
@@ -38,7 +33,7 @@ const SearchBar = () => {
       setProductsFilter([]);
     } else {
       setProductsFilter(
-        products?.filter((e: Products) =>
+        produtos?.filter((e: AddProduct) =>
           e.name.toLowerCase().includes(nome.trim().toLowerCase())
         ) ?? []
       );

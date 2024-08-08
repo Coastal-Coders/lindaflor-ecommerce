@@ -7,13 +7,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
+import useProducts from '@/hooks/products/useProducts';
 import { DataTableFacetedFilter } from '.';
-import { colors, sizes } from '../../(public)/products/data';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
 }
 export function FilterList<TData>({ table }: DataTableToolbarProps<TData>) {
+  const { colors, sizes } = useProducts();
   return (
     <>
       <DropdownMenu>

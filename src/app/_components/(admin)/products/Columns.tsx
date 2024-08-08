@@ -1,9 +1,9 @@
 'use client';
 import { ColumnDef } from '@tanstack/react-table';
+import { AddProduct } from '@/hooks/products/useAddProduct';
 import { DataTableColumnHeader, DataTableRowActions } from '.';
-import { Products } from '../../(public)/products/data/schema';
 
-export const Columns: ColumnDef<Products>[] = [
+export const Columns: ColumnDef<AddProduct>[] = [
   {
     accessorKey: 'id',
     header: ({ column }) => (
@@ -116,6 +116,6 @@ export const Columns: ColumnDef<Products>[] = [
   },
   {
     id: 'actions',
-    cell: () => <DataTableRowActions />,
+    cell: ({ row }) => <DataTableRowActions id={row.original.id} />,
   },
 ];

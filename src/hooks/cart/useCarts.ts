@@ -1,11 +1,11 @@
-import { Products } from '@/app/_components/(public)/products/data/schema';
 import { useAlert } from '@/utils/AlertProvider/AlertProvider';
 import { useCart } from '@/utils/CartProvider/CartProvider';
+import { AddProduct } from '../products/useAddProduct';
 
 function useCarts() {
   const { state, dispatch } = useCart();
   const { setAlert } = useAlert();
-  const addProductToCart = (product: Products) => {
+  const addProductToCart = (product: AddProduct) => {
     setAlert(`${product.name}`, 'Adicionado ao Carrinho', 'success');
     dispatch({ type: 'ADD_TO_CART', product });
   };

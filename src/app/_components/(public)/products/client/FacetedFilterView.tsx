@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { CheckIcon, PlusCircledIcon } from '@radix-ui/react-icons';
 import { Badge } from '@/components/ui/Badge';

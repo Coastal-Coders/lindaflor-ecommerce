@@ -1,4 +1,4 @@
-// src/components/ProductCardView.tsx
+'use client';
 import React from 'react';
 import { ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
@@ -12,10 +12,10 @@ import {
   CardTitle,
 } from '@/components/ui/Card';
 import useCarts from '@/hooks/cart/useCarts';
+import { AddProduct } from '@/hooks/products/useAddProduct';
 import { colorOptions } from '../../../(admin)/products/addproducts/Selectors';
-import { Products } from '../data/schema';
 
-const ProductCardView = ({ product }: { product: Products }) => {
+const ProductCardView = ({ product }: { product: AddProduct }) => {
   const { addProductToCart } = useCarts();
   const colorOptionsMap = new Map(colorOptions.map((option) => [option.label, option.value]));
   const colorsToShow = Array.isArray(product.color) ? product.color : [product.color];

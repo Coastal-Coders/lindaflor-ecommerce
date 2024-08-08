@@ -6,7 +6,8 @@ import { NODE_ENV, uri } from '@/constants/environment-variables';
 import api from '@/services/api';
 import { useAlert } from '@/utils/AlertProvider/AlertProvider';
 
-const addProductSchema = z.object({
+export const addProductSchema = z.object({
+  id: z.number().nonnegative(),
   name: z.string({ required_error: 'Nome é obrigatória' }).max(30, {
     message: 'Nome do produto não pode ter mais de 30 caracteres',
   }),
@@ -19,12 +20,8 @@ const addProductSchema = z.object({
       message: 'Preço deve ser um número válido com até duas casas decimais.',
     })
     .transform((val) => parseFloat(val)),
-  color: z
-    .array(z.string(), { required_error: 'Selecione pelo menos uma cor' })
-    .nonempty({ message: 'Selecione pelo menos uma cor' }),
-  size: z
-    .array(z.string(), { required_error: 'Selecione pelo menos um tamanho' })
-    .nonempty({ message: 'Selecione pelo menos um tamanho' }),
+  color: z.array(z.string()).min(1, { message: 'Selecione pelo menos uma cor' }),
+  size: z.array(z.string()).min(1, { message: 'Selecione pelo menos um tamanho' }),
   stock: z
     .string({ required_error: 'Quantidade é obrigatória' })
     .regex(/^\d+$/, {
@@ -33,7 +30,7 @@ const addProductSchema = z.object({
     .transform((val) => parseInt(val, 10)),
 });
 
-type AddProduct = z.infer<typeof addProductSchema>;
+export type AddProduct = z.infer<typeof addProductSchema>;
 
 const useFormValidation = () => {
   return useForm<AddProduct>({

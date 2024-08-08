@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { Cross2Icon } from '@radix-ui/react-icons';
@@ -9,9 +10,9 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
 import { Label } from '@/components/ui/Label';
+import useProducts from '@/hooks/products/useProducts';
 import { FacetedFilterView } from '.';
 import { state } from './FacetedFilterView';
-import { categories, colors, sizes } from '../data';
 
 interface iFilterProps {
   state: state;
@@ -24,6 +25,7 @@ interface iFilterProps {
   };
 }
 export function FilterList({ state, isFiltered, resetFilters, facets }: iFilterProps) {
+  const { categories, colors, sizes } = useProducts();
   return (
     <>
       <DropdownMenu>
