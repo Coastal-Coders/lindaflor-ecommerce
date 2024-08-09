@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@radix-ui/react-popover';
 import {
@@ -23,7 +24,6 @@ interface SelectorsProps {
     value: string;
   }[];
   selectedValues: Set<string>;
-  // eslint-disable-next-line no-unused-vars
   onChange: (values: Set<string>) => void;
 }
 export const colorOptions = [

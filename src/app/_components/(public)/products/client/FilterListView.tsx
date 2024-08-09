@@ -33,7 +33,7 @@ export function FilterList({ state, isFiltered, resetFilters, facets }: iFilterP
           <Button
             variant='default'
             size='sm'
-            className='my-5 flex h-8 w-[150px] p-5 text-base font-semibold shadow-black transition duration-500 ease-in-out hover:scale-95 sm:hidden'
+            className='my-5 flex h-8 w-36 p-5 text-base font-semibold shadow-black transition duration-500 ease-in-out hover:scale-95 sm:hidden'
           >
             Filtros
           </Button>

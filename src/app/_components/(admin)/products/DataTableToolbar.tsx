@@ -19,7 +19,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
           placeholder='Procure o Produto Aqui ...'
           value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
           onChange={(event) => table.getColumn('name')?.setFilterValue(event.target.value)}
-          className='h-8 w-[150px] ring-1 hover:ring-1 hover:ring-primary focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-0 sm:placeholder:text-[10px] md:w-[200px] md:placeholder:text-[12px] lg:w-[250px] xl:w-[300px]'
+          className='h-8 w-36 ring-1 hover:ring-1 hover:ring-primary focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-0 sm:placeholder:text-xs md:w-52 md:placeholder:text-xs lg:w-64 xl:w-72'
         />
         <FilterList table={table} />
         {isFiltered && (

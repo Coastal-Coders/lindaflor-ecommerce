@@ -13,8 +13,9 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:watch": "npm test --watch",
-    "lint": "eslint src --max-warnings=0",
-    "generate": "npx plop --plopfile generators/plopfile.js"
+    "lint": "eslint src --no-inline-config --max-warnings=0",
+    "generate": "npx plop --plopfile generators/plopfile.js",
+    "minify": "npx tailwindcss -o ./src/styles/theme-min.css --minify"
   },
   "husky": {
     "hooks": {
@@ -93,7 +94,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "globals": "^15.8.0",
-    "husky": "^9.1.1",
+    "husky": "^9.1.4",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.7",

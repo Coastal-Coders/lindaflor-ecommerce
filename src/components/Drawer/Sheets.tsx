@@ -33,7 +33,7 @@ const Sheets = () => {
         </SheetTrigger>
         <SheetContent
           side='left'
-          className='w-[300px] bg-secondary sm:w-[250px]'
+          className='w-72 bg-secondary sm:w-60'
         >
           <section className='grid gap-6 text-lg font-medium'>
             <Link

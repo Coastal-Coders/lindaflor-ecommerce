@@ -17,6 +17,27 @@ const themePlugin = plugin(
       'input,\ntextarea,\nbutton': { fontFamily: 'inherit' },
       button: { cursor: 'pointer' },
       a: { color: 'inherit', textDecoration: 'none' },
+      'ul,\nol,\ndl,\np': {
+        '@apply font-normal text-xs md:text-base': {},
+      },
+      'h1,\nh2,\nh3,\nh4,\nh5': {
+        '@apply font-bold': {},
+      },
+      h1: {
+        '@apply text-2xl md:text-4xl': {},
+      },
+      h2: {
+        '@apply text-xl md:text-3xl': {},
+      },
+      h3: {
+        '@apply text-lg md:text-2xl': {},
+      },
+      h4: {
+        '@apply text-base md:text-xl': {},
+      },
+      h5: {
+        '@apply text-sm md:text-lg': {},
+      },
     });
 
     const montserrat300 = {
@@ -142,14 +163,12 @@ const themePlugin = plugin(
         '2xl': ['2.4rem', { lineHeight: '3.2rem' }],
         '3xl': ['3rem', { lineHeight: '3.6rem' }],
         '4xl': ['3.6rem', { lineHeight: '4rem' }],
-        '5xl': ['4.8rem', { lineHeight: '1.6rem' }],
-        '6xl': ['6rem', { lineHeight: '1.6rem' }],
-        '7xl': ['7.2rem', { lineHeight: '1.6rem' }],
-        '8xl': ['9.6rem', { lineHeight: '1.6rem' }],
-        '9xl': ['12.8rem', { lineHeight: '1.6rem' }],
+        '5xl': ['4.8rem', { lineHeight: '4rem' }],
+        '6xl': ['6rem', { lineHeight: '4.8rem' }],
+        '7xl': ['7.2rem', { lineHeight: '6rem' }],
       },
       borderRadius: {
-        none: '0px',
+        none: '0rem',
         sm: '0.2rem',
         DEFAULT: '0.4rem',
         md: '0.6rem',
@@ -157,11 +176,11 @@ const themePlugin = plugin(
         xl: '1.2rem',
         '2xl': '1.6rem',
         '3xl': '2.4rem',
-        full: '9999px',
+        full: '9999rem',
       },
       spacing: {
-        px: '1px',
-        0: '0px',
+        0: '0rem',
+        0.1: '0.1rem',
         0.5: '0.2rem',
         1: '0.4rem',
         1.5: '0.6rem',
@@ -196,26 +215,12 @@ const themePlugin = plugin(
         72: '28.8rem',
         80: '32rem',
         96: '38.4rem',
+        98: '51.2rem',
+        100: '64rem',
       },
-
       extend: {
         fontFamily: {
           Montserrat: ['Montserrat', 'sans-serif', 'sans', 'Helvetica'],
-        },
-        columns: {
-          '3xs': '25.6rem',
-          '2xs': '28.8rem',
-          xs: '32rem',
-          sm: '38.4rem',
-          md: '44.8rem',
-          lg: '51.2rem',
-          xl: '57.6rem',
-          '2xl': '67.2rem',
-          '3xl': '76.8rem',
-          '4xl': '89.6rem',
-          '5xl': '102.4rem',
-          '6xl': '115.2rem',
-          '7xl': '128rem',
         },
         colors: {
           background: 'hsl(var(--color-background) / <alpha-value>)',

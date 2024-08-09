@@ -44,7 +44,7 @@ const UserDropdown = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align='end'
-          className='z-[65] bg-gradient-to-bl from-secondary to-primary'
+          className='z-50 bg-gradient-to-bl from-secondary to-primary'
         >
           <DropdownMenuLabel>User name</DropdownMenuLabel>
           <DropdownMenuSeparator />

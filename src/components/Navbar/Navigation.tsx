@@ -41,7 +41,7 @@ const Navigation = () => {
             href={links.href}
             key={links.value}
             onClick={links.value === 'Contatos' ? scrollToContacts : undefined}
-            className={`hidden flex-row rounded-md text-sm font-semibold text-foreground transition duration-700 ease-in-out hover:shadow-sm hover:shadow-background md:px-px md:text-base lg:block xl:px-1 ${pathname === links.href ? 'shadow-md shadow-background' : ''}`}
+            className={`hidden flex-row rounded-md text-sm font-semibold text-foreground transition duration-700 ease-in-out hover:shadow-sm hover:shadow-background md:px-0 md:text-base lg:block xl:px-1 ${pathname === links.href ? 'shadow-md shadow-background' : ''}`}
           >
             {links.value}
           </Link>
@@ -61,7 +61,7 @@ const Navigation = () => {
         <DropdownMenuContent
           align='end'
           sideOffset={7}
-          className='z-[65] flex flex-col gap-y-1 rounded-lg bg-gradient-to-bl from-secondary to-primary shadow-xl shadow-black lg:hidden'
+          className='z-50 flex flex-col gap-y-1 rounded-lg bg-gradient-to-bl from-secondary to-primary shadow-xl shadow-black lg:hidden'
         >
           <Link href={'/'}>
             <DropdownMenuItem

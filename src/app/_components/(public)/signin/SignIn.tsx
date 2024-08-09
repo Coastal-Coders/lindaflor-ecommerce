@@ -1,10 +1,8 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Loading from '@/components/Loading';
-import { Alert, AlertDescription } from '@/components/ui/Alert';
 import { Button } from '@/components/ui/Button';
 import {
   Form,
@@ -20,7 +18,7 @@ import { useSignIn } from '@/hooks/auth';
 export function SignIn() {
   const { useFormValidation, handleSubmit, errors, control, isSubmitting } = useSignIn();
   return (
-    <div className='grid h-screen w-full lg:grid-cols-2'>
+    <div className='grid min-h-dvh w-full lg:grid-cols-2'>
       <div className='relative m-5 hidden h-auto lg:block'>
         <Image
           src='/Biquíni.jpg'
@@ -66,7 +64,7 @@ export function SignIn() {
                 control={control}
                 name='password'
                 render={({ field }) => (
-                  <FormItem className='grid grid-cols-[auto,1fr] items-center'>
+                  <FormItem className='grid items-center'>
                     <FormLabel className='col-span-1'>Senha</FormLabel>
                     {/* TODO: Implement password recovery */}
                     <Link
@@ -75,6 +73,7 @@ export function SignIn() {
                     >
                       Esqueceu sua senha?
                     </Link>
+
                     <FormControl className='col-span-2'>
                       <Input
                         type='password'
@@ -82,16 +81,14 @@ export function SignIn() {
                         {...field}
                       />
                     </FormControl>
-                    {errors.password && <FormMessage>{errors.password.message}</FormMessage>}
+
+                    {errors.password && (
+                      <FormMessage className='col-span-2'>{errors.password.message}</FormMessage>
+                    )}
                   </FormItem>
                 )}
               />
 
-              {errors.root && (
-                <Alert variant='error'>
-                  <AlertDescription>{errors.root.message}</AlertDescription>
-                </Alert>
-              )}
               <Button
                 type='submit'
                 className='w-full'

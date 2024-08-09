@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import * as React from 'react';
 import { CheckIcon, PlusCircledIcon } from '@radix-ui/react-icons';
 import { Column } from '@tanstack/react-table';
@@ -83,7 +82,7 @@ export function DataTableFacetedFilter<TData, TValue>({
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className='w-[200px] border border-black p-0 shadow-black sm:w-[170px]'
+        className='w-52 border border-black p-0 shadow-black sm:w-40'
         align='end'
       >
         <Command className='bg-primary'>
@@ -116,7 +115,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                       <CheckIcon className={cn('size-4 text-black')} />
                     </div>
                     <span>{option.label}</span>
-                    {facets?.get(option.value) && (
+                    {facets && facets.get(option.value) !== undefined && (
                       <span className='ml-auto flex size-4 items-center justify-center font-mono text-xs'>
                         {facets.get(option.value)}
                       </span>

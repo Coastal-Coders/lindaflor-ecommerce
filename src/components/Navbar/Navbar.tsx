@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 'use client';
 
 import { ShoppingCart } from 'lucide-react';
@@ -12,7 +11,7 @@ const Navbar = () => {
   const { state } = useCart();
 
   return (
-    <nav className='sticky top-0 z-[60] items-center border-b border-secondary bg-background py-0.5'>
+    <nav className='sticky top-0 z-50 items-center border-b border-secondary bg-background py-0.5'>
       <div className='my-2 grid w-full grid-flow-col grid-cols-3 items-center gap-4 bg-gradient-to-r from-secondary to-primary py-2'>
         <Link
           href={'/'}

@@ -112,7 +112,7 @@ const Sizes = () => {
                   {Tamanhos.map((sizes) => (
                     <TableCell
                       key={`${sizes.label}-manequim`}
-                      className='break-words font-semibold sm:p-1 sm:text-[10px] md:p-1 md:text-base lg:text-xl'
+                      className='break-words font-semibold sm:p-1 sm:text-xs md:p-1 md:text-base lg:text-xl'
                     >
                       {sizes.manequim}
                     </TableCell>
@@ -123,7 +123,7 @@ const Sizes = () => {
                   {Tamanhos.map((sizes) => (
                     <TableCell
                       key={`${sizes.label}-busto`}
-                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-base lg:text-xl'
+                      className='break-words sm:p-1 sm:text-xs md:p-1 md:text-base lg:text-xl'
                     >
                       {sizes.busto}
                     </TableCell>
@@ -134,7 +134,7 @@ const Sizes = () => {
                   {Tamanhos.map((sizes) => (
                     <TableCell
                       key={`${sizes.label}-cintura`}
-                      className='break-words font-semibold sm:p-1 sm:text-[10px] md:p-1 md:text-base lg:text-xl'
+                      className='break-words font-semibold sm:p-1 sm:text-xs md:p-1 md:text-base lg:text-xl'
                     >
                       {sizes.cintura}
                     </TableCell>
@@ -145,7 +145,7 @@ const Sizes = () => {
                   {Tamanhos.map((sizes) => (
                     <TableCell
                       key={`${sizes.label}-quadril`}
-                      className='break-words sm:p-1 sm:text-[10px] md:p-1 md:text-base lg:text-xl'
+                      className='break-words sm:p-1 sm:text-xs md:p-1 md:text-base lg:text-xl'
                     >
                       {sizes.quadril}
                     </TableCell>

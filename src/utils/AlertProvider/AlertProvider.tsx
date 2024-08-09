@@ -5,7 +5,6 @@ type AlertVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
 
 interface AlertContextProps {
   alert: { title: string; description: string; variant: AlertVariant } | null;
-  // eslint-disable-next-line no-unused-vars
   setAlert: (title: string, description: string, variant?: AlertVariant) => void;
 }
 

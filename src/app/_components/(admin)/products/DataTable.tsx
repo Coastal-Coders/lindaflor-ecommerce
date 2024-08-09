@@ -91,7 +91,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
                       key={cell.id}
-                      className='break-words font-semibold sm:p-1 sm:text-[11px] md:p-1 md:text-sm'
+                      className='break-words font-semibold sm:p-1 sm:text-xs md:p-1 md:text-sm'
                     >
                       {cell.column.id === 'color' || cell.column.id === 'size'
                         ? (cell.getValue() as string[]).join(', ')

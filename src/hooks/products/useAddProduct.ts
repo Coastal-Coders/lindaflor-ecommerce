@@ -7,7 +7,6 @@ import api from '@/services/api';
 import { useAlert } from '@/utils/AlertProvider/AlertProvider';
 
 export const addProductSchema = z.object({
-  id: z.number().nonnegative(),
   name: z.string({ required_error: 'Nome é obrigatória' }).max(30, {
     message: 'Nome do produto não pode ter mais de 30 caracteres',
   }),
@@ -21,6 +20,7 @@ export const addProductSchema = z.object({
     })
     .transform((val) => parseFloat(val)),
   color: z.array(z.string()).min(1, { message: 'Selecione pelo menos uma cor' }),
+  image: z.string().url({ message: 'imagem inválida' }),
   size: z.array(z.string()).min(1, { message: 'Selecione pelo menos um tamanho' }),
   stock: z
     .string({ required_error: 'Quantidade é obrigatória' })

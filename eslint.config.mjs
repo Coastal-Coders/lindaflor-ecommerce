@@ -112,6 +112,7 @@ export default [
     plugins: { tailwindcss: twPlugin },
     rules: {
       ...twPlugin.configs.recommended.rules,
+      'tailwindcss/no-arbitrary-value': 'warn',
     },
   },
 

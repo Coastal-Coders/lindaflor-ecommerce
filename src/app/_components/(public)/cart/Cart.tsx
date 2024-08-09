@@ -31,7 +31,7 @@ const Cart = () => {
             {state.products.map((product) => (
               <li
                 key={product.id}
-                className='mb-4 max-w-[400px] border-b pb-4'
+                className='mb-4 max-w-96 border-b pb-4'
               >
                 <Card className='flex items-center justify-between border border-black p-2 shadow-black transition duration-300 ease-in-out hover:scale-105'>
                   <CardHeader className='p-0'>

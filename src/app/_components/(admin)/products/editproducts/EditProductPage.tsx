@@ -40,7 +40,7 @@ const EditProductPage = ({ id }: { id: number }) => {
             Voltar
           </Button>
         </Link>
-        <Card className='m-4 w-[350px] items-center border border-black bg-primary shadow-black sm:w-[400px]'>
+        <Card className='m-4 w-80 items-center border border-black bg-primary shadow-black sm:w-96'>
           <CardHeader>
             <CardTitle>Cadastre seu produto</CardTitle>
           </CardHeader>

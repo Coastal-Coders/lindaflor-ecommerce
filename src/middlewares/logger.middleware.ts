@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function logger(
@@ -6,7 +5,7 @@ export default function logger(
   response: NextApiResponse,
   next: () => void
 ) {
-  const clientIp = request.headers['x-forwarded-for'] || request.socket.remoteAddress;
+  let clientIp = (request.headers['x-forwarded-for'] as string) || request.socket.remoteAddress;
 
   console.log({
     url: request.url,

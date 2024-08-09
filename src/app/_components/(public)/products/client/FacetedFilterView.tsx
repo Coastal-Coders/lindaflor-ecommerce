@@ -113,7 +113,7 @@ export function FacetedFilterView({ title, options, state, facets }: iFilterProp
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className='w-[170px] p-0 sm:w-[250px]'
+        className='w-40 p-0 sm:w-60'
         align='start'
       >
         <Command className='bg-primary'>

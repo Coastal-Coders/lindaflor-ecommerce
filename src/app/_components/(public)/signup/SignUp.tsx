@@ -27,7 +27,7 @@ const formFields: FormFieldType[] = [
 export function SignUp() {
   const { useFormValidation, handleSubmit, errors, control, isSubmitting } = useSignUp();
   return (
-    <div className='grid h-screen w-full lg:grid-cols-2'>
+    <div className='grid min-h-dvh w-full lg:grid-cols-2'>
       <div className='flex items-center justify-center p-6 lg:p-10'>
         <div className='mx-auto w-full max-w-lg space-y-6'>
           <div className='space-y-1 text-center'>

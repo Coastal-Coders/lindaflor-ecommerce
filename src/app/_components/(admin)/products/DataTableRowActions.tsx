@@ -25,7 +25,7 @@ export function DataTableRowActions({ id }: { id: number }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align='end'
-        className='w-[160px] border border-black bg-background font-semibold shadow-sm shadow-black'
+        className='w-40 border border-black bg-background font-semibold shadow-sm shadow-black'
       >
         <DropdownMenuItem
           className='cursor-pointer rounded-md transition duration-500 ease-in-out hover:scale-90 focus:bg-cyan-200'

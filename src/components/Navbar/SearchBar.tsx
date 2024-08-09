@@ -64,7 +64,7 @@ const SearchBar = () => {
         <Input
           type='search'
           placeholder='Pesquisar'
-          className={`max-w-[250px] rounded-full xl:max-w-[350px] ${isFocused ? 'pl-8' : ''}`}
+          className={`max-w-64 rounded-full xl:max-w-80 ${isFocused ? 'pl-8' : ''}`}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           onChange={handleFilter}
@@ -89,7 +89,7 @@ const SearchBar = () => {
                 alt='produtosImage'
                 width={30}
                 height={30}
-                className='min-h-[50px] min-w-[40px]'
+                className='min-h-12 min-w-10'
               />
               <h2 className='px-1 text-base font-semibold'>{product.name}</h2>
             </Link>
