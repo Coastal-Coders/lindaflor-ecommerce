@@ -13,7 +13,7 @@ const useSignOut = () => {
 
   const signOut = async () => {
     try {
-      await api.post('http://localhost:3001/auth/logout', {});
+      await api.post('auth/logout', {});
 
       router.push('/');
     } catch (error) {
