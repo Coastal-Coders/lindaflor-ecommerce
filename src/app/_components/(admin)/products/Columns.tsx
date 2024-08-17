@@ -5,6 +5,7 @@ import { DataTableColumnHeader, DataTableRowActions } from '.';
 
 export const Columns: ColumnDef<AddProduct>[] = [
   {
+    //TODO: REMOVER ID DA TABELA OU TROCAR
     accessorKey: 'id',
     header: ({ column }) => (
       <DataTableColumnHeader

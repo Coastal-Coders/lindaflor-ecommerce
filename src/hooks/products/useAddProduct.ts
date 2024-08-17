@@ -2,11 +2,12 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { z } from 'zod';
-import { NODE_ENV, uri } from '@/constants/environment-variables';
 import api from '@/services/api';
 import { useAlert } from '@/utils/AlertProvider/AlertProvider';
 
 export const addProductSchema = z.object({
+  //TODO:REMOVER OU TROCAR O ID PARA STRING, POSSIVELMENTE REMOVER
+  id: z.number().nonnegative(),
   name: z.string({ required_error: 'Nome é obrigatória' }).max(30, {
     message: 'Nome do produto não pode ter mais de 30 caracteres',
   }),
@@ -20,7 +21,7 @@ export const addProductSchema = z.object({
     })
     .transform((val) => parseFloat(val)),
   color: z.array(z.string()).min(1, { message: 'Selecione pelo menos uma cor' }),
-  image: z.string().url({ message: 'imagem inválida' }),
+  //image: z.string().url({ message: 'imagem inválida' }),
   size: z.array(z.string()).min(1, { message: 'Selecione pelo menos um tamanho' }),
   stock: z
     .string({ required_error: 'Quantidade é obrigatória' })
@@ -51,11 +52,8 @@ const useAddProduct = () => {
   const onSubmit: SubmitHandler<AddProduct> = async (data, event) => {
     event?.preventDefault();
 
-    const baseURL = uri[NODE_ENV];
-    const apiURL = `${baseURL}/products`;
-
     try {
-      await api.post(apiURL, data);
+      await api.post('/products', data);
       setAlert('Success', 'Produto cadastrado com sucesso', 'success');
       router.push('/admin/products');
     } catch (error) {

@@ -3,6 +3,7 @@
 import { CircleUser } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
@@ -28,7 +29,7 @@ const UserDropdown = () => {
   const { handleSubmit } = useSignOut();
   const pathname = usePathname();
   const isAdmin = pathname.startsWith('/admin');
-
+  const { data: session } = useSession();
   return (
     <>
       <DropdownMenu>
@@ -46,7 +47,7 @@ const UserDropdown = () => {
           align='end'
           className='z-50 bg-gradient-to-bl from-secondary to-primary'
         >
-          <DropdownMenuLabel>User name</DropdownMenuLabel>
+          {session && <DropdownMenuLabel>{session?.user.name}</DropdownMenuLabel>}
           <DropdownMenuSeparator />
           {fields.map((f) => (
             <Link
@@ -59,18 +60,22 @@ const UserDropdown = () => {
             </Link>
           ))}
           {/*TODO: Ajustar para quando o usuário for Manager ter esse acesso */}
-          <Link href={'/admin'}>
-            <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-primary'>
-              Admin
-            </DropdownMenuItem>
-          </Link>
+          {session && (
+            <Link href={'/admin'}>
+              <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-primary'>
+                Admin
+              </DropdownMenuItem>
+            </Link>
+          )}
           <DropdownMenuSeparator />
-          <DropdownMenuItem
-            onClick={(e) => void handleSubmit(e)}
-            className='cursor-pointer rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
-          >
-            Logout
-          </DropdownMenuItem>
+          {session && (
+            <DropdownMenuItem
+              onClick={(e) => void handleSubmit(e)}
+              className='cursor-pointer rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
+            >
+              Logout
+            </DropdownMenuItem>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </>

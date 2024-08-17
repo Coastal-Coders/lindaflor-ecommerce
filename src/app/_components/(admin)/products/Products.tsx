@@ -1,6 +1,5 @@
 'use client';
 import Link from 'next/link';
-import Loading from '@/components/Loading';
 import { Button } from '@/components/ui/Button';
 import { useGetProducts } from '@/hooks/products/useGetProducts';
 import { Columns } from './Columns';
@@ -8,20 +7,7 @@ import { DataTable } from './DataTable';
 
 export function Product() {
   const { isError, isLoading, produtos } = useGetProducts();
-  if (isLoading) {
-    return (
-      <div className='flex min-h-screen w-full flex-col'>
-        <Loading message='Carregando Produtos' />
-      </div>
-    );
-  }
-  if (isError || !produtos) {
-    return (
-      <div className='flex min-h-screen w-full flex-col'>
-        <h1>ERROR ou Nenhum Produto Encontrado</h1>
-      </div>
-    );
-  }
+
   return (
     <>
       <div className='flex min-h-screen w-full flex-col'>
@@ -38,11 +24,17 @@ export function Product() {
             </Button>
           </Link>
           <DataTable
-            data={produtos}
+            data={produtos ?? []}
             columns={Columns}
+            isError={isError}
+            isLoading={isLoading}
           />
+          ;
         </main>
       </div>
     </>
   );
+}
+{
+  /*  */
 }

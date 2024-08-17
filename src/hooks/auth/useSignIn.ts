@@ -2,7 +2,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { z } from 'zod';
-import { NODE_ENV, uri } from '@/constants/environment-variables';
 import api from '@/services/api';
 import { Auth } from '@/types/Auth';
 import { useAlert } from '@/utils/AlertProvider/AlertProvider';
@@ -35,11 +34,8 @@ const useSignIn = () => {
   const onSubmit: SubmitHandler<Auth> = async (data, event) => {
     event?.preventDefault();
 
-    const baseURL = uri[NODE_ENV];
-    const apiURL = `${baseURL}/auth/local/signin`;
-
     try {
-      await api.post(apiURL, data);
+      await api.post('/auth/local/signin', data);
       setAlert('Sucess', 'LogIn Realizado com Sucesso', 'success');
 
       router.push('/');

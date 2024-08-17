@@ -9,12 +9,21 @@ const apiInstance = axios.create({
 const api = (axios: AxiosInstance) => {
   return {
     get: function <T>(url: string, config: AxiosRequestConfig = {}) {
+      return axios.get<T>(url, { ...config });
+    },
+    privateget: function <T>(url: string, config: AxiosRequestConfig = {}) {
       return axios.get<T>(url, { ...config, withCredentials: true });
     },
     put: function <T>(url: string, body: unknown, config: AxiosRequestConfig = {}) {
+      return axios.put<T>(url, body, { ...config });
+    },
+    privateput: function <T>(url: string, body: unknown, config: AxiosRequestConfig = {}) {
       return axios.put<T>(url, body, { ...config, withCredentials: true });
     },
     post: function <T>(url: string, body: unknown, config: AxiosRequestConfig = {}) {
+      return axios.post<T>(url, body, { ...config });
+    },
+    privatepost: function <T>(url: string, body: unknown, config: AxiosRequestConfig = {}) {
       return axios.post<T>(url, body, { ...config, withCredentials: true });
     },
     delete: function <T>(url: string, config: AxiosRequestConfig = {}) {

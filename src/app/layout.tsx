@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { AlertProvider } from '@/utils/AlertProvider/AlertProvider';
 import { CartProvider } from '@/utils/CartProvider/CartProvider';
+import ClientProviders from '@/utils/SessionProvider/SessionProvider';
 import { ThemeProvider } from '@/utils/theme/theme-provider';
 import '@/styles/globals.css';
 
@@ -29,7 +30,9 @@ export default function RootLayout({
         >
           <AlertProvider>
             <CartProvider>
-              <main>{children}</main>
+              <ClientProviders>
+                <main>{children}</main>
+              </ClientProviders>
             </CartProvider>
           </AlertProvider>
         </ThemeProvider>

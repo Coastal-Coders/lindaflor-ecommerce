@@ -17,7 +17,7 @@ import { colorOptions } from '../../../(admin)/products/addproducts/Selectors';
 
 const ProductCardView = ({ product }: { product: AddProduct }) => {
   const { addProductToCart } = useCarts();
-  const colorOptionsMap = new Map(colorOptions.map((option) => [option.label, option.value]));
+  const colorOptionsMap = new Map(colorOptions.map((option) => [option.label, option.cor]));
   const colorsToShow = Array.isArray(product.color) ? product.color : [product.color];
 
   return (

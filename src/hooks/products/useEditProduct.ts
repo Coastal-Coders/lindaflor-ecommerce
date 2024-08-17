@@ -1,7 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { NODE_ENV, uri } from '@/constants/environment-variables';
 import api from '@/services/api';
 import { useAlert } from '@/utils/AlertProvider/AlertProvider';
 import { AddProduct, addProductSchema } from './useAddProduct';
@@ -21,11 +20,8 @@ const useEditProduct = (produto: AddProduct) => {
   const onSubmit: SubmitHandler<AddProduct> = async (data, event) => {
     event?.preventDefault();
 
-    const baseURL = uri[NODE_ENV];
-    const apiURL = `${baseURL}/${data.id}`;
-
     try {
-      await api.put(apiURL, data);
+      await api.put(`/products/${data.id}`, data);
       setAlert('Success', 'Produto Alterado com sucesso', 'success');
       router.refresh;
     } catch (error) {

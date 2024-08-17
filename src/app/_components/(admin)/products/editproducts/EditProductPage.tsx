@@ -9,21 +9,6 @@ import { useGetProductsById } from '@/hooks/products/useGetProducts';
 
 const EditProductPage = ({ id }: { id: number }) => {
   const { produto, isError, isLoading } = useGetProductsById(id);
-
-  if (isLoading) {
-    return (
-      <div className='flex min-h-screen w-full flex-col'>
-        <Loading message='Carregando Produto' />
-      </div>
-    );
-  }
-  if (isError || !produto) {
-    return (
-      <div className='flex min-h-screen w-full flex-col'>
-        <h1>ERROR ou Nenhum Produto Encontrado</h1>
-      </div>
-    );
-  }
   return (
     <div className='flex min-h-screen w-full flex-col'>
       <main className='flex flex-1 flex-col gap-4 py-4 md:gap-8 md:p-8'>
@@ -40,14 +25,28 @@ const EditProductPage = ({ id }: { id: number }) => {
             Voltar
           </Button>
         </Link>
-        <Card className='m-4 w-80 items-center border border-black bg-primary shadow-black sm:w-96'>
-          <CardHeader>
-            <CardTitle>Cadastre seu produto</CardTitle>
-          </CardHeader>
-          <CardContent className='flex'>
-            <EditForm produto={produto} />
-          </CardContent>
-        </Card>
+        {isLoading ? (
+          <>
+            <Loading message='Carregando Produtos' />
+          </>
+        ) : (
+          <>
+            {isError || produto == null ? (
+              <>
+                <h1>ERROR ou Nenhum Produto Encontrado</h1>
+              </>
+            ) : (
+              <Card className='m-4 items-center border border-black bg-primary shadow-black'>
+                <CardHeader>
+                  <CardTitle className='text-center'>Atualizar seu produto</CardTitle>
+                </CardHeader>
+                <CardContent className='items-center justify-center'>
+                  <EditForm produto={produto} />
+                </CardContent>
+              </Card>
+            )}
+          </>
+        )}
       </main>
     </div>
   );

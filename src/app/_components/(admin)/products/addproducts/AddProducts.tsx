@@ -22,11 +22,11 @@ const AddProducts = () => {
             Voltar
           </Button>
         </Link>
-        <Card className='m-4 w-80 items-center border border-black bg-primary shadow-black sm:w-96'>
+        <Card className='m-4 items-center border border-black bg-primary shadow-black'>
           <CardHeader>
-            <CardTitle>Cadastre seu produto</CardTitle>
+            <CardTitle className='text-center'>Cadastre seu produto</CardTitle>
           </CardHeader>
-          <CardContent className='flex'>
+          <CardContent className='items-center justify-center'>
             <ProductsForm />
           </CardContent>
         </Card>

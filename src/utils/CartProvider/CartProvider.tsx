@@ -1,15 +1,15 @@
 'use client';
 
 import React, { createContext, ReactNode, useContext, useReducer } from 'react';
-import { Products } from '@/app/_components/(public)/products/data/schema';
+import { AddProduct } from '@/hooks/products/useAddProduct';
 
 interface CartState {
-  products: (Products & { quantity: number })[];
+  products: (AddProduct & { quantity: number })[];
   totalItems: number;
 }
 
 type CartAction =
-  | { type: 'ADD_TO_CART'; product: Products }
+  | { type: 'ADD_TO_CART'; product: AddProduct }
   | { type: 'REMOVE_FROM_CART'; productId: number }
   | { type: 'CLEAR_CART' };
 
