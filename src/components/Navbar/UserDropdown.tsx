@@ -3,7 +3,7 @@
 import { CircleUser } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
@@ -29,7 +29,12 @@ const UserDropdown = () => {
   const { handleSubmit } = useSignOut();
   const pathname = usePathname();
   const isAdmin = pathname.startsWith('/admin');
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  console.log(session, status);
+  const handleLogout = async () => {
+    await handleSubmit(); // Calls custom hook to handle sign-out
+    signOut(); // Sign out the user
+  };
   return (
     <>
       <DropdownMenu>
@@ -47,35 +52,44 @@ const UserDropdown = () => {
           align='end'
           className='z-50 bg-gradient-to-bl from-secondary to-primary'
         >
-          {session && <DropdownMenuLabel>{session?.user.name}</DropdownMenuLabel>}
+          <DropdownMenuLabel>{session ? session.user.name : 'User'}</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {fields.map((f) => (
             <Link
               href={f.href}
               key={f.value}
+              passHref
             >
-              <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-primary'>
+              <DropdownMenuItem
+                className='rounded-lg p-3 text-sm font-semibold hover:bg-primary'
+                onClick={() => {
+                  if (f.href === '/signin') {
+                    signIn();
+                  }
+                }}
+              >
                 {f.value}
               </DropdownMenuItem>
             </Link>
           ))}
           {/*TODO: Ajustar para quando o usuário for Manager ter esse acesso */}
           {session && (
-            <Link href={'/admin'}>
+            <Link
+              href={'/admin'}
+              passHref
+            >
               <DropdownMenuItem className='rounded-lg p-3 text-sm font-semibold hover:bg-primary'>
                 Admin
               </DropdownMenuItem>
             </Link>
           )}
           <DropdownMenuSeparator />
-          {session && (
-            <DropdownMenuItem
-              onClick={(e) => void handleSubmit(e)}
-              className='cursor-pointer rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
-            >
-              Logout
-            </DropdownMenuItem>
-          )}
+          <DropdownMenuItem
+            onClick={handleLogout}
+            className='cursor-pointer rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
+          >
+            Logout
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>

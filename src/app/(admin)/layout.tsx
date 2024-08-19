@@ -1,15 +1,15 @@
-'use client';
 import React from 'react';
 import { redirect } from 'next/navigation';
-import { useSession } from 'next-auth/react';
 import AlertGlobal from '@/components/AlertGlobal';
 import { Drawer } from '@/components/Drawer';
+import { getSession } from '@/lib/session';
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const { data: session } = useSession();
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const session = await getSession();
 
   if (!session) {
     redirect('/');
+    return null;
   }
   return (
     <>

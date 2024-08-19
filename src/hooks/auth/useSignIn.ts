@@ -37,11 +37,13 @@ const useSignIn = () => {
     try {
       await api.post('/auth/local/signin', data);
       setAlert('Sucess', 'LogIn Realizado com Sucesso', 'success');
+      console.log(data, 'LOGADO');
 
       router.push('/');
     } catch (error) {
       setAlert('Error', 'Falha ao Logar', 'error');
       setError('root', { message: 'Email ou senha inválidos' });
+      console.log(data, 'ERROR');
     }
   };
 

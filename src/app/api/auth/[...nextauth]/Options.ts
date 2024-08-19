@@ -7,21 +7,25 @@ export const Options: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text' },
-        password: { label: 'Password', type: 'password' },
+        email: { label: 'email', type: 'text' },
+        password: { label: 'password', type: 'password' },
       },
       async authorize(credentials) {
+        if (!credentials) {
+          return null;
+        }
         try {
           // Explicitly type the response from the API
-          const response = await api.post<{ user: User }>('/auth/local/signup', {
-            username: credentials?.username,
+          const response = await api.post<{ user: User }>('/auth/local/signin', {
+            email: credentials?.email,
             password: credentials?.password,
           });
 
           // Access the user from the response data
           const user = response.data.user;
 
-          if (user != null && user.id != null) {
+          // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+          if (user && user.id) {
             return user;
           }
         } catch (error) {
@@ -35,13 +39,15 @@ export const Options: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      if (user != null) {
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+      if (user) {
         token.id = user.id;
       }
       return token;
     },
     async session({ session, token }) {
-      if (session.user != null) {
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+      if (session?.user) {
         session.user.id = token.id as string;
       }
       return session;
