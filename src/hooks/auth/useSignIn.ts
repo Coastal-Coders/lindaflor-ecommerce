@@ -1,6 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import { z } from 'zod';
 import api from '@/services/api';
 import { Auth } from '@/types/Auth';
@@ -35,6 +36,12 @@ const useSignIn = () => {
     event?.preventDefault();
 
     try {
+      signIn('credentials', {
+        email: data.email,
+        password: data.password,
+        redirect: true,
+        callbackUrl: '/',
+      });
       await api.post('/auth/local/signin', data);
       setAlert('Sucess', 'LogIn Realizado com Sucesso', 'success');
       console.log(data, 'LOGADO');

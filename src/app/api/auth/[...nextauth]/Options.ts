@@ -17,12 +17,14 @@ export const Options: NextAuthOptions = {
         try {
           // Explicitly type the response from the API
           const response = await api.post<{ user: User }>('/auth/local/signin', {
-            email: credentials?.email,
-            password: credentials?.password,
+            email: credentials.email,
+            password: credentials.password,
           });
-
+          console.log(response.status);
+          console.log(response.data);
           // Access the user from the response data
           const user = response.data.user;
+          console.log('Usuário retornado pela API:', user);
 
           // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
           if (user && user.id) {
@@ -42,6 +44,7 @@ export const Options: NextAuthOptions = {
       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (user) {
         token.id = user.id;
+        console.log(token.name);
       }
       return token;
     },
@@ -54,7 +57,8 @@ export const Options: NextAuthOptions = {
     },
   },
   pages: {
-    signIn: '/signin',
+    //TODO:TIRAR COMENTARIO QUANDO ESTIVER FUNCIONAL
+    //signIn: '/signin',
     error: '/signin',
   },
   session: {
