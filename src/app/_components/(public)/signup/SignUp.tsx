@@ -14,6 +14,7 @@ type FormFieldType = {
   label: string;
   type: string;
   autoComplete?: string;
+  value?: string | number | readonly string[] | undefined;
 };
 
 const formFields: FormFieldType[] = [
@@ -62,6 +63,7 @@ export function SignUp() {
                         autoComplete={field.autoComplete}
                         className='border border-black'
                         {...formField}
+                        value={field.value}
                       />
                       {errors[field.name] && (
                         <FormMessage>{errors[field.name]?.message}</FormMessage>

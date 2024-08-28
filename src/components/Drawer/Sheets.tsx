@@ -2,7 +2,7 @@ import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { Menu, Package2 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '@/components/ui/Sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/Sheet';
 
 const Sheets = () => {
   const links = [
@@ -28,7 +28,9 @@ const Sheets = () => {
             size='icon'
             className='shrink-0 border border-background bg-transparent shadow-sm shadow-black transition duration-300 ease-in hover:scale-105 hover:bg-primary/80'
           >
-            <Menu className='size-5 text-background sm:size-8' />
+            <SheetTitle>
+              <Menu className='size-5 text-background sm:size-8' />
+            </SheetTitle>
           </Button>
         </SheetTrigger>
         <SheetContent

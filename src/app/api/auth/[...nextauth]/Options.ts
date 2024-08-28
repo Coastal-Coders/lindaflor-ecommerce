@@ -7,7 +7,7 @@ export const Options: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        email: { label: 'email', type: 'text' },
+        email: { label: 'email', type: 'email' },
         password: { label: 'password', type: 'password' },
       },
       async authorize(credentials) {
@@ -15,19 +15,13 @@ export const Options: NextAuthOptions = {
           return null;
         }
         try {
-          // Explicitly type the response from the API
           const response = await api.post<{ user: User }>('/auth/local/signin', {
             email: credentials.email,
             password: credentials.password,
           });
-          console.log(response.status);
-          console.log(response.data);
-          // Access the user from the response data
-          const user = response.data.user;
-          console.log('Usuário retornado pela API:', user);
 
-          // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-          if (user && user.id) {
+          const user = response.data.user;
+          if (user != null && user.id) {
             return user;
           }
         } catch (error) {
@@ -41,16 +35,14 @@ export const Options: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-      if (user) {
+      if (user != null) {
         token.id = user.id;
         console.log(token.name);
       }
       return token;
     },
     async session({ session, token }) {
-      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-      if (session?.user) {
+      if (session?.user != null) {
         session.user.id = token.id as string;
       }
       return session;
@@ -58,7 +50,7 @@ export const Options: NextAuthOptions = {
   },
   pages: {
     //TODO:TIRAR COMENTARIO QUANDO ESTIVER FUNCIONAL
-    //signIn: '/signin',
+    signIn: '/signin',
     error: '/signin',
   },
   session: {

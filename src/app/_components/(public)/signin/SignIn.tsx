@@ -54,6 +54,7 @@ export function SignIn() {
                         type='email'
                         autoComplete='email'
                         {...field}
+                        value={field.value ?? ''}
                       />
                     </FormControl>
                     {errors.email && <FormMessage>{errors.email.message}</FormMessage>}
@@ -79,6 +80,7 @@ export function SignIn() {
                         type='password'
                         autoComplete='password'
                         {...field}
+                        value={field.value ?? ''}
                       />
                     </FormControl>
 

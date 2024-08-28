@@ -45,12 +45,10 @@ const useSignUp = () => {
     try {
       await api.post<SignUpUser>('/auth/local/signup', data);
       setAlert('Sucess', 'Cadastro Realizado com Sucesso', 'success');
-      console.log(data);
       router.push('/signin');
     } catch (error) {
       setError('root', { message: 'Erro ao cadastrar usuário' });
       setAlert('Error', 'Falha ao Cadastrar', 'error');
-      console.log(data);
     }
   };
   return {

@@ -14,7 +14,6 @@ const useSignOut = () => {
   const signOut = async () => {
     try {
       await api.post('auth/logout', {});
-      console.log('logout');
       router.push('/');
     } catch (error) {
       setError('root', { message: 'Erro ao sair' });

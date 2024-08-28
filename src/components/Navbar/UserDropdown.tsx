@@ -29,11 +29,10 @@ const UserDropdown = () => {
   const { handleSubmit } = useSignOut();
   const pathname = usePathname();
   const isAdmin = pathname.startsWith('/admin');
-  const { data: session, status } = useSession();
-  console.log(session, status);
+  const { data: session } = useSession();
   const handleLogout = async () => {
-    await handleSubmit(); // Calls custom hook to handle sign-out
-    signOut(); // Sign out the user
+    await handleSubmit();
+    signOut();
   };
   return (
     <>
@@ -72,7 +71,6 @@ const UserDropdown = () => {
               </DropdownMenuItem>
             </Link>
           ))}
-          {/*TODO: Ajustar para quando o usuário for Manager ter esse acesso */}
           {session && (
             <Link
               href={'/admin'}
@@ -84,12 +82,14 @@ const UserDropdown = () => {
             </Link>
           )}
           <DropdownMenuSeparator />
-          <DropdownMenuItem
-            onClick={handleLogout}
-            className='cursor-pointer rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
-          >
-            Logout
-          </DropdownMenuItem>
+          {session && (
+            <DropdownMenuItem
+              onClick={handleLogout}
+              className='cursor-pointer rounded-lg p-3 text-sm font-semibold hover:bg-red-500'
+            >
+              Logout
+            </DropdownMenuItem>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </>

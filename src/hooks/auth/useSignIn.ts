@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { z } from 'zod';
-import api from '@/services/api';
+//import api from '@/services/api';
 import { Auth } from '@/types/Auth';
 import { useAlert } from '@/utils/AlertProvider/AlertProvider';
 
@@ -36,21 +36,18 @@ const useSignIn = () => {
     event?.preventDefault();
 
     try {
-      signIn('credentials', {
+      await signIn('credentials', {
         email: data.email,
         password: data.password,
-        redirect: true,
+        redirect: false,
         callbackUrl: '/',
       });
-      await api.post('/auth/local/signin', data);
+      //await api.post('/auth/local/signin', data);
       setAlert('Sucess', 'LogIn Realizado com Sucesso', 'success');
-      console.log(data, 'LOGADO');
-
       router.push('/');
     } catch (error) {
       setAlert('Error', 'Falha ao Logar', 'error');
       setError('root', { message: 'Email ou senha inválidos' });
-      console.log(data, 'ERROR');
     }
   };
 
